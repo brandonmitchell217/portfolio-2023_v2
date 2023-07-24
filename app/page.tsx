@@ -54,28 +54,34 @@ export default async function Index() {
 
   return (
     <main className="w-full">
-      <section className="m-auto min-h-screen max-w-7xl pt-44 pb-20 flex flex-col items-center justify-between">
-        <div className="w-80 flex flex-col items-end self-end">
-          <p>
+      <section className="m-auto min-h-screen max-w-7xl px-4 pt-44 pb-20 flex flex-col items-center justify-between">
+        <div className="max-w-[60vw] md:max-w-sm flex flex-col items-end self-end">
+          <p className="pr-6 md:pr-4 text-[15px] md:text-lg font-light">
             A man is a success if he gets up in the morning and gets to bed at
             night, and in between he does what he wants to do.
           </p>
-          <p>-Bob Dylan</p>
+          <p className="font-medium text-normal md:text-xl">-Bob Dylan</p>
         </div>
 
         <div>
           <div className="flex justify-between items-center">
-            <h5 className="text-2xl">17:24 EST | 07 Jun 2023</h5>
+            <h5 className="text-[3.5vw] md:text-2xl font-medium xl:text-[32px]">
+              17:24 EST | 07 Jun 2023
+            </h5>
             <div className="w-4 h-4 rounded-full bg-black"></div>
-            <h5 className="text-2xl">Raleigh, North Carolina</h5>
+            <h5 className="text-[3.5vw] md:text-2xl font-medium xl:text-[32px]">
+              Raleigh, North Carolina
+            </h5>
           </div>
 
           <div className="text-center">
             <div className="border-t-4 border-b-4 border-black rounded-sm my-3">
-              <h1 className="uppercase text-7xl">Brandon Mitchell</h1>
+              <h1 className="uppercase text-[9.125vw] md:text-7xl xl:text-[100px] leading-none font-extrabold">
+                Brandon Mitchell
+              </h1>
             </div>
-            <div className="bg-black text-white text-center w-fit rounded-xl m-auto">
-              <h2 className="uppercase px-5 py-2.5 text-4xl">
+            <div className="bg-black text-light text-center w-fit rounded-xl m-auto">
+              <h2 className="uppercase px-4 py-1.5 md:px-5 md:py-2.5 text-[3.89vw] md:text-3xl xl:text-4xl font-unbounded font-normal">
                 Frontend Developer
               </h2>
             </div>

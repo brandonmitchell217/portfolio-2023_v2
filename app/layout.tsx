@@ -1,4 +1,15 @@
+import Nav from "@/components/ui/Nav";
 import "./globals.css";
+import { Outfit, Unbounded } from "next/font/google";
+
+const outfit = Outfit({
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
+  subsets: ["latin", "latin-ext"],
+});
+const unbounded = Unbounded({
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
+  subsets: ["cyrillic", "cyrillic-ext", "latin", "latin-ext", "vietnamese"],
+});
 
 export const metadata = {
   title: "Create Next App",
@@ -12,8 +23,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
-        <main className="min-h-screen bg-white flex flex-col items-center">
+      <body className="font-outfit bg-light text-dark relative">
+        <main className="relative flex flex-col items-center">
+          <Nav />
           {children}
         </main>
       </body>
