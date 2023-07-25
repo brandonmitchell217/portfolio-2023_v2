@@ -9,6 +9,9 @@ import { TestThing } from "../components/TestThing";
 import { DataProps } from "@/lib/types";
 
 import { useEffect, useState } from "react";
+import InfoHeader from "@/components/Home/InfoHeader";
+
+// TODO: Letter spacing & spacing in general
 
 const resources = [
   {
@@ -34,17 +37,14 @@ const resources = [
   },
 ];
 
-const examples = [
-  { type: "Client Components", src: "app/_examples/client-component/page.tsx" },
-  { type: "Server Components", src: "app/_examples/server-component/page.tsx" },
-  { type: "Server Actions", src: "app/_examples/server-action/page.tsx" },
-  { type: "Route Handlers", src: "app/_examples/route-handler.ts" },
-  { type: "Middleware", src: "app/middleware.ts" },
-  { type: "Protected Routes", src: "app/_examples/protected/page.tsx" },
-];
-
 export default async function Index() {
   const supabase = createServerComponentClient({ cookies });
+
+  const BasicInfo = {
+    name: "Brandon Mitchell",
+    title: "Frontend Developer",
+    location: "Raleigh, North Carolina",
+  };
 
   // const {
   //   data: { user },
@@ -55,38 +55,17 @@ export default async function Index() {
   return (
     <main className="w-full">
       <section className="m-auto min-h-screen max-w-7xl px-4 pt-44 pb-20 flex flex-col items-center justify-between">
-        <div className="max-w-[60vw] md:max-w-sm flex flex-col items-end self-end">
-          <p className="pr-6 md:pr-4 text-[15px] md:text-lg font-light">
+        <div className="max-w-[60vw] md:max-w-[417px] flex flex-col items-end self-end leading-6 tracking-[0.065em]">
+          <p className="pr-6 md:pr-4 text-[15px] md:text-[1.125rem] font-light">
             A man is a success if he gets up in the morning and gets to bed at
             night, and in between he does what he wants to do.
           </p>
-          <p className="font-medium text-normal md:text-xl">-Bob Dylan</p>
+          <p className="font-medium text-normal md:text-[1.25rem] lg:mt-1">
+            -Bob Dylan
+          </p>
         </div>
 
-        <div>
-          <div className="flex justify-between items-center">
-            <h5 className="text-[3.5vw] md:text-2xl font-medium xl:text-[32px]">
-              17:24 EST | 07 Jun 2023
-            </h5>
-            <div className="w-4 h-4 rounded-full bg-black"></div>
-            <h5 className="text-[3.5vw] md:text-2xl font-medium xl:text-[32px]">
-              Raleigh, North Carolina
-            </h5>
-          </div>
-
-          <div className="text-center">
-            <div className="border-t-4 border-b-4 border-black rounded-sm my-3">
-              <h1 className="uppercase text-[9.125vw] md:text-7xl xl:text-[100px] leading-none font-extrabold">
-                Brandon Mitchell
-              </h1>
-            </div>
-            <div className="bg-black text-light text-center w-fit rounded-xl m-auto">
-              <h2 className="uppercase px-4 py-1.5 md:px-5 md:py-2.5 text-[3.89vw] md:text-3xl xl:text-4xl font-unbounded font-normal">
-                Frontend Developer
-              </h2>
-            </div>
-          </div>
-        </div>
+        <InfoHeader data={{ ...BasicInfo }} />
 
         {/* <TestThing data={data} /> */}
       </section>

@@ -5,10 +5,12 @@ import { Outfit, Unbounded } from "next/font/google";
 const outfit = Outfit({
   weight: ["300", "400", "500", "600", "700", "800", "900"],
   subsets: ["latin", "latin-ext"],
+  variable: "--font-outfit",
 });
 const unbounded = Unbounded({
   weight: ["300", "400", "500", "600", "700", "800", "900"],
   subsets: ["cyrillic", "cyrillic-ext", "latin", "latin-ext", "vietnamese"],
+  variable: "--font-unbounded",
 });
 
 export const metadata = {
@@ -22,8 +24,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className="font-outfit bg-light text-dark relative">
+    <html lang="en" className={`${outfit.variable} ${unbounded.variable}`}>
+      <body className="bg-light text-dark relative font-outfit">
         <main className="relative flex flex-col items-center">
           <Nav />
           {children}

@@ -8,8 +8,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        outfit: ["Outfit", "sans-serif"],
-        unbounded: ["Unbounded", "sans-serif"],
+        outfit: ["var(--font-outfit)"],
+        unbounded: ["var(--font-unbounded)"],
       },
       colors: {
         dark: "#1B1B1E",
