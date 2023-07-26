@@ -10,6 +10,7 @@ import { DataProps } from "@/lib/types";
 
 import { useEffect, useState } from "react";
 import InfoHeader from "@/components/Home/InfoHeader";
+import Quote from "@/components/Home/Quote";
 
 // TODO: Letter spacing & spacing in general
 
@@ -55,19 +56,8 @@ export default async function Index() {
   return (
     <main className="w-full">
       <section className="m-auto min-h-screen max-w-7xl px-4 pt-44 pb-20 flex flex-col items-center justify-between">
-        <div className="max-w-[60vw] md:max-w-[417px] flex flex-col items-end self-end leading-6 tracking-[0.065em]">
-          <p className="pr-6 md:pr-4 text-[15px] md:text-[1.125rem] font-light">
-            A man is a success if he gets up in the morning and gets to bed at
-            night, and in between he does what he wants to do.
-          </p>
-          <p className="font-medium text-normal md:text-[1.25rem] lg:mt-1">
-            -Bob Dylan
-          </p>
-        </div>
-
+        <Quote />
         <InfoHeader data={{ ...BasicInfo }} />
-
-        {/* <TestThing data={data} /> */}
       </section>
     </main>
   );

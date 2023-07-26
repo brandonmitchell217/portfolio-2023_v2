@@ -34,23 +34,28 @@ export default function InfoHeader({ ...data }) {
 
   return (
     <div>
-      <div className="md:px-4 xl:px-12 flex justify-between items-center text-[3.5vw] md:text-[1.5rem] font-medium xl:text-[32px] leading-[1.095] tracking-[-0.02em]">
-        <h5>
-          {currentTime} EST | {currentDate}
-        </h5>
-        {/* <div className="w-4 h-4 rounded-full bg-black"></div> */}
-        <Circles />
-        <h5>{info.location}</h5>
+      <div className="relative flex justify-between items-center text-[0.7rem] xs:text-clamp2 leading-[1.095] tracking-[-0.02em]">
+        <div className="md:w-1/3 flex justify-start">
+          <h5>
+            {currentTime} EST | {currentDate}
+          </h5>
+        </div>
+        <div className="md:w-1/3 flex justify-center scale-75 xs:scale-100 xl:scale-125">
+          <Circles />
+        </div>
+        <div className="md:w-1/3 flex justify-end">
+          <h5>{info.location}</h5>
+        </div>
       </div>
 
       <div className="text-center">
-        <div className="border-t-4 border-b-4 border-black rounded-sm my-3">
-          <h1 className="uppercase text-[8.6vw] md:text-6xl xl:text-[100px] leading-none font-extrabold tracking-[0.02em]">
+        <div className="border-t-4 border-b-4 border-black rounded-sm my-1 xs:my-3">
+          <h1 className="uppercase text-[1.6rem] xs:text-clamp1 leading-none font-extrabold tracking-[0.02em]">
             {info.name}
           </h1>
         </div>
-        <div className="bg-black text-light text-center w-fit rounded-xl m-auto">
-          <h2 className="uppercase px-4 py-1.5 md:px-5 md:py-2.5 text-[3.55vw] md:text-3xl xl:text-4xl font-unbounded font-normal">
+        <div className="bg-black text-light text-center w-fit rounded-md xs:rounded-xl m-auto">
+          <h2 className="uppercase px-4 py-1.5 md:px-5 md:py-2.5 text-[0.875rem] xs:text-clamp3 font-unbounded font-normal">
             {info.title}
           </h2>
         </div>
