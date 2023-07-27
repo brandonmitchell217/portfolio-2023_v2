@@ -5,14 +5,6 @@ import Image from "next/image";
 export const About = () => {
   const [currentAbout, setCurrentAbout] = useState(0);
 
-  useEffect(() => {
-    if (currentAbout === 0) {
-      console.log("past");
-    } else if (currentAbout === 1) {
-      console.log("present");
-    }
-  }, [currentAbout]);
-
   return (
     <div className="p-1 w-full flex bg-dark text-light rounded-2.5xl">
       <div className="">
@@ -30,13 +22,21 @@ export const About = () => {
           <div className="h-1 w-1/2 bg-light rounded-2.5xl" />
           <div className="flex-1 flex items-center justify-end text-4xl font-unbounded font-semibold">
             <span
-              className="py-3.5 px-7 bg-lime text-dark rounded-tl-xl rounded-b-xl cursor-pointer"
+              className={`py-3.5 px-7 ${
+                currentAbout === 0
+                  ? "bg-lime text-dark"
+                  : "bg-transparent text-light"
+              } rounded-tl-xl rounded-b-xl cursor-pointer`}
               onClick={() => setCurrentAbout(0)}
             >
               Past
             </span>
             <span
-              className="py-3.5 px-7 bg-transparent text-light rounded-tr-xl rounded-b-xl cursor-pointer"
+              className={`py-3.5 px-7 ${
+                currentAbout === 1
+                  ? "bg-lime text-dark"
+                  : "bg-transparent text-light"
+              } rounded-tr-xl rounded-b-xl cursor-pointer`}
               onClick={() => setCurrentAbout(1)}
             >
               Present
