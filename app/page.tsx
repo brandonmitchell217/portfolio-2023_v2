@@ -28,11 +28,11 @@ export default async function Index() {
   //   data: { user },
   // } = await supabase.auth.getUser();
 
-  const { data: data } = await supabase.from("projects").select();
+  // const { data: data } = await supabase.from("projects").select();
 
   return (
-    <main className="w-full max-w-7xl">
-      <section className="m-auto min-h-screen px-4 pt-44 pb-20 flex flex-col items-center justify-between">
+    <main className="w-full px-4 max-w-7xl">
+      <section className="m-auto min-h-screen  pt-44 pb-20 flex flex-col items-center justify-between">
         <Quote />
         <InfoHeader data={{ ...BasicInfo }} />
       </section>

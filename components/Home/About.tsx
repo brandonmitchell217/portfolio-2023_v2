@@ -4,23 +4,38 @@ import Image from "next/image";
 
 export const About = () => {
   const [currentAbout, setCurrentAbout] = useState(0);
+  const [aboutData, setAboutData] = useState("");
+  const pastAbout =
+    "Lorem ipsum dolor sit amet consectetur. Amet congue lorem tempor nisi. Egestas faucibus viverra non arcu mauris leo ornare adipiscing. Amet tempor commodo mauris at lobortis sodales neque ultrices massa. Tincidunt scelerisque scelerisque sed amet urna volutpat. Donec fermentum egestas nibh tincidunt. Viverra quis eget non lacus. Interdum iaculis nisi adipiscing felis malesuada rhoncus. Risus sagittis facilisi augue massa faucibus quis morbi porttitor nunc. Mi est ligula eu at purus risus adipiscing orci mauris. Amet purus donec egestas cursus sit cras volutpat iaculis. Ipsum phasellus gravida eu a. Enim lectus quam vitae a ac nulla.";
+  const presentAbout =
+    "Enim lectus quam vitae a ac nulla. Lorem ipsum dolor sit amet consectetur. Amet congue lorem tempor nisi. Egestas faucibus viverra non arcu mauris leo ornare adipiscing. Amet tempor commodo mauris at lobortis sodales neque ultrices massa. Tincidunt scelerisque scelerisque sed amet urna volutpat. Donec fermentum egestas nibh tincidunt. Viverra quis eget non lacus. Interdum iaculis nisi adipiscing felis malesuada rhoncus. Risus sagittis facilisi augue massa faucibus quis morbi porttitor nunc. Mi est ligula eu at purus risus adipiscing orci mauris. Amet purus donec egestas cursus sit cras volutpat iaculis. Ipsum phasellus gravida eu a. Enim lectus quam vitae a ac nulla. Enim lectus quam vitae a ac nulla.";
+
+  useEffect(() => {
+    if (currentAbout === 0) {
+      setAboutData(pastAbout);
+    } else if (currentAbout === 1) {
+      setAboutData(presentAbout);
+    }
+  }, [currentAbout]);
 
   return (
-    <div className="p-1 w-full flex bg-dark text-light rounded-2.5xl">
+    <div className="p-1 w-full flex flex-col lg:flex-row bg-dark text-light rounded-2.5xl">
+      {/* left */}
       <div className="">
         <Image
           src="/me.jpg"
           alt="thingy that is an alt"
-          height={500}
-          width={333}
-          className="rounded-tl-2.5xl rounded-bl-2.5xl"
+          height={550}
+          width={383}
+          className="rounded-2.5xl lg:rounded-none lg:rounded-tl-2.5xl lg:rounded-bl-2.5xl m-auto w-60 lg:w-fit"
         />
       </div>
 
-      <div className="flex-1 space-y-5 w-full px-[60px] py-[57px]">
-        <div className="w-full flex items-center justify-between">
+      {/* right */}
+      <div className="flex-1 space-y-4 lg:space-y-8 w-full px-4 lg:px-[60px] py-6 lg:pt-[57px]">
+        <div className="w-full flex items-center justify-between gap-4">
           <div className="h-1 w-1/2 bg-light rounded-2.5xl" />
-          <div className="flex-1 flex items-center justify-end text-4xl font-unbounded font-semibold">
+          <div className="flex-1 flex items-center justify-end text-lg md:text-4xl lg:text-2xl xl:text-4xl font-unbounded font-semibold tracking-[-0.005em]">
             <span
               className={`py-3.5 px-7 ${
                 currentAbout === 0
@@ -44,17 +59,8 @@ export const About = () => {
           </div>
         </div>
         <div>
-          <p className="text-[22px]">
-            Lorem ipsum dolor sit amet consectetur. Amet congue lorem tempor
-            nisi. Egestas faucibus viverra non arcu mauris leo ornare
-            adipiscing. Amet tempor commodo mauris at lobortis sodales neque
-            ultrices massa. Tincidunt scelerisque scelerisque sed amet urna
-            volutpat. Donec fermentum egestas nibh tincidunt. Viverra quis eget
-            non lacus. Interdum iaculis nisi adipiscing felis malesuada rhoncus.
-            Risus sagittis facilisi augue massa faucibus quis morbi porttitor
-            nunc. Mi est ligula eu at purus risus adipiscing orci mauris. Amet
-            purus donec egestas cursus sit cras volutpat iaculis. Ipsum
-            phasellus gravida eu a. Enim lectus quam vitae a ac nulla.
+          <p className="lg:text-[18px] xl:text-[22px] tracking-[0.0275em]">
+            {aboutData}
           </p>
         </div>
       </div>
