@@ -10,6 +10,9 @@ module.exports = {
       screens: {
         xs: "376px",
       },
+      borderRadius: {
+        "2.5xl": "1.25rem",
+      },
       fontFamily: {
         outfit: ["var(--font-outfit)"],
         unbounded: ["var(--font-unbounded)"],
