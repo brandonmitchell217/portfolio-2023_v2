@@ -19,7 +19,7 @@ export const About = () => {
   }, [currentAbout]);
 
   return (
-    <div className="p-1 w-full flex flex-col lg:flex-row bg-dark text-light rounded-2.5xl">
+    <div className="px-1 py-4 lg:py-1 w-full flex flex-col lg:flex-row bg-dark text-light rounded-2.5xl">
       {/* left */}
       <div className="">
         <Image
@@ -33,8 +33,8 @@ export const About = () => {
 
       {/* right */}
       <div className="flex-1 space-y-4 lg:space-y-8 w-full px-4 lg:px-[60px] py-6 lg:pt-[57px]">
-        <div className="w-full flex items-center justify-between gap-4">
-          <div className="h-1 w-1/2 bg-light rounded-2.5xl" />
+        <div className="w-full flex flex-col-reverse md:flex-row items-center justify-between gap-4">
+          <div className="h-0.5 md:h-1 w-full md:w-1/2 bg-light rounded-2.5xl" />
           <div className="flex-1 flex items-center justify-end text-lg md:text-4xl lg:text-2xl xl:text-4xl font-unbounded font-semibold tracking-[-0.005em]">
             <span
               className={`py-3.5 px-7 ${
@@ -59,7 +59,7 @@ export const About = () => {
           </div>
         </div>
         <div>
-          <p className="lg:text-[18px] xl:text-[22px] tracking-[0.0275em]">
+          <p className="text-[14px] md:text-[16px] lg:text-[18px] xl:text-[22px] tracking-[0.0275em]">
             {aboutData}
           </p>
         </div>

@@ -1,6 +1,7 @@
 import Nav from "@/components/ui/Nav";
 import "./globals.css";
 import { Outfit, Unbounded } from "next/font/google";
+import Footer from "@/components/ui/Footer";
 
 const outfit = Outfit({
   weight: ["300", "400", "500", "600", "700", "800", "900"],
@@ -24,11 +25,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${outfit.variable} ${unbounded.variable}`}>
+    <html
+      lang="en"
+      className={`${outfit.variable} ${unbounded.variable} scroll-smooth`}
+    >
       <body className="bg-light text-dark relative font-outfit">
         <main className="relative flex flex-col items-center">
           <Nav />
           {children}
+          <Footer />
         </main>
       </body>
     </html>
