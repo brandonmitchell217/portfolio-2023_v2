@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { ToolsList } from "../assets/Tech";
+import Test, { TechList } from "../assets/Tech";
 import Star from "../assets/Star";
 
 export default function Tools() {
@@ -13,8 +13,13 @@ export default function Tools() {
         </h2>
       </div>
       <div className="w-full grid grid-cols-3 md:grid-cols-5 place-items-center gap-y-8 md:gap-y-16">
-        {ToolsList.map((tool) => (
-          <div key={tool.name}>{tool.icon}</div>
+        {TechList.map((tool) => (
+          <div className="group" key={tool.name}>
+            <Test
+              name={tool.name}
+              className={`w-14 md:w-16 lg:w-[70px] group-hover:scale-110 fill-dark group-hover:fill-current group-hover:drop-shadow-md transition`}
+            />
+          </div>
         ))}
       </div>
     </div>
