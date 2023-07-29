@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import Test, { TechList } from "../assets/Tech";
+import SvgFunc, { TechList } from "../assets/Tech";
 import Star from "../assets/Star";
 
 export default function Tools() {
@@ -12,10 +12,10 @@ export default function Tools() {
           Tools I Use:
         </h2>
       </div>
-      <div className="w-full grid grid-cols-3 md:grid-cols-5 place-items-center gap-y-8 md:gap-y-16">
+      <div className="xl:max-w-[90%] w-full m-auto grid grid-cols-3 md:grid-cols-5 place-items-center gap-y-8 md:gap-y-16">
         {TechList.map((tool) => (
-          <div className="group" key={tool.name}>
-            <Test
+          <div className="group cursor-pointer" key={tool.name}>
+            <SvgFunc
               name={tool.name}
               className={`w-14 md:w-16 lg:w-[70px] group-hover:scale-110 fill-dark group-hover:fill-current group-hover:drop-shadow-md transition`}
             />

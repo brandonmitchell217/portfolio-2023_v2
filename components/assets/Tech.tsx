@@ -81,7 +81,7 @@ interface TestProps {
   className?: string;
 }
 
-export default function Test({ name, className }: TestProps) {
+export default function SvgFunc({ name, className }: TestProps) {
   const svgPathObject = TechList.find((item) => item.name === name);
 
   if (!svgPathObject) {
