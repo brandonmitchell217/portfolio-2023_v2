@@ -31,10 +31,10 @@ export default function Nav() {
         </Link>
         <ul className="flex gap-4 text-xl">
           <li>
-            <Link href={"/"}>Projects</Link>
+            <Link href={"/projects"}>Projects</Link>
           </li>
           <li>
-            <Link href={"/"}>Contact</Link>
+            <Link href={"/contact"}>Contact</Link>
           </li>
         </ul>
       </div>

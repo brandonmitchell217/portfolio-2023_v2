@@ -40,7 +40,7 @@ export default async function Index() {
         <InfoHeader data={{ ...BasicInfo }} />
         <Mouse />
       </section>
-      <section className="py-16 lg:py-32">
+      <section className="py-16 lg:py-44">
         <About />
       </section>
       <section className="pb-20 md:pb-48 space-y-20 md:space-y-48">

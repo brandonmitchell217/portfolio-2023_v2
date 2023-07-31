@@ -27,12 +27,12 @@ export const About = () => {
           alt="thingy that is an alt"
           height={550}
           width={383}
-          className="rounded-2.5xl lg:rounded-none lg:rounded-tl-2.5xl lg:rounded-bl-2.5xl m-auto w-60 lg:w-fit"
+          className="rounded-2.5xl lg:rounded-none lg:rounded-tl-2.5xl lg:rounded-bl-2.5xl m-auto w-60 sm:w-72 md:w-auto"
         />
       </div>
 
       {/* right */}
-      <div className="flex-1 space-y-4 lg:space-y-8 w-full px-4 lg:px-[60px] py-6 lg:pt-[57px]">
+      <div className="flex-1 space-y-4 lg:space-y-8 w-full px-4 lg:px-[60px] py-6 lg:pt-[57px] min-h-[350px]">
         <div className="w-full flex flex-col-reverse md:flex-row items-center justify-between gap-4">
           <div className="h-0.5 md:h-1 w-full md:w-1/2 bg-light rounded-2.5xl" />
           <div className="flex-1 flex items-center justify-end text-lg md:text-4xl lg:text-2xl xl:text-4xl font-unbounded font-semibold tracking-[-0.005em]">
@@ -59,7 +59,7 @@ export const About = () => {
           </div>
         </div>
         <div>
-          <p className="text-[14px] md:text-[16px] lg:text-[18px] xl:text-[22px] tracking-[0.0275em]">
+          <p className="px-4 lg:px-0 text-[14px] md:text-[16px] lg:text-[18px] xl:text-[22px] tracking-[0.0275em]">
             {aboutData}
           </p>
         </div>
