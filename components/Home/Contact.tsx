@@ -5,13 +5,13 @@ import Circles2 from "../assets/Circles2";
 
 export default function Contact() {
   return (
-    <div className="bg-dark text-light w-full pt-14 rounded-tl-2.5xl rounded-tr-2.5xl">
+    <div className="bg-dark text-light w-full pt-14 rounded-tl-[40px] rounded-tr-[40px]">
       <div className="h-full border-t-[6px] border-b-[6px] border-light pt-6 pb-16 w-full">
         <div className="relative max-w-7xl m-auto h-full">
           <div className="flex flex-col gap-12">
             <h2 className="flex justify-between items-center font-unbounded font-bold text-[66px] tracking-[0.02em]">
               Reach Out
-              <div className="pt-2">
+              <div className="pt-1.5">
                 <Circles2 />
               </div>
             </h2>

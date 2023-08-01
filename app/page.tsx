@@ -2,10 +2,7 @@ import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import Link from "next/link";
 import LogoutButton from "../components/LogoutButton";
-import SupabaseLogo from "../components/SupabaseLogo";
-import NextJsLogo from "../components/NextJsLogo";
 import Image from "next/image";
-import { TestThing } from "../components/TestThing";
 import { DataProps } from "@/lib/types";
 
 import { useEffect, useState } from "react";
@@ -18,7 +15,7 @@ import WorkStatus from "@/components/WorkStatus";
 import ProjectCard from "@/components/Home/ProjectCard";
 import Contact from "@/components/Home/Contact";
 
-// TODO: Letter spacing & spacing in general
+// TODO: Mouse svg
 
 export default async function Index() {
   const supabase = createServerComponentClient({ cookies });
