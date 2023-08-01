@@ -16,6 +16,7 @@ import Mouse from "@/components/assets/Mouse";
 import Tools from "@/components/Home/Tools";
 import WorkStatus from "@/components/WorkStatus";
 import ProjectCard from "@/components/Home/ProjectCard";
+import Contact from "@/components/Home/Contact";
 
 // TODO: Letter spacing & spacing in general
 
@@ -70,33 +71,38 @@ export default async function Index() {
   // const { data: data } = await supabase.from("projects").select();
 
   return (
-    <main className="w-full px-4 max-w-7xl">
-      <section className="min-h-screen pt-32 pb-28 flex flex-col items-center justify-between">
-        <Quote />
-        <InfoHeader data={{ ...BasicInfo }} />
-        <Mouse />
-      </section>
-      <section className="py-16 lg:py-44">
-        <About />
-      </section>
-      <section className="pb-20 md:pb-48 space-y-20 md:space-y-48">
-        <Tools />
-        <WorkStatus />
-        <div className="w-full flex flex-col gap-2 md:gap-12">
-          {/* {TestProjects.filter((project) => project.id === 1).map((project) => (
+    <main className="w-full">
+      <div className="w-full px-4 max-w-7xl m-auto">
+        <section className="min-h-screen pt-32 pb-28 flex flex-col items-center justify-between">
+          <Quote />
+          <InfoHeader data={{ ...BasicInfo }} />
+          <Mouse />
+        </section>
+        <section className="py-16 lg:py-44">
+          <About />
+        </section>
+        <section className="pb-20 md:pb-48 space-y-20 md:space-y-48">
+          <Tools />
+          <WorkStatus />
+          <div className="w-full flex flex-col gap-2 md:gap-12">
+            {/* {TestProjects.filter((project) => project.id === 1).map((project) => (
             <ProjectCard key={project.id} data={{ ...project }} />
           ))} */}
-          <div className="justify-self-start lg:max-w-[1029.22px] w-full flex flex-col md:flex-row gap-2 items-center md:justify-between">
-            {TestProjects.slice(0, 2).map((project) => (
-              <ProjectCard key={project.id} data={{ ...project }} />
-            ))}
+            <div className="justify-self-start lg:max-w-[1029.22px] w-full flex flex-col md:flex-row gap-2 items-center md:justify-between">
+              {TestProjects.slice(0, 2).map((project) => (
+                <ProjectCard key={project.id} data={{ ...project }} />
+              ))}
+            </div>
+            <div className="justify-self-end self-end lg:max-w-[1029.22px] w-full flex flex-col md:flex-row gap-2 items-center justify-between">
+              {TestProjects.slice(2, 4).map((project) => (
+                <ProjectCard key={project.id} data={{ ...project }} />
+              ))}
+            </div>
           </div>
-          <div className="justify-self-end self-end lg:max-w-[1029.22px] w-full flex flex-col md:flex-row gap-2 items-center justify-between">
-            {TestProjects.slice(2, 4).map((project) => (
-              <ProjectCard key={project.id} data={{ ...project }} />
-            ))}
-          </div>
-        </div>
+        </section>
+      </div>
+      <section className="">
+        <Contact />
       </section>
     </main>
   );
