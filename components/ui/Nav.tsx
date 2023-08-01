@@ -29,7 +29,7 @@ export default function Nav() {
         <Link href={"/"}>
           <Image src="/logo.png" alt="Letter B logo" width="70" height="70" />
         </Link>
-        <ul className="flex gap-4 text-xl">
+        <ul className="px-12 flex gap-12 text-xl">
           <li>
             <Link href={"/projects"}>Projects</Link>
           </li>
