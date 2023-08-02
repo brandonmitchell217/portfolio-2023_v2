@@ -5,6 +5,7 @@ import Circles from "../assets/Circles1";
 export default function InfoHeader({ ...data }) {
   const [currentDate, setCurrentDate] = useState("");
   const [currentTime, setCurrentTime] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
   const info = data.data;
 
   useEffect(() => {
@@ -27,6 +28,7 @@ export default function InfoHeader({ ...data }) {
           minute: "2-digit",
         })
       );
+      setIsLoading(false);
     }, 1000);
 
     return () => clearInterval(intervalId);
@@ -36,9 +38,11 @@ export default function InfoHeader({ ...data }) {
     <div>
       <div className="relative flex justify-between items-center text-[0.7rem] xs:text-clamp2 leading-[1.095] tracking-[-0.02em]">
         <div className="md:w-1/3 flex justify-start">
-          <h5>
-            {currentTime} EST | {currentDate}
-          </h5>
+          {isLoading ? null : (
+            <h5>
+              {currentTime} EST | {currentDate}
+            </h5>
+          )}
         </div>
         <div className="md:w-1/3 flex justify-center scale-75 xs:scale-100 xl:scale-125">
           <Circles />

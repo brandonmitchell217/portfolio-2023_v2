@@ -31,7 +31,7 @@ export default function Nav() {
         </Link>
         <ul className="px-12 flex gap-12 text-xl">
           <li>
-            <Link href={"/about"}>About</Link>
+            <a href={"/#about"}>About</a>
           </li>
           <li>
             <Link href={"/projects"}>Projects</Link>
