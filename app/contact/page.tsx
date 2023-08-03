@@ -1,4 +1,4 @@
-import ContactForm from "@/components/ContactForm";
+import ContactForm from "@/components/Contact/ContactForm";
 import Star from "@/components/assets/Star";
 import React from "react";
 

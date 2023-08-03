@@ -8,11 +8,11 @@ import { DataProps } from "@/lib/types";
 import { useEffect, useState } from "react";
 import InfoHeader from "@/components/Home/InfoHeader";
 import Quote from "@/components/Home/Quote";
-import { About } from "@/components/Home/About";
+import { PastPresent } from "@/components/About/PastPresent";
 import Mouse from "@/components/assets/Mouse";
 import Tools from "@/components/Home/Tools";
 import WorkStatus from "@/components/WorkStatus";
-import ProjectCard from "@/components/Home/ProjectCard";
+import ProjectCard from "@/components/Projects/ProjectCard";
 import Contact from "@/components/Home/Contact";
 
 // TODO: Mouse svg
@@ -41,7 +41,7 @@ export default async function Index() {
           <Mouse />
         </section>
         <section id="about" className="py-16 lg:py-44">
-          <About />
+          <PastPresent />
         </section>
         <section className="pb-20 md:pb-48 space-y-20 md:space-y-48">
           <Tools />

@@ -1,5 +1,5 @@
 import React from "react";
-import ProjectCard from "@/components/Home/ProjectCard";
+import ProjectCard from "@/components/Projects/ProjectCard";
 
 export default function ProjectsPage() {
   const TestProjects = [

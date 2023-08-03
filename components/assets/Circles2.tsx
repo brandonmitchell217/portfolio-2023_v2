@@ -20,7 +20,7 @@ export default function Circles2() {
       <path
         d="M177.867 42C177.867 20.4765 160.317 3 138.633 3C116.95 3 99.4001 20.4765 99.4001 42C99.4001 63.5235 116.95 81 138.633 81C160.317 81 177.867 63.5235 177.867 42Z"
         stroke="#D8DBE2"
-        stroke-width="6"
+        strokeWidth="6"
       />
       <ellipse
         cx="42.2333"

@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 
-export const About = () => {
+export const PastPresent = () => {
   const [currentAbout, setCurrentAbout] = useState(0);
   const [aboutData, setAboutData] = useState("");
   const pastAbout =
