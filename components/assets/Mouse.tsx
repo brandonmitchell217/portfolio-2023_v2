@@ -8,7 +8,7 @@ export default function Mouse() {
       viewBox="0 0 59 103"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className="absolute bottom-0 left-1/2 -translate-x-1/2"
+      className="absolute bottom-8 md:bottom-0 left-1/2 -translate-x-1/2 scale-75 md:scale-100"
     >
       <g clipPath="url(#clip0_331_321)">
         <path

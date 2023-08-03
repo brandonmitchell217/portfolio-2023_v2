@@ -8,6 +8,7 @@ export default function Circles2() {
       viewBox="0 0 277 84"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className="w-40 md:w-auto"
     >
       <ellipse
         cx="42.2333"

@@ -4,10 +4,10 @@ import React from "react";
 export default function Footer() {
   return (
     <footer className="bg-dark text-light w-full py-8">
-      <div className="max-w-7xl w-full m-auto">
+      <div className="max-w-7xl w-full m-auto px-4 xl:px-0">
         <div className="w-full flex justify-between items-center">
           <p>
-            Designed & developed by <br className="md:hidden" />
+            Designed & developed by <br className="sm:hidden" />
             Brandon
           </p>
 

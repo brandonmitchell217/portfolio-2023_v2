@@ -35,9 +35,9 @@ export const PastPresent = () => {
       <div className="flex-1 space-y-4 lg:space-y-8 w-full px-4 lg:px-[60px] py-6 lg:pt-[57px] min-h-[350px]">
         <div className="w-full flex flex-col-reverse md:flex-row items-center justify-between gap-4">
           <div className="h-0.5 md:h-1 w-full md:w-1/2 bg-light rounded-2.5xl" />
-          <div className="flex-1 flex items-center justify-end text-lg md:text-4xl lg:text-2xl xl:text-4xl font-unbounded font-semibold tracking-[-0.005em]">
+          <div className="w-full flex-1 flex items-center justify-end text-lg md:text-4xl lg:text-2xl xl:text-4xl font-unbounded font-semibold tracking-[-0.005em]">
             <span
-              className={`py-3.5 px-7 ${
+              className={`w-1/2 text-center py-3.5 px-7 ${
                 currentAbout === 0
                   ? "bg-lime text-dark"
                   : "bg-transparent text-light"
@@ -47,7 +47,7 @@ export const PastPresent = () => {
               Past
             </span>
             <span
-              className={`py-3.5 px-7 ${
+              className={`w-1/2 text-center py-3.5 px-7 ${
                 currentAbout === 1
                   ? "bg-lime text-dark"
                   : "bg-transparent text-light"

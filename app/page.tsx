@@ -14,12 +14,13 @@ import Tools from "@/components/Home/Tools";
 import WorkStatus from "@/components/WorkStatus";
 import ProjectCard from "@/components/Projects/ProjectCard";
 import Contact from "@/components/Home/Contact";
+import { SocialLinks } from "@/lib/util";
+import MobileHeader from "@/components/ui/MobileHeader";
 
 // TODO: Mouse svg
 
 export default async function Index() {
   const supabase = createServerComponentClient({ cookies });
-
   const BasicInfo = {
     name: "Brandon Mitchell",
     title: "Frontend Developer",
@@ -34,8 +35,10 @@ export default async function Index() {
 
   return (
     <main className="w-full">
-      <div className="w-full px-4 max-w-7xl m-auto">
-        <section className="min-h-screen pt-32 pb-28 flex flex-col items-center justify-between">
+      <div className="relative w-full px-4 max-w-7xl m-auto">
+        {/* Only shows on mobile when bottom nav appears */}
+        <MobileHeader />
+        <section className="relative min-h-screen py-32 flex flex-col items-center justify-between">
           <Quote />
           <InfoHeader data={{ ...BasicInfo }} />
           <Mouse />
