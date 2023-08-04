@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import useWeb3forms from "use-web3forms";
 import { useForm } from "react-hook-form";
 import { X } from "lucide-react";
+import Button from "../ui/Button";
 
 interface FormData {
   Name: string;
@@ -101,13 +102,13 @@ const ContactForm = () => {
             )}
           </div>
         </div>
-        <button
+        <Button
           type="submit"
           onClick={handleSubmit(submit)}
-          className="mt-5 py-3 w-full sm:w-64 lg:w-72 border border-dark bg-dark text-light hover:bg-transparent hover:text-dark transition-all"
+          className="mt-5 border-dark bg-dark text-light hover:bg-transparent hover:text-dark transition-all"
         >
           Send Message
-        </button>
+        </Button>
       </form>
 
       {isModalOpen && (

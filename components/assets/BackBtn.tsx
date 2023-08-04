@@ -8,6 +8,7 @@ export default function BackBtn() {
       viewBox="0 0 103 102"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className="group"
     >
       <ellipse
         cx="51.5"
@@ -16,6 +17,7 @@ export default function BackBtn() {
         ry="51"
         transform="matrix(1 0 0 -1 0 102)"
         fill="#C3F73A"
+        className="group-hover:fill-light/60 transition"
       />
       <g clipPath="url(#clip0_403_317)">
         <path

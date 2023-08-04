@@ -4,6 +4,8 @@ import Star from "@/components/assets/Star";
 import React from "react";
 import { SocialLinks } from "@/lib/util";
 
+// TODO: Sizing for the title, perhaps break out into component
+
 export default function ContactPage() {
   return (
     <section className="w-full pt-40 pb-20">

@@ -3,7 +3,7 @@ import React from "react";
 // TODO: javascript for current year
 export default function Footer() {
   return (
-    <footer className="bg-dark text-light w-full py-8">
+    <footer className="pb-20 pt-8 sm:py-8 bg-dark text-light w-full ">
       <div className="max-w-7xl w-full m-auto px-4 xl:px-0">
         <div className="w-full flex justify-between items-center">
           <p>

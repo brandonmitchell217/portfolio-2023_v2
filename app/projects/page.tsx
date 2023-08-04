@@ -3,6 +3,8 @@ import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import ProjectCard from "@/components/Projects/ProjectCard";
 
+// TODO: Sizing for the title, perhaps break out into component
+
 export default async function ProjectsPage() {
   const supabase = createServerComponentClient({ cookies });
   const { data: data } = await supabase.from("projects").select();

@@ -1,6 +1,8 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
+// TODO: Real text & past image
 
 export const PastPresent = () => {
   const [currentAbout, setCurrentAbout] = useState(0);
@@ -58,10 +60,28 @@ export const PastPresent = () => {
             </span>
           </div>
         </div>
-        <div>
+        <div className="flex flex-col gap-6">
           <p className="px-4 lg:px-0 text-[14px] md:text-[16px] lg:text-[18px] xl:text-[22px] tracking-[0.0275em]">
             {aboutData}
           </p>
+          {currentAbout === 1 && (
+            <Link href={"/projects"} className="block self-end group">
+              View some of my work
+              <svg
+                width="197"
+                height="13"
+                viewBox="0 0 197 13"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="inline-block ml-2.5 group-hover:w-36 transition-all origin-left duration-150"
+              >
+                <path
+                  d="M196.53 7.03033C196.823 6.73744 196.823 6.26256 196.53 5.96967L191.757 1.1967C191.464 0.903806 190.99 0.903806 190.697 1.1967C190.404 1.48959 190.404 1.96447 190.697 2.25736L194.939 6.5L190.697 10.7426C190.404 11.0355 190.404 11.5104 190.697 11.8033C190.99 12.0962 191.464 12.0962 191.757 11.8033L196.53 7.03033ZM0 7.25H196V5.75H0V7.25Z"
+                  fill="#D64045"
+                />
+              </svg>
+            </Link>
+          )}
         </div>
       </div>
     </div>

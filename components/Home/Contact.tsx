@@ -5,6 +5,8 @@ import BackBtn from "../assets/BackBtn";
 import Circles2 from "../assets/Circles2";
 import { scrollToTop } from "@/lib/util";
 
+// TODO: Hover effects, lines underneath link headers
+
 export default function Contact() {
   return (
     <div className="bg-dark text-light w-full pt-14 rounded-tl-[40px] rounded-tr-[40px]">
@@ -23,18 +25,20 @@ export default function Contact() {
                   Socials & Stuff:
                 </h5>
                 <ul className="flex gap-20">
-                  <li className="font-light text-[20px] tracking-[0.025em]">
+                  <li>
                     <Link
                       href={"https://www.linkedin.com/in/brandonmitchell217/"}
                       target="_blank"
+                      className="font-light text-[20px] tracking-[0.025em] hover:text-light/60"
                     >
                       LinkedIn
                     </Link>
                   </li>
-                  <li className="font-light text-[20px] tracking-[0.025em]">
+                  <li>
                     <Link
                       href={"https://www.github.com/brandonmitchell217"}
                       target="_blank"
+                      className="font-light text-[20px] tracking-[0.025em] hover:text-light/60"
                     >
                       Github
                     </Link>
@@ -47,7 +51,7 @@ export default function Contact() {
                 </h5>
                 <Link
                   href={"mailto:brandonmitchell217@gmail.com"}
-                  className="font-light text-[20px] tracking-[0.025em]"
+                  className="font-light text-[20px] tracking-[0.025em] hover:text-light/60"
                 >
                   brandonmitchell217@gmail.com
                 </Link>

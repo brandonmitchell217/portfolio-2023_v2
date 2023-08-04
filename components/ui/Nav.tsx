@@ -29,8 +29,8 @@ export default function Nav() {
 
   const MobileNav = () => {
     return (
-      <nav className="fixed bottom-6 w-full z-10">
-        <div className="max-w-[90%] m-auto flex justify-evenly items-center py-2 bg-dark rounded-full">
+      <nav className="fixed bottom-0 w-full z-10">
+        <div className="flex justify-evenly items-center bg-dark">
           {NavigationLinks.map((link) => (
             <Link
               key={link.id}
@@ -38,7 +38,7 @@ export default function Nav() {
               onClick={() => setActiveTab(link.id)}
               className={`${
                 activeTab === link.id ? "" : "hover:text-white/60"
-              } relative rounded-full px-3 py-1.5 text-sm font-medium text-white transition focus-visible:outline-2`}
+              } relative rounded-full px-3 py-3 text-sm font-medium text-white transition focus-visible:outline-2 flex flex-col items-center w-1/4`}
               style={{
                 WebkitTapHighlightColor: "transparent",
               }}
@@ -46,11 +46,12 @@ export default function Nav() {
               {activeTab === link.id && (
                 <motion.span
                   layoutId="bubble"
-                  className="absolute rounded-full inset-0 z-10 bg-lime mix-blend-difference"
+                  className="absolute inset-0 z-10 bg-lime mix-blend-difference"
                   transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                 />
               )}
               {link.icon}
+              {link.name}
             </Link>
           ))}
         </div>
@@ -78,14 +79,15 @@ export default function Nav() {
           </div>
 
           {isMenuOpen && (
-            <div className="absolute top-0 right-0 max-w-[450px] w-1/2 bg-dark z-10 px-10 py-24">
+            <div className="absolute top-0 right-0 max-w-[450px] w-1/2 bg-dark z-10 px-10 pt-24 pb-16">
               <div className="space-y-12">
-                <ul className="flex flex-col gap-12 text-xl text-light">
+                <ul className="flex flex-col gap-12 text-xl text-light text-center">
                   {NavigationLinks.slice(1).map((link) => (
                     <li key={link.id}>
                       <Link
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
                         href={link.url}
+                        className="hover:text-light/60"
                       >
                         {link.name}
                       </Link>
@@ -95,7 +97,11 @@ export default function Nav() {
                 <ul className="w-full flex items-center justify-center gap-12 text-light">
                   {SocialLinks.map((link) => (
                     <li key={link.name}>
-                      <Link href={link.url} target="_blank">
+                      <Link
+                        href={link.url}
+                        target="_blank"
+                        className="hover:text-light/60"
+                      >
                         {link.icon}
                       </Link>
                     </li>
@@ -125,7 +131,9 @@ export default function Nav() {
             <ul className="px-12 flex gap-12 text-xl">
               {NavigationLinks.slice(1).map((link) => (
                 <li key={link.id}>
-                  <Link href={link.url}>{link.name}</Link>
+                  <Link href={link.url} className="hover:text-dark/80">
+                    {link.name}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -135,7 +143,11 @@ export default function Nav() {
             <ul className="flex gap-12">
               {SocialLinks.map((link) => (
                 <li key={link.name}>
-                  <Link href={link.url} target="_blank">
+                  <Link
+                    href={link.url}
+                    target="_blank"
+                    className="hover:text-dark/80"
+                  >
                     {link.icon}
                   </Link>
                 </li>

@@ -3,6 +3,8 @@ import Image from "next/image";
 import SvgFunc, { TechList } from "../assets/Tech";
 import Star from "../assets/Star";
 
+// TODO: Sizing for the title, perhaps break out into component
+
 export default function Tools() {
   return (
     <div className="space-y-10 md:space-y-[62px]">
