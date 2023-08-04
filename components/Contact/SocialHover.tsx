@@ -7,6 +7,7 @@ import {
   useTransform,
 } from "framer-motion";
 import { useRef } from "react";
+import Link from "next/link";
 import { Mail, Github, Linkedin, Grip, X } from "lucide-react";
 
 export function SocialHover({ links }: any) {
@@ -16,10 +17,12 @@ export function SocialHover({ links }: any) {
     <motion.div
       onMouseMove={(e) => mouseX.set(e.pageX)}
       onMouseLeave={() => mouseX.set(Infinity)}
-      className="mx-auto flex h-16 items-end justify-center gap-4 rounded-2xl bg-dark px-4 pb-3"
+      className="mx-auto md:max-w-3xl flex h-16 items-end justify-center gap-24 rounded-2xl border border-dark px-4 pb-3 group"
     >
       {links.map((link: any) => (
-        <AppIcon mouseX={mouseX} key={link.id} name={link.name} />
+        <Link href={link.url} target="_blank">
+          <AppIcon mouseX={mouseX} key={link.id} name={link.name} />
+        </Link>
       ))}
     </motion.div>
   );
@@ -39,18 +42,16 @@ function AppIcon({ mouseX, name }: { mouseX: MotionValue; name: string }) {
 
   function whichIcon(name: string) {
     if (name === "Email") {
-      return (
-        <Mail className="group-hover:w-12 group-hover:h-12 transition-all" />
-      );
+      return <Mail className="text-lime group-hover:w-12 group-hover:h-auto" />;
     }
     if (name === "Github") {
       return (
-        <Github className="group-hover:w-12 group-hover:h-12 transition-all" />
+        <Github className="text-lime group-hover:w-12 group-hover:h-auto" />
       );
     }
     if (name === "LinkedIn") {
       return (
-        <Linkedin className="group-hover:w-12 group-hover:h-12 transition-all" />
+        <Linkedin className="text-lime m-0.5 group-hover:w-12 group-hover:h-auto" />
       );
     }
   }
@@ -59,7 +60,7 @@ function AppIcon({ mouseX, name }: { mouseX: MotionValue; name: string }) {
     <motion.div
       ref={ref}
       style={{ width }}
-      className="aspect-square w-10 flex justify-center items-center rounded-full bg-lime group"
+      className="aspect-square w-10 group-hover:w-16 group-hover:p-2 flex justify-center items-center rounded-full bg-dark group"
     >
       {whichIcon(name)}
     </motion.div>

@@ -5,7 +5,7 @@ import { SocialLinks } from "@/lib/util";
 
 export default function MobileHeader() {
   return (
-    <header className="absolute top-0 left-0 right-0 p-4 flex sm:hidden items-center">
+    <header className="absolute z-10 top-0 left-0 right-0 p-4 flex sm:hidden items-center">
       <Link href={"/"} className="flex-1 flex items-end">
         <Image src="/logo.png" alt="Letter B logo" width="55" height="55" />
       </Link>
