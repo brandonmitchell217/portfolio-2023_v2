@@ -82,7 +82,9 @@ interface TestProps {
 }
 
 export default function SvgFunc({ name, className }: TestProps) {
-  const svgPathObject = TechList.find((item) => item.name === name);
+  const svgPathObject = TechList.find(
+    (item) => item.name.toLowerCase() === name.toLowerCase()
+  );
 
   if (!svgPathObject) {
     return null;
