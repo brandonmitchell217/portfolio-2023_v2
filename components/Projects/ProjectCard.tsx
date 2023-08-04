@@ -2,16 +2,10 @@ import Link from "next/link";
 import React from "react";
 import SvgFunc, { TechList } from "../assets/Tech";
 import { Github, Link as LinkIcon } from "lucide-react";
+import { DataProps } from "@/lib/types";
 
 interface ProjectCardProps {
-  data: {
-    id: number;
-    name: string;
-    description: string;
-    github: string;
-    live: string;
-    tags: string[];
-  };
+  data: DataProps;
   className?: string;
 }
 // group-hover:fill-current group-hover:drop-shadow-md transition
@@ -22,14 +16,14 @@ export default function ProjectCard({ data, className }: ProjectCardProps) {
     >
       <div className="flex justify-between pt-3 pr-5">
         <h3 className="font-semibold text-[32px] flex">
-          <span className="block -rotate-90 text-poppy">[0{data.id}]</span>
-          {data.name}
+          <span className="block -rotate-90 text-poppy">[0{data.num}]</span>
+          {data.title}
         </h3>
         <div className="flex gap-6 items-center">
-          <Link href={data.github}>
+          <Link href={data.gh_link}>
             <Github size={24} />
           </Link>
-          <Link href={data.live}>
+          <Link href={data.live_link}>
             <LinkIcon size={24} />
           </Link>
         </div>
@@ -42,7 +36,7 @@ export default function ProjectCard({ data, className }: ProjectCardProps) {
 
         <div className="py-3 px-5">
           <ul className="flex gap-4">
-            {data.tags.map((tag) => (
+            {data.tag_array.map((tag) => (
               <li key={tag} className="group">
                 <SvgFunc
                   name={tag}

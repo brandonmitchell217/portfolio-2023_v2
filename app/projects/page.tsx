@@ -1,41 +1,12 @@
 import React from "react";
+import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+import { cookies } from "next/headers";
 import ProjectCard from "@/components/Projects/ProjectCard";
 
-export default function ProjectsPage() {
-  const TestProjects = [
-    {
-      id: 1,
-      name: "Project 1",
-      description: "This is a test project",
-      github: "https://google.com",
-      live: "https://google.com",
-      tags: ["React", "NextJS", "TailwindCSS"],
-    },
-    {
-      id: 2,
-      name: "Project 2",
-      description: "This is a test project",
-      github: "https://google.com",
-      live: "https://google.com",
-      tags: ["React", "NextJS", "TailwindCSS"],
-    },
-    {
-      id: 3,
-      name: "Project 3",
-      description: "This is a test project",
-      github: "https://google.com",
-      live: "https://google.com",
-      tags: ["React", "NextJS", "TailwindCSS"],
-    },
-    {
-      id: 4,
-      name: "Project 4",
-      description: "This is a test project",
-      github: "https://google.com",
-      live: "https://google.com",
-      tags: ["React", "NextJS", "TailwindCSS"],
-    },
-  ];
+export default async function ProjectsPage() {
+  const supabase = createServerComponentClient({ cookies });
+  const { data: data } = await supabase.from("projects").select();
+
   return (
     <main className="w-full py-32 px-4 max-w-7xl">
       <section className="space-y-16">
@@ -46,14 +17,22 @@ export default function ProjectsPage() {
         </div>
         <div className="w-full flex flex-col gap-2 md:gap-12">
           <div className="justify-self-start lg:max-w-[1029.22px] w-full flex flex-col md:flex-row gap-2 items-center md:justify-between">
-            {TestProjects.slice(0, 2).map((project) => (
-              <ProjectCard key={project.id} data={{ ...project }} />
-            ))}
+            {data &&
+              data
+                .filter((project) => project.featured)
+                .slice(0, 2)
+                .map((project) => (
+                  <ProjectCard key={project.id} data={{ ...project }} />
+                ))}
           </div>
           <div className="justify-self-end self-end lg:max-w-[1029.22px] w-full flex flex-col md:flex-row gap-2 items-center justify-between">
-            {TestProjects.slice(2, 4).map((project) => (
-              <ProjectCard key={project.id} data={{ ...project }} />
-            ))}
+            {data &&
+              data
+                .filter((project) => project.featured)
+                .slice(2, 4)
+                .map((project) => (
+                  <ProjectCard key={project.id} data={{ ...project }} />
+                ))}
           </div>
         </div>
       </section>

@@ -10,6 +10,7 @@ export interface DataProps {
   gh_link: string;
   live_link: string;
   featured?: boolean;
+  num?: number;
 }
 
 export interface NavigationLinksProps {

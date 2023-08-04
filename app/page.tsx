@@ -17,8 +17,6 @@ import Contact from "@/components/Home/Contact";
 import { SocialLinks } from "@/lib/util";
 import MobileHeader from "@/components/ui/MobileHeader";
 
-// TODO: Mouse svg
-
 export default async function Index() {
   const supabase = createServerComponentClient({ cookies });
   const BasicInfo = {
