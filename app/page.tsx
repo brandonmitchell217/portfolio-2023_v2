@@ -5,7 +5,7 @@ import LogoutButton from "../components/LogoutButton";
 import Image from "next/image";
 import { DataProps } from "@/lib/types";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import InfoHeader from "@/components/Home/InfoHeader";
 import Quote from "@/components/Home/Quote";
 import { PastPresent } from "@/components/About/PastPresent";

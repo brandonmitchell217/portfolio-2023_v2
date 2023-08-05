@@ -42,7 +42,7 @@ const ContactForm = () => {
 
   return (
     <>
-      <form className="lg:mt-20 w-full flex justify-center items-center flex-col sm:items-start">
+      <form className="lg:mt-20 lg:px-4 w-full flex justify-center items-center flex-col sm:items-start">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
           <div className="relative z-0">
             <input
@@ -71,9 +71,9 @@ const ContactForm = () => {
                 required: true,
                 pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
               })}
-              className="peer block w-full appearance-none border-0 border-b border-dark bg-transparent py-2.5 px-0 text-base text-dark focus:border-blue-600 focus:outline-none focus:ring-0"
+              className="peer block w-full appearance-none border-0 border-b border-dark bg-transparent py-2.5 px-0 text-base text-dark autofill:shadow-[inset_0_0_0px_1000px_#D8DBE2] focus:border-blue-600 focus:outline-none focus:ring-0"
             />
-            <label className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-base text-dark duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-blue-600 peer-focus:dark:text-blue-500">
+            <label className="absolute top-3 z-10 origin-[0] -translate-y-6 scale-75 transform text-base text-dark duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-blue-600 peer-focus:dark:text-blue-500">
               Your email
             </label>
             {errors.Email && (

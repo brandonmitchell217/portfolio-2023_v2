@@ -29,12 +29,10 @@ export default function RootLayout({
       lang="en"
       className={`${outfit.variable} ${unbounded.variable} scroll-smooth`}
     >
-      <body className="bg-light text-dark relative font-outfit">
-        <main className="relative flex flex-col items-center">
-          <Nav />
-          {children}
-          <Footer />
-        </main>
+      <body className="bg-light text-dark relative font-outfit flex flex-col items-center">
+        <Nav />
+        {children}
+        <Footer />
       </body>
     </html>
   );

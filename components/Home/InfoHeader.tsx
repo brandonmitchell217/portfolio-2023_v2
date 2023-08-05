@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Circles from "../assets/Circles1";
+import { motion } from "framer-motion";
 
 export default function InfoHeader({ ...data }) {
   const [currentDate, setCurrentDate] = useState("");
@@ -33,12 +34,24 @@ export default function InfoHeader({ ...data }) {
 
     return () => clearInterval(intervalId);
   }, []);
-
+  const spring = {
+    type: "spring",
+    damping: 15,
+    stiffness: 15,
+  };
   return (
     <div>
       <div className="relative flex justify-between items-center text-[0.7rem] xs:text-clamp2 leading-[1.095] tracking-[-0.02em]">
         <div className="md:w-1/3 flex justify-start">
-          {isLoading ? null : (
+          {isLoading ? (
+            <motion.div
+              transition={spring}
+              animate={{
+                width: ["0%", "100%"],
+              }}
+              className="bg-dark rounded w-full h-6 flex justify-between"
+            ></motion.div>
+          ) : (
             <h5>
               {currentTime} EST | {currentDate}
             </h5>
@@ -48,7 +61,17 @@ export default function InfoHeader({ ...data }) {
           <Circles />
         </div>
         <div className="md:w-1/3 flex justify-end">
-          <h5>{info.location}</h5>
+          {isLoading ? (
+            <motion.div
+              transition={spring}
+              animate={{
+                width: ["0%", "100%"],
+              }}
+              className="bg-dark rounded w-full h-6 flex justify-between"
+            ></motion.div>
+          ) : (
+            <h5>{info.location}</h5>
+          )}
         </div>
       </div>
 

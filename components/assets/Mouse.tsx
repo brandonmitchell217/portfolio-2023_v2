@@ -1,14 +1,19 @@
+"use client";
 import React from "react";
+import { motion } from "framer-motion";
 
 export default function Mouse() {
   return (
-    <svg
+    <motion.svg
       width="59"
       height="103"
       viewBox="0 0 59 103"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className="absolute bottom-8 md:bottom-0 left-1/2 -translate-x-1/2 scale-75 md:scale-100"
+      className="absolute bottom-5 md:bottom-3 left-1/2 scale-75 md:scale-100"
+      initial={{ scale: 0.85, y: -12, translateX: "-45%" }}
+      animate={{ scale: 1, y: 0 }}
+      transition={{ duration: 2.5, repeat: Infinity, repeatType: "reverse" }}
     >
       <g clipPath="url(#clip0_331_321)">
         <path
@@ -55,6 +60,6 @@ export default function Mouse() {
           />
         </clipPath>
       </defs>
-    </svg>
+    </motion.svg>
   );
 }

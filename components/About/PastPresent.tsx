@@ -42,7 +42,7 @@ export const PastPresent = () => {
               className={`w-1/2 md:w-auto text-center py-3.5 px-7 ${
                 currentAbout === 0
                   ? "bg-lime text-dark"
-                  : "bg-transparent text-light"
+                  : "bg-transparent text-light hover:text-light/80"
               } rounded-tl-xl rounded-b-xl cursor-pointer`}
               onClick={() => setCurrentAbout(0)}
             >
@@ -52,7 +52,7 @@ export const PastPresent = () => {
               className={`w-1/2 md:w-auto text-center py-3.5 px-7 ${
                 currentAbout === 1
                   ? "bg-lime text-dark"
-                  : "bg-transparent text-light"
+                  : "bg-transparent text-light hover:text-light/80"
               } rounded-tr-xl rounded-b-xl cursor-pointer`}
               onClick={() => setCurrentAbout(1)}
             >
@@ -65,7 +65,10 @@ export const PastPresent = () => {
             {aboutData}
           </p>
           {currentAbout === 1 && (
-            <Link href={"/projects"} className="block self-end group">
+            <Link
+              href={"/projects"}
+              className="block self-end group hover:text-light/80"
+            >
               View some of my work
               <svg
                 width="197"

@@ -3,20 +3,16 @@ import { SocialHover } from "@/components/Contact/SocialHover";
 import Star from "@/components/assets/Star";
 import React from "react";
 import { SocialLinks } from "@/lib/util";
+import SectionTitle from "@/components/SectionTitle";
 
 // TODO: Sizing for the title, perhaps break out into component
 
 export default function ContactPage() {
   return (
-    <section className="w-full pt-40 pb-20">
-      <div className="max-w-7xl m-auto px-3 space-y-24">
-        <div>
-          <div className="flex sm:gap-[21.5px] lg:gap-[43px] items-center">
-            <Star />
-            <h2 className="border-b-[1.5px] md:border-b-[3px] border-dark font-unbounded text-[32px] md:text-[48px] xl:text-[72px] font-semibold tracking-[0.03em] leading-none">
-              Contact:
-            </h2>
-          </div>
+    <main className="w-full pt-8 sm:pt-20 lg:pt-32 pb-20">
+      <section className="max-w-7xl m-auto px-3 space-y-24">
+        <div className="space-y-12 lg:space-y-0">
+          <SectionTitle title="Contact" size="large" />
           <div className="w-full px-4">
             <ContactForm />
           </div>
@@ -24,7 +20,7 @@ export default function ContactPage() {
         <div>
           <SocialHover links={SocialLinks} />
         </div>
-      </div>
-    </section>
+      </section>
+    </main>
   );
 }

@@ -21,11 +21,16 @@ export default function ProjectCard({ data, className }: ProjectCardProps) {
           {data.title}
         </h3>
         <div className="flex gap-4 sm:gap-6 items-center">
-          <Link href={data.gh_link} className="hover:scale-110 hover:text-lime">
+          <Link
+            href={data.gh_link}
+            target="_blank"
+            className="hover:scale-110 hover:text-lime"
+          >
             <Github />
           </Link>
           <Link
             href={data.live_link}
+            target="_blank"
             className="hover:scale-110 hover:text-lime"
           >
             <LinkIcon />
