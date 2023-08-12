@@ -8,7 +8,7 @@ export default function BackBtn() {
       viewBox="0 0 103 102"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className="group"
+      className="group scale-75 sm:scale-100"
     >
       <ellipse
         cx="51.5"

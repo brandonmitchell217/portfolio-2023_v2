@@ -14,8 +14,16 @@ export interface DataProps {
 }
 
 export interface NavigationLinksProps {
-  id: number;
-  name: string;
-  url: string;
+  id?: number;
+  name?: string;
+  url?: string;
   icon?: React.ReactNode;
+  links?:
+    | {
+        id: number | undefined;
+        name: string;
+        url: string;
+        icon?: React.ReactNode;
+      }[]
+    | any;
 }

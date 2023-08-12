@@ -41,37 +41,27 @@ export default function InfoHeader({ ...data }) {
   };
   return (
     <div>
-      <div className="relative flex justify-between items-center text-[0.7rem] xs:text-clamp2 leading-[1.095] tracking-[-0.02em]">
+      <div className="relative flex justify-between items-center text-[0.7rem] xs:text-clamp2 leading-[1.095] tracking-[-0.02em] overflow-y-hidden">
         <div className="md:w-1/3 flex justify-start">
-          {isLoading ? (
-            <motion.div
-              transition={spring}
-              animate={{
-                width: ["0%", "100%"],
-              }}
-              className="bg-dark rounded w-full h-6 flex justify-between"
-            ></motion.div>
-          ) : (
-            <h5>
-              {currentTime} EST | {currentDate}
-            </h5>
-          )}
+          <motion.h5
+            initial={{ y: 500 }}
+            animate={{ y: 0 }}
+            transition={{ duration: 1.2 }}
+          >
+            {currentTime} EST | {currentDate}
+          </motion.h5>
         </div>
         <div className="md:w-1/3 flex justify-center scale-75 xs:scale-100 xl:scale-125">
           <Circles />
         </div>
         <div className="md:w-1/3 flex justify-end">
-          {isLoading ? (
-            <motion.div
-              transition={spring}
-              animate={{
-                width: ["0%", "100%"],
-              }}
-              className="bg-dark rounded w-full h-6 flex justify-between"
-            ></motion.div>
-          ) : (
-            <h5>{info.location}</h5>
-          )}
+          <motion.h5
+            initial={{ y: 500 }}
+            animate={{ y: 0 }}
+            transition={{ duration: 1.2, delay: 0.5 }}
+          >
+            {info.location}
+          </motion.h5>
         </div>
       </div>
 

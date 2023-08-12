@@ -9,6 +9,8 @@ interface ProjectCardProps {
   className?: string;
 }
 
+// TODO: Add some shadow
+
 export default function ProjectCard({ data, className }: ProjectCardProps) {
   return (
     <div

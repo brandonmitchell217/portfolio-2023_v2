@@ -32,7 +32,7 @@ export default function Index() {
   // const { data: data } = await supabase.from("projects").select();
 
   return (
-    <main className="w-full">
+    <main className="relative w-full">
       <div className="relative w-full px-4 max-w-7xl m-auto">
         {/* Only shows on mobile when bottom nav appears */}
         <MobileHeader />

@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import Shape1 from "../assets/Shape1";
 // TODO: Real text & past image
 
 export const PastPresent = () => {
@@ -67,7 +68,7 @@ export const PastPresent = () => {
           {currentAbout === 1 && (
             <Link
               href={"/projects"}
-              className="block self-end group hover:text-light/80"
+              className="block self-end group text-[14px] md:text-base hover:text-light/80"
             >
               View some of my work
               <svg

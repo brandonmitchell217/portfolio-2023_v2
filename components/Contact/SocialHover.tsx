@@ -8,9 +8,10 @@ import {
 } from "framer-motion";
 import { useRef } from "react";
 import Link from "next/link";
-import { Mail, Github, Linkedin, Grip, X } from "lucide-react";
+import { Mail, Github, Linkedin } from "lucide-react";
+import { NavigationLinksProps } from "@/lib/types";
 
-export function SocialHover({ links }: any) {
+export function SocialHover({ links }: NavigationLinksProps) {
   let mouseX = useMotionValue(Infinity);
 
   return (
@@ -20,7 +21,7 @@ export function SocialHover({ links }: any) {
       className="mx-auto md:max-w-3xl flex h-16 items-end justify-center gap-24 rounded-2xl border border-dark px-4 pb-3 group"
     >
       {links.map((link: any) => (
-        <Link href={link.url} target="_blank">
+        <Link key={link.name} href={link.url} target="_blank">
           <AppIcon mouseX={mouseX} key={link.id} name={link.name} />
         </Link>
       ))}
@@ -42,17 +43,13 @@ function AppIcon({ mouseX, name }: { mouseX: MotionValue; name: string }) {
 
   function whichIcon(name: string) {
     if (name === "Email") {
-      return <Mail className="text-lime group-hover:w-12 group-hover:h-auto" />;
+      return <Mail className="group-hover:w-12 group-hover:h-auto" />;
     }
     if (name === "Github") {
-      return (
-        <Github className="text-lime group-hover:w-12 group-hover:h-auto" />
-      );
+      return <Github className="group-hover:w-12 group-hover:h-auto" />;
     }
     if (name === "LinkedIn") {
-      return (
-        <Linkedin className="text-lime m-0.5 group-hover:w-12 group-hover:h-auto" />
-      );
+      return <Linkedin className="m-0.5 group-hover:w-12 group-hover:h-auto" />;
     }
   }
 
@@ -60,7 +57,7 @@ function AppIcon({ mouseX, name }: { mouseX: MotionValue; name: string }) {
     <motion.div
       ref={ref}
       style={{ width }}
-      className="aspect-square w-10 group-hover:w-16 group-hover:p-2 flex justify-center items-center rounded-full bg-dark group"
+      className="aspect-square w-10 group-hover:w-16 group-hover:p-2 flex justify-center items-center rounded-full border border-dark group"
     >
       {whichIcon(name)}
     </motion.div>

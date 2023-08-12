@@ -1,4 +1,6 @@
+"use client";
 import React from "react";
+import { motion } from "framer-motion";
 
 export default function Star() {
   return (
@@ -11,9 +13,12 @@ export default function Star() {
       className="scale-[0.7] ml-3 md:ml-0 md:scale-75 lg:scale-100"
     >
       <rect width="102" height="99" rx="20" fill="#1B1B1E" />
-      <path
+      <motion.path
         d="M40.86 17.2H62L60.74 36.52L78.66 29.38L85.1 49.54L66.48 54.3L78.66 69L61.58 81.46L51.36 65.22L41.14 81.46L24.06 69L36.24 54.3L17.62 49.54L24.06 29.38L42.12 36.52L40.86 17.2Z"
         fill="#D64045"
+        initial={{ rotate: 0 }}
+        animate={{ rotate: 360 }}
+        transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
       />
       <circle
         cx="51.5"
