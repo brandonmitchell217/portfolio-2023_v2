@@ -12,7 +12,7 @@ export default function MobileHeader() {
       <ul className="flex gap-6">
         {SocialLinks.map((link) => (
           <li key={link.name}>
-            <Link href={link.url} target="_blank">
+            <Link href={link.url || ""} target="_blank">
               {link.icon}
             </Link>
           </li>
