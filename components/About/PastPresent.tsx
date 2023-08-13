@@ -2,7 +2,8 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import Shape1 from "../assets/Shape1";
+import { twMerge } from "tailwind-merge";
+
 // TODO: Real text & past image, green border around past/present buttons only on mobile || perhaps a mask on the bg
 
 export const PastPresent = () => {
@@ -24,7 +25,7 @@ export const PastPresent = () => {
   return (
     <div className="px-1 py-4 lg:py-1 w-full flex flex-col lg:flex-row bg-dark text-light rounded-2.5xl">
       {/* left */}
-      <div className="">
+      <div>
         <Image
           src="/me.jpg"
           alt="thingy that is an alt"
@@ -40,21 +41,29 @@ export const PastPresent = () => {
           <div className="h-0.5 md:h-1 w-full md:w-1/2 bg-light rounded-2.5xl" />
           <div className="w-full flex-1 flex items-center justify-end text-lg md:text-4xl lg:text-2xl xl:text-4xl font-unbounded font-semibold tracking-[-0.005em]">
             <span
-              className={`w-1/2 md:w-auto text-center py-3.5 px-7 ${
+              className={`w-1/2 md:w-auto text-center py-3.5 px-7 border-2 ${
                 currentAbout === 0
-                  ? "bg-lime text-dark"
-                  : "bg-transparent text-light hover:text-light/80"
-              } rounded-tl-xl rounded-b-xl cursor-pointer`}
+                  ? twMerge(
+                      "bg-lime text-dark border-transparent rounded-l-xl rounded-b-none md:border-none md:rounded-br-xl"
+                    )
+                  : twMerge(
+                      "bg-transparent text-light hover:text-light/80 border-lime rounded-tl-xl rounded-bl-xl md:border-none"
+                    )
+              }  cursor-pointer`}
               onClick={() => setCurrentAbout(0)}
             >
               Past
             </span>
             <span
-              className={`w-1/2 md:w-auto text-center py-3.5 px-7 ${
+              className={`w-1/2 md:w-auto text-center py-3.5 px-7 border-2 ${
                 currentAbout === 1
-                  ? "bg-lime text-dark"
-                  : "bg-transparent text-light hover:text-light/80"
-              } rounded-tr-xl rounded-b-xl cursor-pointer`}
+                  ? twMerge(
+                      "bg-lime text-dark border-transparent rounded-tr-xl rounded-br-xl md:border-none md:rounded-bl-xl"
+                    )
+                  : twMerge(
+                      "bg-transparent text-light hover:text-light/80 border-lime rounded-tr-xl rounded-br-xl rounded-bl-none md:border-none"
+                    )
+              } cursor-pointer`}
               onClick={() => setCurrentAbout(1)}
             >
               Present
@@ -77,7 +86,7 @@ export const PastPresent = () => {
                 viewBox="0 0 197 13"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                className="inline-block ml-2.5 group-hover:w-36 transition-all origin-left duration-150"
+                className="inline-block ml-2.5 xs:group-hover:w-36 transition-all origin-left duration-150"
               >
                 <path
                   d="M196.53 7.03033C196.823 6.73744 196.823 6.26256 196.53 5.96967L191.757 1.1967C191.464 0.903806 190.99 0.903806 190.697 1.1967C190.404 1.48959 190.404 1.96447 190.697 2.25736L194.939 6.5L190.697 10.7426C190.404 11.0355 190.404 11.5104 190.697 11.8033C190.99 12.0962 191.464 12.0962 191.757 11.8033L196.53 7.03033ZM0 7.25H196V5.75H0V7.25Z"
