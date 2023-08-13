@@ -39,6 +39,7 @@ export default function InfoHeader({ ...data }) {
     damping: 15,
     stiffness: 15,
   };
+
   return (
     <div>
       <div className="relative flex justify-between items-center text-[0.7rem] xs:text-clamp2 leading-[1.095] tracking-[-0.02em] overflow-y-hidden">

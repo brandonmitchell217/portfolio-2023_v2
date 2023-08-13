@@ -16,6 +16,7 @@ import ProjectCard from "@/components/Projects/ProjectCard";
 import Contact from "@/components/Home/Contact";
 import { SocialLinks } from "@/lib/util";
 import MobileHeader from "@/components/ui/MobileHeader";
+import Loading from "@/components/ui/Loading";
 
 export default function Index() {
   // const supabase = createServerComponentClient({ cookies });
@@ -33,6 +34,7 @@ export default function Index() {
 
   return (
     <main className="relative w-full">
+      {/* <Loading /> */}
       <div className="relative w-full px-4 max-w-7xl m-auto">
         {/* Only shows on mobile when bottom nav appears */}
         <MobileHeader />

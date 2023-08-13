@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Shape1 from "../assets/Shape1";
-// TODO: Real text & past image
+// TODO: Real text & past image, green border around past/present buttons only on mobile || perhaps a mask on the bg
 
 export const PastPresent = () => {
   const [currentAbout, setCurrentAbout] = useState(0);

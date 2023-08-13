@@ -6,44 +6,47 @@ import { SocialLinks, NavigationLinks } from "@/lib/util";
 import { Grip, X } from "lucide-react";
 import { useMediaQuery } from "usehooks-ts";
 import { motion } from "framer-motion";
-
-// TODO: Media query & which nav to use
+import { usePathname } from "next/navigation";
 
 export default function Nav() {
+  const pathname = usePathname();
   const [isNavDevice, setIsNavDevice] = React.useState<React.ReactNode>();
   const [isMenuOpen, setIsMenuOpen] = React.useState<boolean>(false);
   const desktopMatches = useMediaQuery("(min-width: 1023px)");
   const tabletMatches = useMediaQuery("(min-width: 640px)");
   const mobileMatches = useMediaQuery("(max-width: 639px)");
-  let [activeTab, setActiveTab] = React.useState(SocialLinks[0].id);
+  let [activeTab, setActiveTab] = React.useState(pathname || undefined);
 
   React.useEffect(() => {
     if (desktopMatches) {
       setIsNavDevice(<DesktopNav />);
+      // setActiveTab(pathname);
     } else if (tabletMatches) {
       setIsNavDevice(<TabletNav />);
+      // setActiveTab(pathname);
     } else if (mobileMatches) {
       setIsNavDevice(<MobileNav />);
+      // setActiveTab(pathname);
     }
-  }, [isMenuOpen, desktopMatches, tabletMatches, mobileMatches, activeTab]);
+  }, [isMenuOpen, desktopMatches, tabletMatches, mobileMatches, pathname]);
 
   const MobileNav = () => {
     return (
-      <nav className="fixed bottom-0 w-full z-10">
+      <nav className="fixed bottom-0 w-full z-10 shadow-xl">
         <div className="flex justify-evenly items-center bg-dark">
           {NavigationLinks.map((link) => (
             <Link
               key={link.id}
-              href={link.url}
-              onClick={() => setActiveTab(link.id)}
+              href={link.url || ""}
+              onClick={() => setActiveTab(link.url || "")}
               className={`${
-                activeTab === link.id ? "" : "hover:text-white/60"
+                activeTab === link.url ? "" : "hover:text-white/60"
               } relative rounded-full px-3 py-3 text-sm font-medium text-white transition focus-visible:outline-2 flex flex-col items-center w-1/4`}
               style={{
                 WebkitTapHighlightColor: "transparent",
               }}
             >
-              {activeTab === link.id && (
+              {activeTab === link.url && (
                 <motion.span
                   layoutId="bubble"
                   className="absolute inset-0 z-10 bg-lime mix-blend-difference"
@@ -86,7 +89,7 @@ export default function Nav() {
                     <li key={link.id}>
                       <Link
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
-                        href={link.url}
+                        href={link.url || ""}
                         className="hover:text-light/60"
                       >
                         {link.name}
@@ -98,7 +101,7 @@ export default function Nav() {
                   {SocialLinks.map((link) => (
                     <li key={link.name}>
                       <Link
-                        href={link.url}
+                        href={link.url || ""}
                         target="_blank"
                         className="hover:text-light/60"
                       >
@@ -131,7 +134,11 @@ export default function Nav() {
             <ul className="px-12 flex gap-12 text-xl">
               {NavigationLinks.slice(1).map((link) => (
                 <li key={link.id}>
-                  <Link href={link.url} className="hover:text-dark/80">
+                  <Link
+                    href={link.url || ""}
+                    onClick={() => setActiveTab(link.url || "")}
+                    className="hover:text-dark/80"
+                  >
                     {link.name}
                   </Link>
                 </li>
@@ -144,7 +151,7 @@ export default function Nav() {
               {SocialLinks.map((link) => (
                 <li key={link.name}>
                   <Link
-                    href={link.url}
+                    href={link.url || ""}
                     target="_blank"
                     className="hover:text-dark/80"
                   >

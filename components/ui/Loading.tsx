@@ -1,28 +1,46 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import Star from "../assets/Star";
+import { motion } from "framer-motion";
 
 export default function Loading() {
-  const [loading, setLoading] = useState<boolean>(true);
-
-  // Timer for a loading screen that will last 2.5 seconds and make loading state false
-  useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 1250);
-  });
-
   return (
-    <div
-      className={`absolute z-[99] w-full h-screen flex justify-center items-center bg-light ${
-        !loading && "hidden"
-      }`}
-    >
+    <div className="h-screen w-full z-[99] flex justify-center items-center">
       <div className="flex items-center gap-5">
-        <Star />
-        <h1 className="text-7xl font-unbounded uppercase tracking-wider">
-          Loading...
-        </h1>
+        {/* <Star /> */}
+        <div className="text-7xl font-unbounded uppercase tracking-wider flex">
+          <h1>Loading</h1>
+          <motion.span
+            initial={{ x: 0 }}
+            animate={{ x: 200 }}
+            transition={{ duration: 1, repeat: Infinity, repeatDelay: 0.35 }}
+          >
+            .
+          </motion.span>
+          <motion.span
+            initial={{ x: 0 }}
+            animate={{ x: 210 }}
+            transition={{
+              duration: 1.5,
+              delay: 0.25,
+              repeat: Infinity,
+              repeatDelay: 0.25,
+            }}
+          >
+            .
+          </motion.span>
+          <motion.span
+            initial={{ x: 0 }}
+            animate={{ x: 220 }}
+            transition={{
+              duration: 2,
+              delay: 0.5,
+              repeat: Infinity,
+              repeatDelay: 0.15,
+            }}
+          >
+            .
+          </motion.span>
+        </div>
       </div>
     </div>
   );

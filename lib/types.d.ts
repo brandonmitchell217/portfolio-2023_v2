@@ -17,6 +17,7 @@ export interface NavigationLinksProps {
   id?: number;
   name?: string;
   url?: string;
+  query?: any | undefined;
   icon?: React.ReactNode;
   links?:
     | {

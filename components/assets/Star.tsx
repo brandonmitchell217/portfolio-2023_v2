@@ -20,6 +20,7 @@ export default function Star() {
         animate={{ rotate: 360 }}
         transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
       />
+
       <circle
         cx="51.5"
         cy="49.5"

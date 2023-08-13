@@ -29,7 +29,7 @@ export default function RootLayout({
       lang="en"
       className={`${outfit.variable} ${unbounded.variable} scroll-smooth`}
     >
-      <body className="bg-light text-dark relative font-outfit flex flex-col items-center">
+      <body className="h-full bg-light text-dark relative z-[1] font-outfit flex flex-col items-center">
         <Nav />
         {children}
         <Footer />
