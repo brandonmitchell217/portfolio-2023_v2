@@ -1,9 +1,10 @@
-import React, { Suspense } from "react";
+import React from "react";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import ProjectCard from "@/components/Projects/ProjectCard";
 import ProjectSlalom from "@/components/Projects/ProjectSlalom";
 import SectionTitle from "@/components/SectionTitle";
+export const dynamic = "force-static";
 
 export default async function ProjectsPage() {
   const supabase = createServerComponentClient({ cookies });
