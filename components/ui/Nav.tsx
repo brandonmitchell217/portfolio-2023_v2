@@ -38,7 +38,9 @@ export default function Nav() {
             <Link
               key={link.id}
               href={link.url || ""}
-              onClick={() => setActiveTab(link.url || "")}
+              onClick={() =>
+                setActiveTab(link.url === "#about" ? "/" : link.url)
+              }
               className={`${
                 activeTab === link.url ? "" : "hover:text-white/60"
               } relative rounded-full px-3 py-3 text-sm font-medium text-white transition focus-visible:outline-2 flex flex-col items-center w-1/4`}
