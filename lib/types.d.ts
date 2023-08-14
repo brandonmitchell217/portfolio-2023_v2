@@ -11,6 +11,7 @@ export interface DataProps {
   live_link: string;
   featured?: boolean;
   num?: number;
+  category?: string[];
 }
 
 export interface NavigationLinksProps {

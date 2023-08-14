@@ -20,14 +20,20 @@ export default function Nav() {
   React.useEffect(() => {
     if (desktopMatches) {
       setIsNavDevice(<DesktopNav />);
+      setActiveTab(pathname);
     } else if (tabletMatches) {
       setIsNavDevice(<TabletNav />);
+      setActiveTab(pathname);
     } else if (mobileMatches) {
       setIsNavDevice(<MobileNav />);
+      setActiveTab(pathname);
     }
   }, [isMenuOpen, desktopMatches, tabletMatches, mobileMatches, pathname]);
 
   const MobileNav = () => {
+    const mobileNavFun = (link: any) => {
+      setActiveTab(link.url || "");
+    };
     return (
       <nav className="fixed bottom-0 w-full z-10 shadow-xl">
         <div className="flex justify-evenly items-center bg-dark">
@@ -35,9 +41,7 @@ export default function Nav() {
             <Link
               key={link.id}
               href={link.url || ""}
-              onClick={() =>
-                setActiveTab(link.url === "#about" ? "/" : link.url)
-              }
+              onClick={() => setActiveTab(link.url)}
               className={`${
                 activeTab === link.url ? "" : "hover:text-white/60"
               } relative rounded-full px-3 py-3 text-sm font-medium text-white transition focus-visible:outline-2 flex flex-col items-center w-1/4`}
@@ -62,6 +66,10 @@ export default function Nav() {
   };
 
   const TabletNav = () => {
+    const tabletNavFunc = (link: any) => {
+      setIsMenuOpen(!isMenuOpen);
+      setActiveTab(link.url || "");
+    };
     return (
       <nav className="w-full fixed top-0 z-10">
         <div className="relative max-w-7xl m-auto p-4 flex justify-between items-center">
@@ -87,7 +95,7 @@ export default function Nav() {
                   {NavigationLinks.slice(1).map((link) => (
                     <li key={link.id}>
                       <Link
-                        onClick={() => setIsMenuOpen(!isMenuOpen)}
+                        onClick={() => tabletNavFunc(link)}
                         href={link.url || ""}
                         className="hover:text-light/60"
                       >

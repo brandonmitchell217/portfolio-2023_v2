@@ -7,8 +7,9 @@ import { twMerge } from "tailwind-merge";
 // TODO: Real text & past image, green border around past/present buttons only on mobile || perhaps a mask on the bg
 
 export const PastPresent = () => {
-  const [currentAbout, setCurrentAbout] = useState(0);
+  const [currentAbout, setCurrentAbout] = useState(1);
   const [aboutData, setAboutData] = useState("");
+  const [aboutImage, setAboutImage] = useState("");
   const pastAbout =
     "Lorem ipsum dolor sit amet consectetur. Amet congue lorem tempor nisi. Egestas faucibus viverra non arcu mauris leo ornare adipiscing. Amet tempor commodo mauris at lobortis sodales neque ultrices massa. Tincidunt scelerisque scelerisque sed amet urna volutpat. Donec fermentum egestas nibh tincidunt. Viverra quis eget non lacus. Interdum iaculis nisi adipiscing felis malesuada rhoncus. Risus sagittis facilisi augue massa faucibus quis morbi porttitor nunc. Mi est ligula eu at purus risus adipiscing orci mauris. Amet purus donec egestas cursus sit cras volutpat iaculis. Ipsum phasellus gravida eu a. Enim lectus quam vitae a ac nulla.";
   const presentAbout =
@@ -17,8 +18,10 @@ export const PastPresent = () => {
   useEffect(() => {
     if (currentAbout === 0) {
       setAboutData(pastAbout);
+      setAboutImage("/pastMe.jpg");
     } else if (currentAbout === 1) {
       setAboutData(presentAbout);
+      setAboutImage("/me.jpg");
     }
   }, [currentAbout]);
 
@@ -27,8 +30,8 @@ export const PastPresent = () => {
       {/* left */}
       <div>
         <Image
-          src="/me.jpg"
-          alt="thingy that is an alt"
+          src={aboutImage || "/me.jpg"}
+          alt="Picture of Brandon Mitchell"
           height={550}
           width={383}
           className="rounded-2.5xl lg:rounded-none lg:rounded-tl-2.5xl lg:rounded-bl-2.5xl m-auto w-60 sm:w-72 md:w-auto"

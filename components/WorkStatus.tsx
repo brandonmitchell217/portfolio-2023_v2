@@ -12,7 +12,7 @@ export default function WorkStatus() {
           alt="Gloo Logo"
           height={45}
           width={89}
-          className="inline pb-1 scale-50 -m-[22px] md:scale-100 md:m-0 hover:scale-105 transition"
+          className="inline pb-1 scale-50 -m-[22px] md:scale-100 md:m-0 lg:hover:scale-105 transition"
         />
       </Link>
       . Our team uses a combination of both React & Vue along with HubSpot to

@@ -9,7 +9,7 @@ import SectionTitle from "@/components/SectionTitle";
 
 export default function ContactPage() {
   return (
-    <main className="w-full pt-8 sm:pt-20 lg:pt-32 pb-20">
+    <main className="w-full h-screen lg:h-auto pt-8 sm:pt-20 lg:pt-32 pb-20">
       <section className="max-w-7xl m-auto px-3 space-y-24">
         <div className="space-y-12 lg:space-y-0">
           <SectionTitle title="Contact" size="large" />

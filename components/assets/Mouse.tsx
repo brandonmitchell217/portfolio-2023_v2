@@ -11,7 +11,7 @@ export default function Mouse() {
       viewBox="0 0 59 103"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className="absolute bottom-5 md:bottom-3 left-1/2 scale-75 md:scale-100"
+      className="absolute bottom-5 md:bottom-3 left-1/2 scale-75 md:scale-100 hidden md:block"
       initial={{ scale: 0.85, y: -12, translateX: "-45%" }}
       animate={{ scale: 1, y: 0 }}
       transition={{ duration: 0.75, repeat: Infinity, repeatType: "reverse" }}
