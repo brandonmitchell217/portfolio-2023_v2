@@ -33,7 +33,7 @@ export const NavigationLinks: NavigationLinksProps[] = [
   {
     id: 2,
     name: "About",
-    url: "/#about",
+    url: "/about",
     query: "",
     icon: <User className="w-12 h-12" />,
   },
