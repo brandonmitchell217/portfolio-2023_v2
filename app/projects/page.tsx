@@ -4,6 +4,7 @@ import { cookies } from "next/headers";
 import ProjectCard from "@/components/Projects/ProjectCard";
 import ProjectSlalom from "@/components/Projects/ProjectSlalom";
 import SectionTitle from "@/components/SectionTitle";
+import MobileHeader from "@/components/ui/MobileHeader";
 export const dynamic = "force-static";
 
 export default async function ProjectsPage() {
@@ -11,8 +12,9 @@ export default async function ProjectsPage() {
   const { data: data } = await supabase.from("projects").select();
 
   return (
-    <main className="relative w-full pt-8 sm:pt-20 lg:pt-32 pb-20 max-w-7xl">
-      <section className="space-y-8 lg:space-y-16 px-4">
+    <main className="relative w-full max-w-7xl">
+      <MobileHeader />
+      <section className="space-y-8 lg:space-y-16 py-24 md:py-36 px-4">
         <SectionTitle title="Projects" size="large" />
         <div className="w-full lg:px-4 flex flex-col gap-2 md:gap-12">
           <ProjectSlalom side="start">
