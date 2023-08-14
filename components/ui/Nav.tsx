@@ -31,9 +31,6 @@ export default function Nav() {
   }, [isMenuOpen, desktopMatches, tabletMatches, mobileMatches, pathname]);
 
   const MobileNav = () => {
-    const mobileNavFun = (link: any) => {
-      setActiveTab(link.url || "");
-    };
     return (
       <nav className="fixed bottom-0 w-full z-10 shadow-xl">
         <div className="flex justify-evenly items-center bg-dark">
