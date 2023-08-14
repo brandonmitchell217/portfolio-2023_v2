@@ -10,6 +10,7 @@ import { useRef } from "react";
 import Link from "next/link";
 import { Mail, Github, Linkedin } from "lucide-react";
 import { NavigationLinksProps } from "@/lib/types";
+import { useMediaQuery } from "usehooks-ts";
 
 export function SocialHover({ links }: NavigationLinksProps) {
   let mouseX = useMotionValue(Infinity);
@@ -20,9 +21,9 @@ export function SocialHover({ links }: NavigationLinksProps) {
       onMouseLeave={() => mouseX.set(Infinity)}
       className="mx-auto md:max-w-3xl flex h-16 items-end justify-center gap-24 rounded-2xl border border-dark px-4 pb-3 group"
     >
-      {links.map((link: any) => (
-        <Link key={link.name} href={link.url} target="_blank">
-          <AppIcon mouseX={mouseX} key={link.id} name={link.name} />
+      {links.map((link: Partial<NavigationLinksProps>) => (
+        <Link key={link.name} href={link.url || ""} target="_blank">
+          <AppIcon mouseX={mouseX} key={link.id} name={link.name || ""} />
         </Link>
       ))}
     </motion.div>
@@ -30,6 +31,7 @@ export function SocialHover({ links }: NavigationLinksProps) {
 }
 
 function AppIcon({ mouseX, name }: { mouseX: MotionValue; name: string }) {
+  const desktopMatches = useMediaQuery("(min-width: 1023px)");
   let ref = useRef<HTMLDivElement>(null);
 
   let distance = useTransform(mouseX, (val) => {
@@ -43,21 +45,23 @@ function AppIcon({ mouseX, name }: { mouseX: MotionValue; name: string }) {
 
   function whichIcon(name: string) {
     if (name === "Email") {
-      return <Mail className="group-hover:w-12 group-hover:h-auto" />;
+      return <Mail className="lg:group-hover:w-12 lg:group-hover:h-auto" />;
     }
     if (name === "Github") {
-      return <Github className="group-hover:w-12 group-hover:h-auto" />;
+      return <Github className="lg:group-hover:w-12 lg:group-hover:h-auto" />;
     }
     if (name === "LinkedIn") {
-      return <Linkedin className="m-0.5 group-hover:w-12 group-hover:h-auto" />;
+      return (
+        <Linkedin className="m-0.5 lg:group-hover:w-12 lg:group-hover:h-auto" />
+      );
     }
   }
 
   return (
     <motion.div
       ref={ref}
-      style={{ width }}
-      className="aspect-square w-10 group-hover:w-16 group-hover:p-2 flex justify-center items-center rounded-full border border-dark group"
+      style={desktopMatches ? { width } : undefined}
+      className="aspect-square w-10 hover:scale-110 hover:bg-lime lg:hover:scale-100 lg:group-hover:p-2 flex justify-center items-center rounded-full border border-dark group"
     >
       {whichIcon(name)}
     </motion.div>

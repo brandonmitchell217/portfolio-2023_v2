@@ -7,7 +7,7 @@ interface SectionTitleProps {
   size: "small" | "large";
   className?: string;
 }
-// TODO: Fix spacing for tools title
+
 export default function SectionTitle({
   title,
   size,

@@ -20,13 +20,10 @@ export default function Nav() {
   React.useEffect(() => {
     if (desktopMatches) {
       setIsNavDevice(<DesktopNav />);
-      // setActiveTab(pathname);
     } else if (tabletMatches) {
       setIsNavDevice(<TabletNav />);
-      // setActiveTab(pathname);
     } else if (mobileMatches) {
       setIsNavDevice(<MobileNav />);
-      // setActiveTab(pathname);
     }
   }, [isMenuOpen, desktopMatches, tabletMatches, mobileMatches, pathname]);
 
