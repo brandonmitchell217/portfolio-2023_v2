@@ -28,7 +28,7 @@ export default function Index() {
       <div className="relative w-full px-4 max-w-7xl m-auto">
         {/* Only shows on mobile when bottom nav appears */}
         <MobileHeader />
-        <section className="relative min-h-[80vh] sm:min-h-[90vh] pt-32 pb-24 md:pb-16 flex flex-col items-center justify-between">
+        <section className="relative min-h-[80vh] sm:min-h-screen pt-32 pb-12 md:pb-16 flex flex-col items-center justify-between">
           <Quote />
           <InfoHeader data={{ ...BasicInfo }} />
         </section>

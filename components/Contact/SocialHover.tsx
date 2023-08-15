@@ -19,7 +19,7 @@ export function SocialHover({ links }: NavigationLinksProps) {
     <motion.div
       onMouseMove={(e) => mouseX.set(e.pageX)}
       onMouseLeave={() => mouseX.set(Infinity)}
-      className="mx-auto md:max-w-3xl flex h-16 items-end justify-center gap-24 rounded-2xl border border-dark px-4 pb-3 group"
+      className="mx-auto md:max-w-3xl flex h-16 items-end justify-center gap-24 rounded-2xl border border-dark bg-dark px-4 pb-3 group"
     >
       {links.map((link: Partial<NavigationLinksProps>) => (
         <Link key={link.name} href={link.url || ""} target="_blank">
@@ -61,7 +61,7 @@ function AppIcon({ mouseX, name }: { mouseX: MotionValue; name: string }) {
     <motion.div
       ref={ref}
       style={desktopMatches ? { width } : undefined}
-      className="aspect-square w-10 hover:scale-110 hover:bg-lime lg:hover:scale-100 lg:group-hover:p-2 flex justify-center items-center rounded-full border border-dark group"
+      className="aspect-square w-10 hover:scale-110 hover:bg-lime lg:hover:scale-100 lg:group-hover:p-2 flex justify-center items-center rounded-full border border-light text-light hover:text-dark hover:border-dark hover:border-2 group transition"
     >
       {whichIcon(name)}
     </motion.div>
