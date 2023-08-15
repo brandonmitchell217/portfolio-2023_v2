@@ -15,9 +15,9 @@ export default async function ProjectsPage() {
   return (
     <main className="relative w-full max-w-7xl">
       <MobileHeader />
-      <section className="space-y-8 lg:space-y-16 py-24 md:py-36 px-4">
+      <section className="space-y-8 lg:space-y-16 pt-32 pb-24 md:py-36 px-4">
         <SectionTitle title="Projects" size="large" />
-        <div className="w-full lg:px-4 flex flex-col gap-2 md:gap-12">
+        <div className="w-full lg:px-4 xl:px-8 flex flex-col gap-2 md:gap-12">
           <ProjectSlalom side="start">
             {data &&
               data
