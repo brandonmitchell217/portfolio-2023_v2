@@ -5,6 +5,7 @@ import ProjectCard from "@/components/Projects/ProjectCard";
 import ProjectSlalom from "@/components/Projects/ProjectSlalom";
 import SectionTitle from "@/components/SectionTitle";
 import MobileHeader from "@/components/ui/MobileHeader";
+import Button from "@/components/ui/Button";
 export const dynamic = "force-static";
 
 export default async function ProjectsPage() {
@@ -43,6 +44,13 @@ export default async function ProjectsPage() {
                 ))}
           </ProjectSlalom> */}
         </div>
+        <Button
+          href={"https://github.com/brandonmitchell217?tab=repositories"}
+          new_tab={true}
+          className="bg-dark text-light block max-w-xs m-auto text-center lg:text-lg xl:text-xl"
+        >
+          Check out my other Repos
+        </Button>
       </section>
     </main>
   );

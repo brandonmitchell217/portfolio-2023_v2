@@ -10,7 +10,7 @@ export default function Star() {
       viewBox="0 0 102 99"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className="scale-[0.7] ml-3 md:ml-0 md:scale-75 lg:scale-100"
+      className="h-auto w-[65px] md:w-[80px] xl:w-[102px]"
     >
       <rect width="102" height="99" rx="20" fill="#1B1B1E" />
       <motion.path

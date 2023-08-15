@@ -1,12 +1,10 @@
+import React from "react";
 import ContactForm from "@/components/Contact/ContactForm";
 import { SocialHover } from "@/components/Contact/SocialHover";
-import Star from "@/components/assets/Star";
-import React from "react";
 import { SocialLinks } from "@/lib/util";
 import SectionTitle from "@/components/SectionTitle";
 import MobileHeader from "@/components/ui/MobileHeader";
-
-// TODO: Sizing for the title, perhaps break out into component
+import Social from "@/components/Contact/Social";
 
 export default function ContactPage() {
   return (
@@ -20,7 +18,8 @@ export default function ContactPage() {
           </div>
         </div>
         <div>
-          <SocialHover links={SocialLinks} />
+          {/* <SocialHover links={SocialLinks} /> */}
+          <Social links={SocialLinks} />
         </div>
       </section>
     </main>

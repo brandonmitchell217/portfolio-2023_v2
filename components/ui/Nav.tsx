@@ -150,7 +150,7 @@ export default function Nav() {
             </ul>
           </div>
 
-          <div className="">
+          <div className={pathname === "/contact" ? "hidden" : ""}>
             <ul className="flex gap-12">
               {SocialLinks.map((link) => (
                 <li key={link.name}>
