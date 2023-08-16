@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import Circles from "./assets/Circles1";
 import { motion } from "framer-motion";
+import { twMerge } from "tailwind-merge";
 
 export default function InfoHeader({ ...data }) {
   const [currentDate, setCurrentDate] = useState("");
@@ -42,9 +43,7 @@ export default function InfoHeader({ ...data }) {
 
   return (
     <div>
-      <div
-        className={`relative w-full flex flex-col sm:flex-row justify-between items-center text-[0.7rem] xs:text-clamp2 leading-[1.095] tracking-[-0.02em] overflow-y-hidden`}
-      >
+      <div className="relative w-full flex items-center text-[0.675rem] xs:text-clamp2 leading-[1.095] tracking-[-0.02em] overflow-y-hidden">
         <div className="md:w-1/3 flex justify-start">
           <motion.h5
             initial={{ y: 500 }}
@@ -75,7 +74,7 @@ export default function InfoHeader({ ...data }) {
           </h1>
         </div>
         <div className="bg-black text-light text-center w-fit rounded-md xs:rounded-xl m-auto">
-          <h2 className="uppercase px-4 py-1.5 md:px-5 md:py-2.5 text-[0.875rem] xs:text-clamp3 font-unbounded font-normal">
+          <h2 className="uppercase px-4 py-1.5 md:px-5 md:py-2.5 xs:-mt-1 sm:mt-0 text-[0.75rem] xs:text-clamp3 font-unbounded font-normal">
             {info.title}
           </h2>
         </div>

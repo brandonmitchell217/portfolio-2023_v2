@@ -86,7 +86,7 @@ export default function Nav() {
           </div>
 
           {isMenuOpen && (
-            <div className="absolute top-0 right-0 max-w-[450px] w-1/2 bg-dark z-10 px-10 pt-24 pb-16">
+            <div className="absolute top-0 right-0 max-w-[450px] w-1/2 bg-dark z-10 px-10 pt-24 pb-16 rounded-bl-2.5xl">
               <div className="space-y-12">
                 <ul className="flex flex-col gap-12 text-xl text-light text-center">
                   {NavigationLinks.slice(1).map((link) => (
