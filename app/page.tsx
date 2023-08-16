@@ -17,7 +17,7 @@ type EventOptions = Record<string, any> & {
   userId?: string;
 };
 
-export function event(
+function event(
   action: string,
   {
     category,
@@ -33,12 +33,7 @@ export function event(
   }
 }
 
-export function reportWebVitals({
-  id,
-  name,
-  label,
-  value,
-}: NextWebVitalsMetric) {
+function reportWebVitals({ id, name, label, value }: NextWebVitalsMetric) {
   event(name, {
     category: label === "web-vital" ? "Web Vitals" : "Next.js custom metric",
     value: Math.round(name === "CLS" ? value * 1000 : value), // values must be integers
