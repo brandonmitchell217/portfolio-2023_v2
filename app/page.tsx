@@ -4,7 +4,7 @@ import Link from "next/link";
 import InfoHeader from "@/components/InfoHeader";
 import Quote from "@/components/Quote";
 import Contact from "@/components/Contact";
-import { GoogleAnalytics } from "nextjs-google-analytics";
+import GoogleAnalytics from "@/lib/GoogleAnalytics";
 import { gaMeasurementId } from "@/lib/gtag";
 import type { NextWebVitalsMetric } from "next/app";
 import { useEffect } from "react";
@@ -89,6 +89,9 @@ export default function Index() {
         </div>
         <Contact />
       </main>
+      <GoogleAnalytics
+        GA_TRACKING_ID={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID as string}
+      />
     </>
   );
 }

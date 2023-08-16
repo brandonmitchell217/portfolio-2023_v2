@@ -5,6 +5,7 @@ import Footer from "@/components/ui/Footer";
 import MobileHeader from "@/components/ui/MobileHeader";
 import Script from "next/script";
 import { gaMeasurementId } from "@/lib/gtag";
+import GoogleAnalytics from "@/lib/GoogleAnalytics";
 
 const outfit = Outfit({
   weight: ["300", "400", "500", "600", "700", "800", "900"],
@@ -39,7 +40,7 @@ export default function RootLayout({
           {children}
           <Footer />
         </body>
-        <Script
+        {/* <Script
           async
           src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}`}
           strategy="afterInteractive"
@@ -51,7 +52,7 @@ export default function RootLayout({
              gtag('js', new Date());
              gtag('config', '${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}')
           `}
-        </Script>
+        </Script> */}
       </html>
     </>
   );
