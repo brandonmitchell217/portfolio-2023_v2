@@ -9,7 +9,7 @@ import Social from "@/components/Contact/Social";
 export default function ContactPage() {
   return (
     <main className="w-full">
-      <MobileHeader />
+      {/* <MobileHeader /> */}
       <section className="max-w-7xl m-auto px-3 py-28 md:py-36 space-y-24">
         <div className="space-y-12 lg:space-y-0">
           <SectionTitle title="Contact" size="large" />

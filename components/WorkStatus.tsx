@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function WorkStatus() {
   return (
-    <h3 className="font-medium text-[20px] md:text-[40px] tracking-[0.02em] lg:leading-[60px] text-center">
+    <h3 className="px-2 md:px-8 lg:px-0 font-medium text-[20px] md:text-[40px] tracking-[0.02em] lg:leading-[60px] text-center">
       I am currently on the marketing team at{" "}
       <Link href={"https://www.gloo.us/"} target="_blank">
         <Image

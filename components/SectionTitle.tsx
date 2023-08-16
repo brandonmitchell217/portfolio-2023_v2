@@ -1,8 +1,6 @@
 import React from "react";
 import Star from "@/components/assets/Star";
 import { twMerge } from "tailwind-merge";
-import Brick from "./assets/Brick";
-import { Send } from "lucide-react";
 import Mail from "./assets/Mail";
 import Dice from "./assets/Dice";
 
@@ -37,7 +35,9 @@ export default function SectionTitle({
       <h2
         className={`border-b-[1.5px] md:border-b-[3px] border-dark font-unbounded font-semibold tracking-[0.03em] leading-none ${
           size === "small"
-            ? twMerge("text-[32px] md:text-[48px] xl:text-[72px] ")
+            ? twMerge(
+                "text-[28px] xs:text-[32px] md:text-[48px] xl:text-[72px] "
+              )
             : twMerge("text-[48px] xl:text-[72px]")
         } `}
       >

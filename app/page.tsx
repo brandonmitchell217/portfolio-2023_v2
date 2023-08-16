@@ -5,8 +5,6 @@ import LogoutButton from "../components/LogoutButton";
 import InfoHeader from "@/components/Home/InfoHeader";
 import Quote from "@/components/Home/Quote";
 import Contact from "@/components/Home/Contact";
-import MobileHeader from "@/components/ui/MobileHeader";
-import Loading from "@/components/ui/Loading";
 
 export default function Index() {
   // const supabase = createServerComponentClient({ cookies });
@@ -24,10 +22,8 @@ export default function Index() {
 
   return (
     <main className="relative w-full space-y-6 md:space-y-12">
-      {/* <Loading /> */}
       <div className="relative px-4 max-w-7xl w-full m-auto">
         {/* Only shows on mobile when bottom nav appears */}
-        <MobileHeader />
         <section className="relative h-[90vh] md:h-screen pt-32 pb-12 md:pb-16 flex flex-col items-center justify-between">
           <Quote />
           <InfoHeader data={{ ...BasicInfo }} />

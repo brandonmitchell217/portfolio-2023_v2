@@ -2,6 +2,7 @@ import Nav from "@/components/ui/Nav";
 import "./globals.css";
 import { Outfit, Unbounded } from "next/font/google";
 import Footer from "@/components/ui/Footer";
+import MobileHeader from "@/components/ui/MobileHeader";
 
 const outfit = Outfit({
   weight: ["300", "400", "500", "600", "700", "800", "900"],
@@ -34,6 +35,7 @@ export default function RootLayout({
         className="h-full bg-light text-dark relative z-[1] font-outfit flex flex-col items-center"
       >
         <Nav />
+        <MobileHeader />
         {children}
         <Footer />
       </body>
