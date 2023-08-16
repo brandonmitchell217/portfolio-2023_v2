@@ -4,44 +4,6 @@ import Link from "next/link";
 import InfoHeader from "@/components/InfoHeader";
 import Quote from "@/components/Quote";
 import Contact from "@/components/Contact";
-import GoogleAnalytics from "@/components/GoogleAnalytics";
-import type { NextWebVitalsMetric } from "next/app";
-import { useEffect } from "react";
-import Head from "next/head";
-
-// type EventOptions = Record<string, any> & {
-//   category?: string;
-//   label?: string;
-//   value?: number;
-//   nonInteraction?: boolean;
-//   userId?: string;
-// };
-
-// function event(
-//   action: string,
-//   {
-//     category,
-//     label,
-//     value,
-//     nonInteraction,
-//     userId,
-//     ...otherOptions
-//   }: EventOptions = {}
-// ): void {
-//   if (!window.gtag) {
-//     return;
-//   }
-// }
-
-// function reportWebVitals({ id, name, label, value }: NextWebVitalsMetric) {
-//   event(name, {
-//     category: label === "web-vital" ? "Web Vitals" : "Next.js custom metric",
-//     value: Math.round(name === "CLS" ? value * 1000 : value), // values must be integers
-//     label: id, // id unique to current page load
-//     nonInteraction: true, // avoids affecting bounce rate.
-//   }),
-//     gaMeasurementId;
-// }
 
 export default function Index() {
   // const supabase = createServerComponentClient({ cookies });
@@ -59,25 +21,6 @@ export default function Index() {
 
   return (
     <>
-      {/* <Head>
-        <script
-          async
-          src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}
-        />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', '${gaMeasurementId}', {
-            page_path: window.location.pathname,
-          })
-        `,
-          }}
-        />
-      </Head> */}
-      {/* <GoogleAnalytics trackPageViews={true} /> */}
       <main className="relative w-full space-y-6 md:space-y-12">
         <div className="relative px-4 max-w-7xl w-full m-auto">
           {/* Only shows on mobile when bottom nav appears */}

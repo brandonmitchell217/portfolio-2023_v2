@@ -26,6 +26,10 @@ export default function GoogleAnalytics() {
                     gtag('config', '${gtag.GA_TRACKING_ID}', {
                         page_path: window.location.pathname,
                     });
+                    gtag('event', 'screen_view', {
+                        app_name: 'Portfolio_V2',
+                        screen_name: 'Home',
+                      });
                     `,
             }}
           />
