@@ -29,14 +29,18 @@ export default function RootLayout({
 }) {
   return (
     <>
-      <Head>
-        <script
-          async
-          src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}
-        />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
+      <html
+        lang="en"
+        className={`${outfit.variable} ${unbounded.variable} scroll-smooth`}
+      >
+        <Head>
+          <script
+            async
+            src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}
+          />
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
@@ -44,13 +48,9 @@ export default function RootLayout({
             page_path: window.location.pathname,
           })
         `,
-          }}
-        />
-      </Head>
-      <html
-        lang="en"
-        className={`${outfit.variable} ${unbounded.variable} scroll-smooth`}
-      >
+            }}
+          />
+        </Head>
         <body
           suppressHydrationWarning={true}
           className="h-full bg-light text-dark relative z-[1] font-outfit flex flex-col items-center"
