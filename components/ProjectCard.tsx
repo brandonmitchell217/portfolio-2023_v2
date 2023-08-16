@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-import SvgFunc, { TechList } from "../assets/Tech";
+import SvgFunc, { TechList } from "./assets/Tech";
 import { Github, Link as LinkIcon } from "lucide-react";
 import { DataProps } from "@/lib/types";
 

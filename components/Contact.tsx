@@ -1,8 +1,8 @@
 "use client";
 import Link from "next/link";
 import React from "react";
-import BackBtn from "../assets/BackBtn";
-import Circles2 from "../assets/Circles2";
+import BackBtn from "./assets/BackBtn";
+import Circles2 from "./assets/Circles2";
 import { scrollToTop } from "@/lib/util";
 import { motion } from "framer-motion";
 

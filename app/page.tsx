@@ -1,10 +1,9 @@
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import Link from "next/link";
-import LogoutButton from "../components/LogoutButton";
-import InfoHeader from "@/components/Home/InfoHeader";
-import Quote from "@/components/Home/Quote";
-import Contact from "@/components/Home/Contact";
+import InfoHeader from "@/components/InfoHeader";
+import Quote from "@/components/Quote";
+import Contact from "@/components/Contact";
 
 export default function Index() {
   // const supabase = createServerComponentClient({ cookies });

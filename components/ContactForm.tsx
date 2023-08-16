@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import useWeb3forms from "use-web3forms";
 import { useForm } from "react-hook-form";
 import { X } from "lucide-react";
-import Button from "../ui/Button";
+import Button from "./ui/Button";
 
 interface FormData {
   Name: string;

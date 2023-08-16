@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import Circles from "../assets/Circles1";
+import Circles from "./assets/Circles1";
 import { motion } from "framer-motion";
 
 export default function InfoHeader({ ...data }) {
