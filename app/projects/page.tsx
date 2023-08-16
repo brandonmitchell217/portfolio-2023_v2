@@ -4,7 +4,6 @@ import { cookies } from "next/headers";
 import ProjectCard from "@/components/Projects/ProjectCard";
 import ProjectSlalom from "@/components/Projects/ProjectSlalom";
 import SectionTitle from "@/components/SectionTitle";
-import MobileHeader from "@/components/ui/MobileHeader";
 import Button from "@/components/ui/Button";
 export const dynamic = "force-static";
 
@@ -14,7 +13,6 @@ export default async function ProjectsPage() {
 
   return (
     <main className="relative w-full max-w-7xl">
-      <MobileHeader />
       <section className="space-y-8 lg:space-y-16 pt-32 pb-24 md:py-36 px-4">
         <SectionTitle title="Projects" size="large" />
         <div className="w-full lg:px-4 xl:px-8 flex flex-col gap-2 md:gap-12">

@@ -3,13 +3,11 @@ import { PastPresent } from "@/components/About/PastPresent";
 import Tools from "@/components/Home/Tools";
 import WorkStatus from "@/components/WorkStatus";
 import Contact from "@/components/Home/Contact";
-import MobileHeader from "@/components/ui/MobileHeader";
 
 export default function AboutPage() {
   return (
     <main className="w-full">
       <div className="relative w-full px-4 max-w-7xl m-auto">
-        <MobileHeader />
         <section className="py-32 lg:py-44">
           <PastPresent />
         </section>
