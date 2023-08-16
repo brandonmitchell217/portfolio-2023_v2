@@ -1,8 +1,8 @@
 import React from "react";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
-import ProjectCard from "@/components/Projects/ProjectCard";
-import ProjectSlalom from "@/components/Projects/ProjectSlalom";
+import ProjectCard from "@/components/ProjectCard";
+import ProjectSlalom from "@/components/ProjectSlalom";
 import SectionTitle from "@/components/SectionTitle";
 import Button from "@/components/ui/Button";
 export const dynamic = "force-static";

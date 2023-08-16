@@ -1,8 +1,8 @@
 import React from "react";
-import { PastPresent } from "@/components/About/PastPresent";
-import Tools from "@/components/Home/Tools";
+import { PastPresent } from "@/components/PastPresent";
+import Tools from "@/components/Tools";
 import WorkStatus from "@/components/WorkStatus";
-import Contact from "@/components/Home/Contact";
+import Contact from "@/components/Contact";
 
 export default function AboutPage() {
   return (

@@ -1,8 +1,8 @@
 "use client";
 import React from "react";
-import SvgFunc, { TechList } from "../assets/Tech";
+import SvgFunc, { TechList } from "./assets/Tech";
 import { motion } from "framer-motion";
-import SectionTitle from "../SectionTitle";
+import SectionTitle from "./SectionTitle";
 
 export default function Tools() {
   const listItem = {
