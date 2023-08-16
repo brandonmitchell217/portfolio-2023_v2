@@ -41,7 +41,7 @@ export default function RootLayout({
         </body>
         <Script
           async
-          src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}
+          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}`}
           strategy="afterInteractive"
         />
         <Script
@@ -50,9 +50,7 @@ export default function RootLayout({
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', '${gaMeasurementId}', {
-            page_path: window.location.pathname,
-          })
+          gtag('config', '${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}')
         `,
           }}
         />
