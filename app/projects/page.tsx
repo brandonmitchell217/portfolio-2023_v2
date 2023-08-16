@@ -47,7 +47,7 @@ export default async function ProjectsPage() {
         <Button
           href={"https://github.com/brandonmitchell217?tab=repositories"}
           new_tab={true}
-          className="bg-dark text-light block max-w-xs m-auto text-center lg:text-lg xl:text-xl"
+          className="border-dark bg-dark text-light block max-w-xs m-auto text-center lg:text-lg xl:text-xl hover:bg-transparent hover:text-dark transition-all"
         >
           Check out my other Repos
         </Button>
