@@ -60,7 +60,7 @@ export default function Index() {
 
   return (
     <>
-      <GoogleAnalytics trackPageViews gaMeasurementId={gaMeasurementId} />
+      <GoogleAnalytics gaMeasurementId={gaMeasurementId} />
       <main className="relative w-full space-y-6 md:space-y-12">
         <div className="relative px-4 max-w-7xl w-full m-auto">
           {/* Only shows on mobile when bottom nav appears */}

@@ -42,7 +42,9 @@ export default function InfoHeader({ ...data }) {
 
   return (
     <div>
-      <div className="relative flex justify-between items-center text-[0.7rem] xs:text-clamp2 leading-[1.095] tracking-[-0.02em] overflow-y-hidden">
+      <div
+        className={`relative w-full flex flex-col sm:flex-row justify-between items-center text-[0.7rem] xs:text-clamp2 leading-[1.095] tracking-[-0.02em] overflow-y-hidden`}
+      >
         <div className="md:w-1/3 flex justify-start">
           <motion.h5
             initial={{ y: 500 }}
@@ -53,7 +55,7 @@ export default function InfoHeader({ ...data }) {
           </motion.h5>
         </div>
         <div className="md:w-1/3 flex justify-center scale-75 xs:scale-100 xl:scale-125">
-          <Circles />
+          {isLoading ? null : <Circles />}
         </div>
         <div className="md:w-1/3 flex justify-end">
           <motion.h5
