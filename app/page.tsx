@@ -60,6 +60,24 @@ export default function Index() {
 
   return (
     <>
+      {/* <Head>
+        <script
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', '${gaMeasurementId}', {
+            page_path: window.location.pathname,
+          })
+        `,
+          }}
+        />
+      </Head> */}
       {/* <GoogleAnalytics trackPageViews={true} /> */}
       <main className="relative w-full space-y-6 md:space-y-12">
         <div className="relative px-4 max-w-7xl w-full m-auto">
