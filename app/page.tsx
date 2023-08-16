@@ -23,16 +23,17 @@ export default function Index() {
   // const { data: data } = await supabase.from("projects").select();
 
   return (
-    <main className="relative w-full">
+    <main className="relative w-full space-y-6 md:space-y-12">
       {/* <Loading /> */}
-      <div className="relative w-full px-4 max-w-7xl m-auto">
+      <div className="relative px-4 max-w-7xl w-full m-auto">
         {/* Only shows on mobile when bottom nav appears */}
         <MobileHeader />
-        <section className="relative min-h-[80vh] sm:min-h-screen pt-32 pb-12 md:pb-16 flex flex-col items-center justify-between">
+        <section className="relative h-[90vh] md:h-screen pt-32 pb-12 md:pb-16 flex flex-col items-center justify-between">
           <Quote />
           <InfoHeader data={{ ...BasicInfo }} />
         </section>
       </div>
+      <Contact />
     </main>
   );
 }

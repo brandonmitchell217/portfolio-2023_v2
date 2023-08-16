@@ -4,10 +4,15 @@ import React from "react";
 import BackBtn from "../assets/BackBtn";
 import Circles2 from "../assets/Circles2";
 import { scrollToTop } from "@/lib/util";
+import { motion } from "framer-motion";
 
 export default function Contact() {
   return (
-    <div className="bg-dark text-light w-full pt-14 rounded-tl-2.5xl rounded-tr-2.5xl md:rounded-tl-[40px] md:rounded-tr-[40px]">
+    <motion.div
+      initial={{ opacity: 0, y: 100 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      className="bg-dark text-light w-full pt-14 rounded-tl-2.5xl rounded-tr-2.5xl md:rounded-tl-[40px] md:rounded-tr-[40px]"
+    >
       <div className="h-full border-t-[6px] border-b-[6px] border-light pt-6 pb-16 w-full">
         <div className="relative max-w-7xl m-auto h-full px-4 xl:px-0">
           <div className="flex flex-col gap-12">
@@ -65,6 +70,6 @@ export default function Contact() {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
