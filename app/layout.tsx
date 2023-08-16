@@ -3,6 +3,8 @@ import "./globals.css";
 import { Outfit, Unbounded } from "next/font/google";
 import Footer from "@/components/ui/Footer";
 import MobileHeader from "@/components/ui/MobileHeader";
+import Head from "next/head";
+import { gaMeasurementId } from "@/lib/gtag";
 
 const outfit = Outfit({
   weight: ["300", "400", "500", "600", "700", "800", "900"],
@@ -26,19 +28,39 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="en"
-      className={`${outfit.variable} ${unbounded.variable} scroll-smooth`}
-    >
-      <body
-        suppressHydrationWarning={true}
-        className="h-full bg-light text-dark relative z-[1] font-outfit flex flex-col items-center"
+    <>
+      <Head>
+        <script
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', '${gaMeasurementId}', {
+            page_path: window.location.pathname,
+          })
+        `,
+          }}
+        />
+      </Head>
+      <html
+        lang="en"
+        className={`${outfit.variable} ${unbounded.variable} scroll-smooth`}
       >
-        <Nav />
-        <MobileHeader />
-        {children}
-        <Footer />
-      </body>
-    </html>
+        <body
+          suppressHydrationWarning={true}
+          className="h-full bg-light text-dark relative z-[1] font-outfit flex flex-col items-center"
+        >
+          <Nav />
+          <MobileHeader />
+          {children}
+          <Footer />
+        </body>
+      </html>
+    </>
   );
 }
