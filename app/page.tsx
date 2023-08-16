@@ -8,6 +8,7 @@ import Contact from "@/components/Contact";
 import { GoogleAnalytics } from "nextjs-google-analytics";
 import { gaMeasurementId } from "@/lib/gtag";
 import type { NextWebVitalsMetric } from "next/app";
+import { useEffect } from "react";
 
 type EventOptions = Record<string, any> & {
   category?: string;
@@ -50,6 +51,10 @@ export default function Index() {
     title: "Frontend Developer",
     location: "Raleigh, North Carolina",
   };
+
+  useEffect(() => {
+    reportWebVitals;
+  });
 
   // const {
   //   data: { user },
