@@ -25,20 +25,31 @@ export const PastPresent = () => {
     }
   }, [currentAbout, aboutData, aboutImage]);
 
+  const spring = {
+    type: "spring",
+    damping: 15,
+    stiffness: 15,
+  };
+
   return (
     <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.2 }}
+      initial={{ scale: 0 }}
+      animate={{ scale: 1, transformOrigin: "center" }}
+      transition={{ duration: 0.5, type: spring }}
       className="px-1 py-4 lg:py-1 w-full flex flex-col lg:flex-row bg-dark text-light rounded-2.5xl"
     >
       {/* left */}
       <div>
         <Image
           src={aboutImage}
-          alt="Picture of Brandon Mitchell"
+          alt={`Picture of Me, Brandon Mitchell - ${
+            currentAbout === 1 ? "Present" : "Past"
+          }`}
           height={550}
           width={383}
+          priority={currentAbout === 1 ? true : false}
+          placeholder="blur"
+          blurDataURL={aboutImage || "/me.jpg"}
           className="rounded-2.5xl lg:rounded-none lg:rounded-tl-2.5xl lg:rounded-bl-2.5xl m-auto w-60 sm:w-72 md:w-auto"
         />
       </div>

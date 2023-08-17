@@ -7,6 +7,7 @@ import { Grip, X } from "lucide-react";
 import { useMediaQuery } from "usehooks-ts";
 import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
+import Social from "../Social";
 
 export default function Nav() {
   const pathname = usePathname();
@@ -114,6 +115,7 @@ export default function Nav() {
                     </li>
                   ))}
                 </ul>
+                <Social links={SocialLinks} new_tab={true} size={32} />
               </div>
             </div>
           )}

@@ -35,11 +35,6 @@ export default function InfoHeader({ ...data }) {
 
     return () => clearInterval(intervalId);
   }, []);
-  const spring = {
-    type: "spring",
-    damping: 15,
-    stiffness: 15,
-  };
 
   return (
     <div>

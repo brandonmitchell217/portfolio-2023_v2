@@ -2,8 +2,21 @@ import React from "react";
 import Link from "next/link";
 import { Mail, Github, Linkedin } from "lucide-react";
 import { NavigationLinksProps } from "@/lib/types";
+import SvgFunc from "./assets/Tech";
 
-export default function Social({ links }: NavigationLinksProps) {
+interface SocialProps {
+  links: NavigationLinksProps[];
+  new_tab?: boolean;
+  size?: number;
+  hover_text?: boolean;
+}
+
+export default function Social({
+  links,
+  new_tab = false,
+  size,
+  hover_text = false,
+}: SocialProps) {
   return (
     <div className="max-w-xl m-auto">
       <ul className="w-full flex flex-row justify-around items-center">
@@ -12,15 +25,20 @@ export default function Social({ links }: NavigationLinksProps) {
             <Link
               href={link.url}
               className="flex flex-col justify-center items-center relative socialFillText group"
+              target={new_tab ? "_blank" : "_self"}
             >
               {/* {link.icon} */}
-              {link.name === "Email" && <Mail size={32} />}
-              {link.name === "LinkedIn" && <Linkedin size={32} />}
-              {link.name === "Github" && <Github size={32} />}
+              {link.name === "Email" && <Mail size={size} />}
+              {link.name === "LinkedIn" && <Linkedin size={size} />}
+              {link.name === "Github" && <Github size={size} />}
+              {/* <SvgFunc name={link.name} choice="social" />
+              {link.name} */}
 
-              <span className="absolute left-1/2 -bottom-6 -translate-x-1/2 hidden group-hover:block text-sm">
-                {link.name}
-              </span>
+              {hover_text && (
+                <span className="absolute left-1/2 -bottom-6 -translate-x-1/2 hidden group-hover:block text-sm">
+                  {link.name}
+                </span>
+              )}
             </Link>
           </li>
         ))}
