@@ -1,16 +1,4 @@
-"use client";
-import Email from "./Email";
-import LinkedIn from "./LinkedIn";
-import Github from "./GithubIcon";
-import { useEffect } from "react";
-import { twMerge } from "tailwind-merge";
-
-export const TechList: {
-  name: string;
-  icon?: React.ReactNode;
-  path?: string;
-  color: string;
-}[] = [
+export const TechList: { name: string; path: string; color: string }[] = [
   {
     name: "HTML5",
     path: "M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L5.412 4.41l.698 8.01h9.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531z",
@@ -94,85 +82,35 @@ const Bootstrap = {
   color: "#7952B3",
 };
 
-const SocialList: {
-  name: string;
-  icon?: React.ReactNode;
-  path?: string;
-  color: string;
-}[] = [
-  {
-    name: "Email",
-    icon: <Email />,
-    color: "#D64045",
-  },
-  {
-    name: "LinkedIn",
-    icon: <LinkedIn />,
-    color: "#0B65C2",
-  },
-  {
-    name: "GitHub",
-    icon: <Github />,
-    color: "#181717",
-  },
-];
-
 interface TechPathProps {
   name: string;
   className?: string;
-  choice?: string;
 }
 
-export default function SvgFunc({ name, className, choice }: TechPathProps) {
+export default function SvgFunc({ name, className }: TechPathProps) {
   const svgPathObject = TechList.find(
     (item) => item.name.toLowerCase() === name.toLowerCase()
   );
 
-  const testthing = (name: string) => {
-    const svgPathObjectSocial = SocialList.find(
-      (item) => item.name.toLowerCase() === name.toLowerCase()
-    );
-    const svgPathObjectTech = TechList.find(
-      (item) => item.name.toLowerCase() === name.toLowerCase()
-    );
-    if (name === "Email" || name === "LinkedIn" || name === "Github") {
-      return svgPathObjectSocial;
-    } else {
-      return svgPathObjectTech;
-    }
-  };
+  let bootstrap;
 
   if (!svgPathObject) {
     return null;
   }
 
-  useEffect(() => {
-    console.log(name);
-  });
-
-  const select = testthing(name);
-  const color1 = select?.color;
-
   const { path } = svgPathObject;
   const color = svgPathObject.color;
-
-  if (choice === "social") {
-    return <>{select?.icon}</>;
-  } else {
-    return (
-      <svg
-        role="img"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
-        className={`${twMerge(className)}`}
-        fill={select?.color}
-        style={{
-          color: select?.color,
-        }}
-      >
-        <title>{select?.name}</title>
-        <path d={select?.path} />
-      </svg>
-    );
-  }
+  return (
+    <svg
+      role="img"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+      className={`${className} `}
+      fill={name != "bootstrap" ? color : Bootstrap.color}
+      style={{ color: name != "bootstrap" ? color : Bootstrap.color }}
+    >
+      <title>{name != "bootstrap" ? name : Bootstrap.name}</title>
+      <path d={name != "bootstrap" ? path : Bootstrap.path} />
+    </svg>
+  );
 }

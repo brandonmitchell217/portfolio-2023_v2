@@ -1,6 +1,5 @@
 import React from "react";
 import ContactForm from "@/components/ContactForm";
-import { SocialHover } from "@/components/SocialHover";
 import { SocialLinks } from "@/lib/util";
 import SectionTitle from "@/components/SectionTitle";
 import Social from "@/components/Social";

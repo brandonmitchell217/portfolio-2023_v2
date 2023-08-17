@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { SocialLinks } from "@/lib/util";
 import { usePathname } from "next/navigation";
-import path from "path";
 
 export default function MobileHeader() {
   const pathname = usePathname();

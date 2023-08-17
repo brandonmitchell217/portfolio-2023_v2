@@ -6,9 +6,10 @@ import { twMerge } from "tailwind-merge";
 import { motion } from "framer-motion";
 
 const pastAbout =
-  "Lorem ipsum dolor sit amet consectetur. Amet congue lorem tempor nisi. Egestas faucibus viverra non arcu mauris leo ornare adipiscing. Amet tempor commodo mauris at lobortis sodales neque ultrices massa. Tincidunt scelerisque scelerisque sed amet urna volutpat. Donec fermentum egestas nibh tincidunt. Viverra quis eget non lacus. Interdum iaculis nisi adipiscing felis malesuada rhoncus. Risus sagittis facilisi augue massa faucibus quis morbi porttitor nunc. Mi est ligula eu at purus risus adipiscing orci mauris. Amet purus donec egestas cursus sit cras volutpat iaculis. Ipsum phasellus gravida eu a. Enim lectus quam vitae a ac nulla.";
+  "Through the years I've always had an interest in technology in some kind of way. It all started with Dreamweaver & MySpace layouts back in middle school. Not to state my age or anything again... Since then I have worked with game development, 3D modeling & animation. Before having kids & learning web development, I've been a cook, dishwasher, baker, teacher & a soldier. Hardwork & dedication are at my core. These paths have led me to being the more adventurous, hardworking developer I am today. Growing up, video games were a huge part of my life. It was once I started trying to create models for games that I found my interest in design. While I'm certainly more confident at the code side of things, I'll always seek to create awesome things that are both cool to look at & functional.";
+
 const presentAbout =
-  "Enim lectus quam vitae a ac nulla. Lorem ipsum dolor sit amet consectetur. Amet congue lorem tempor nisi. Egestas faucibus viverra non arcu mauris leo ornare adipiscing. Amet tempor commodo mauris at lobortis sodales neque ultrices massa. Tincidunt scelerisque scelerisque sed amet urna volutpat. Donec fermentum egestas nibh tincidunt. Viverra quis eget non lacus. Interdum iaculis nisi adipiscing felis malesuada rhoncus. Risus sagittis facilisi augue massa faucibus quis morbi porttitor nunc. Mi est ligula eu at purus risus adipiscing orci mauris. Amet purus donec egestas cursus sit cras volutpat iaculis. Ipsum phasellus gravida eu a. Enim lectus quam vitae a ac nulla. Enim lectus quam vitae a ac nulla.";
+  "My name is Brandon & I'm a 32 year old developer from North Carolina. I'm really enjoying using NextJS, TailwindCSS & framer-motion right now. Away from the computer, you'll usually find me spending time with my wife & two kids. When I'm not coding or chasing the kids around, which is more rare these days, music is always where my brain goes to settle down. Over the past few years however, code has become my primary focus. It lets me create, explore & never have a finish line. I love the fact that with every new thing I learn, a whole new world of other things I do not know opens up. I strive to learn something everyday & try to learn from anyone who is willing to teach. I bring a strong work ethic, a passion for learning & a sense of urgency with every project to which I'm involved.";
 
 export const PastPresent = () => {
   const [currentAbout, setCurrentAbout] = useState(1);
@@ -50,7 +51,7 @@ export const PastPresent = () => {
           priority={currentAbout === 1 ? true : false}
           placeholder="blur"
           blurDataURL={aboutImage || "/me.jpg"}
-          className="rounded-2.5xl lg:rounded-none lg:rounded-tl-2.5xl lg:rounded-bl-2.5xl m-auto w-60 sm:w-72 md:w-auto"
+          className="rounded-2.5xl lg:rounded-none lg:rounded-tl-2.5xl lg:rounded-bl-2.5xl m-auto w-60 sm:w-72 md:w-auto lg:h-full xl:w-[450px]"
         />
       </div>
 

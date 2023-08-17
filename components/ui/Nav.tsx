@@ -107,6 +107,7 @@ export default function Nav() {
                     <li key={link.name}>
                       <Link
                         href={link.url || ""}
+                        onClick={() => setIsMenuOpen(!isMenuOpen)}
                         target="_blank"
                         className="hover:text-light/60"
                       >

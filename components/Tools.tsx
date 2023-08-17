@@ -38,7 +38,6 @@ export default function Tools() {
           >
             <SvgFunc
               name={tool.name.toUpperCase()}
-              choice={"tech"}
               className={`w-14 md:w-16 lg:w-[70px] group-hover:scale-110 fill-dark group-hover:fill-current group-hover:drop-shadow-md transition`}
             />
           </motion.div>
