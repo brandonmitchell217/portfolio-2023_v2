@@ -71,9 +71,9 @@ export default function Nav() {
     return (
       <nav className="w-full fixed top-0 z-10">
         <div className="relative max-w-7xl m-auto p-4 flex justify-between items-center">
-          <Link href={"/"}>
+          <a href={"/"}>
             <Image src="/logo.png" alt="Letter B logo" width="56" height="56" />
-          </Link>
+          </a>
 
           <div
             className="cursor-pointer relative z-20"
@@ -130,14 +130,14 @@ export default function Nav() {
       <nav className="w-full fixed top-0 z-10">
         <div className="max-w-7xl m-auto p-4 xl:px-0 flex justify-between items-center">
           <div className="flex items-center gap-4">
-            <Link href={"/"}>
+            <a href={"/"}>
               <Image
                 src="/logo.png"
                 alt="Letter B logo"
                 width="70"
                 height="70"
               />
-            </Link>
+            </a>
             <ul className="px-12 flex gap-12 text-xl">
               {NavigationLinks.slice(1).map((link) => (
                 <li key={link.id}>

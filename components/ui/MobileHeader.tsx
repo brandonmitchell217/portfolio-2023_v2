@@ -9,9 +9,9 @@ export default function MobileHeader() {
   const pathname = usePathname();
   return (
     <header className="absolute z-10 top-0 left-0 right-0 p-4 flex sm:hidden items-center">
-      <Link href={"/"} className="flex-1 flex items-end">
+      <a href={"/"} className="flex-1 flex items-end">
         <Image src="/logo.png" alt="Letter B logo" width="55" height="55" />
-      </Link>
+      </a>
 
       <ul className={pathname !== "/contact" ? "flex gap-6" : "hidden"}>
         {SocialLinks.map((link) => (
