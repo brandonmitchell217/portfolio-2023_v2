@@ -5,24 +5,26 @@ import Link from "next/link";
 import { twMerge } from "tailwind-merge";
 import { motion } from "framer-motion";
 
-const pastAbout =
-  "Through the years I've always had an interest in technology in some kind of way. It all started with Dreamweaver & MySpace layouts back in middle school. Not to state my age or anything again... Since then I have worked with game development, 3D modeling & animation. Before having kids & learning web development, I've been a cook, dishwasher, baker, teacher & a soldier. Hardwork & dedication are at my core. These paths have led me to being the more adventurous, hardworking developer I am today. Growing up, video games were a huge part of my life. It was once I started trying to create models for games that I found my interest in design. While I'm certainly more confident at the code side of things, I'll always seek to create awesome things that are both cool to look at & functional.";
-
-const presentAbout =
-  "My name is Brandon & I'm a 32 year old developer from North Carolina. I'm really enjoying using NextJS, TailwindCSS & framer-motion right now. Away from the computer, you'll usually find me spending time with my wife & two kids. When I'm not coding or chasing the kids around, which is more rare these days, music is always where my brain goes to settle down. Over the past few years however, code has become my primary focus. It lets me create, explore & never have a finish line. I love the fact that with every new thing I learn, a whole new world of other things I do not know opens up. I strive to learn something everyday & try to learn from anyone who is willing to teach. I bring a strong work ethic, a passion for learning & a sense of urgency with every project to which I'm involved.";
-
 export const PastPresent = () => {
+  const pastImage = "/pastMe.jpg";
+  const presentImage = "/me.jpg";
   const [currentAbout, setCurrentAbout] = useState(1);
   const [aboutData, setAboutData] = useState("");
   const [aboutImage, setAboutImage] = useState("");
 
+  const pastAbout =
+    "Through the years I've always had an interest in technology in some kind of way. It all started with Dreamweaver & MySpace layouts back in middle school. Not to state my age or anything again... Since then I have worked with game development, 3D modeling & animation. Before having kids & learning web development, I've been a cook, dishwasher, baker, teacher & a soldier. Hardwork & dedication are at my core. These paths have led me to being the more adventurous, hardworking developer I am today. Growing up, video games were a huge part of my life. It was once I started trying to create models for games that I found my interest in design. While I'm certainly more confident at the code side of things, I'll always seek to create awesome things that are both cool to look at & functional.";
+
+  const presentAbout =
+    "My name is Brandon & I'm a 32 year old developer from North Carolina. I'm really enjoying using NextJS, TailwindCSS & framer-motion right now. Away from the computer, you'll usually find me spending time with my wife & two kids. When I'm not coding or chasing the kids around, which is more rare these days, music is always where my brain goes to settle down. Over the past few years however, code has become my primary focus. It lets me create, explore & never have a finish line. I love the fact that with every new thing I learn, a whole new world of other things I do not know opens up. I strive to learn something everyday & try to learn from anyone who is willing to teach. I bring a strong work ethic, a passion for learning & a sense of urgency with every project to which I'm involved.";
+
   useEffect(() => {
     if (currentAbout === 0) {
       setAboutData(pastAbout);
-      setAboutImage("/pastMe.jpg");
+      setAboutImage(pastImage);
     } else if (currentAbout === 1) {
       setAboutData(presentAbout);
-      setAboutImage("/me.jpg");
+      setAboutImage(presentImage);
     }
   }, [currentAbout, aboutData, aboutImage]);
 

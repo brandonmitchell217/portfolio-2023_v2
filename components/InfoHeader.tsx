@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from "react";
 import Circles from "./assets/Circles1";
 import { motion } from "framer-motion";
-import { twMerge } from "tailwind-merge";
 
 export default function InfoHeader({ ...data }) {
   const [currentDate, setCurrentDate] = useState("");

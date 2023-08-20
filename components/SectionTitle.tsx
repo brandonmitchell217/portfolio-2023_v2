@@ -27,7 +27,8 @@ export default function SectionTitle({
 
   return (
     <div
-      className={`flex gap-4 sm:gap-[21.5px] lg:gap-[43px] items-center ${twMerge(
+      className={`${twMerge(
+        "flex gap-4 sm:gap-[21.5px] lg:gap-[43px] items-center ",
         className
       )}`}
     >
