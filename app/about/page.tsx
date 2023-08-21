@@ -16,8 +16,8 @@ export default function AboutPage() {
 
   return (
     <main className="w-full">
-      <div className="relative w-full px-4 max-w-7xl m-auto">
-        <section className="py-32 lg:py-44 xl:pt-36 xl:pb-52">
+      <div className="relative w-full px-2 sm:px-4 max-w-7xl m-auto">
+        <section className="py-24 sm:py-32 lg:py-44 xl:pt-36 xl:pb-52">
           <PastPresent />
         </section>
         <section className="pb-20 md:pb-48 space-y-20 md:space-y-48">

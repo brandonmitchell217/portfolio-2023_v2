@@ -25,7 +25,7 @@ export default function Nav() {
   // useMotionValueEvent(scrollY, "change", (latest) => {
   //   setPosition(latest);
   // });
-  const [scrollDirection, setScrollDirection] = React.useState("");
+  const [scrollDirection, setScrollDirection] = React.useState<string>("up");
 
   React.useEffect(() => {
     let lastScrollY = window.pageYOffset;

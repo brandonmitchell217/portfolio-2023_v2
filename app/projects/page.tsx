@@ -12,8 +12,8 @@ export default async function ProjectsPage() {
   const { data: data } = await supabase.from("projects").select();
 
   return (
-    <main className="relative w-full max-w-7xl">
-      <section className="space-y-8 lg:space-y-16 pt-32 pb-24 md:py-36 px-4">
+    <main className="relative w-full">
+      <section className="max-w-7xl space-y-8 lg:space-y-16 pt-32 pb-24 md:py-36 px-2 sm:px-4">
         <SectionTitle title="Projects" size="large" />
         <div className="w-full lg:px-4 xl:px-8 flex flex-col gap-2 md:gap-12">
           <ProjectSlalom side="start">

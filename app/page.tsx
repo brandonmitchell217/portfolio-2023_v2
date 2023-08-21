@@ -22,7 +22,7 @@ export default function Index() {
   return (
     <>
       <main className="relative w-full space-y-6 md:space-y-12">
-        <div className="relative px-4 max-w-7xl w-full m-auto">
+        <div className="relative px-2 sm:px-4 max-w-7xl w-full m-auto">
           {/* Only shows on mobile when bottom nav appears */}
           <section className="relative h-[90vh] md:h-screen pt-32 pb-12 md:pb-16 flex flex-col items-center justify-between">
             <Quote />
