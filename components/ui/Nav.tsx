@@ -10,7 +10,7 @@ import { usePathname } from "next/navigation";
 import Social from "../Social";
 
 export default function Nav() {
-  const { scrollY } = useScroll();
+  // const { scrollY } = useScroll();
   const pathname = usePathname();
   const [isNavDevice, setIsNavDevice] = React.useState<React.ReactNode>();
   const [isMenuOpen, setIsMenuOpen] = React.useState<boolean>(false);
@@ -18,15 +18,30 @@ export default function Nav() {
   const tabletMatches = useMediaQuery("(min-width: 640px)");
   const mobileMatches = useMediaQuery("(max-width: 639px)");
   let [activeTab, setActiveTab] = React.useState(pathname || undefined);
-  const [showNav, setShowNav] = React.useState<boolean>(true);
-  const [position, setPosition] = React.useState<number>(0);
-  useMotionValueEvent(scrollY, "change", (latest) => {
-    setPosition(latest);
-  });
+  // const [showNav, setShowNav] = React.useState<boolean>(true);
+  // const [position, setPosition] = React.useState<number>(0);
+
+  // TODO: Figure this out with framer motion
+  // useMotionValueEvent(scrollY, "change", (latest) => {
+  //   setPosition(latest);
+  // });
+  const [scrollDirection, setScrollDirection] = React.useState("");
 
   React.useEffect(() => {
-    // console.log(position);
+    let lastScrollY = window.pageYOffset;
 
+    const updateScrollDirection = () => {
+      const offY = window.pageYOffset;
+      const direction = offY > lastScrollY ? "down" : "up";
+      if (
+        direction !== scrollDirection &&
+        (offY - lastScrollY > 10 || offY - lastScrollY < -5)
+      ) {
+        setScrollDirection(direction);
+      }
+      lastScrollY = offY > 0 ? offY : 0;
+    };
+    window.addEventListener("scroll", updateScrollDirection);
     if (desktopMatches) {
       setIsNavDevice(<DesktopNav />);
       setActiveTab(pathname);
@@ -37,25 +52,21 @@ export default function Nav() {
       setIsNavDevice(<MobileNav />);
       setActiveTab(pathname);
     }
+    return () => window.removeEventListener("scroll", updateScrollDirection);
   }, [
     isMenuOpen,
     desktopMatches,
     tabletMatches,
     mobileMatches,
     pathname,
-    scrollY,
-    showNav,
-    position,
+    scrollDirection,
   ]);
 
   const MobileNav = () => {
     return (
       <motion.nav
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.2 }}
-        className={`fixed bottom-0 w-full z-10 shadow-xl ${
-          showNav ? "" : "hidden"
+        className={`fixed bottom-0 w-full z-10 shadow-xl  ${
+          scrollDirection === "up" ? "" : "bottom-[-100%]"
         }`}
       >
         <div className="flex justify-evenly items-center bg-dark">
