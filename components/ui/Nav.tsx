@@ -5,11 +5,12 @@ import React from "react";
 import { SocialLinks, NavigationLinks } from "@/lib/util";
 import { Grip, X } from "lucide-react";
 import { useMediaQuery } from "usehooks-ts";
-import { motion } from "framer-motion";
+import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { usePathname } from "next/navigation";
 import Social from "../Social";
 
 export default function Nav() {
+  const { scrollY } = useScroll();
   const pathname = usePathname();
   const [isNavDevice, setIsNavDevice] = React.useState<React.ReactNode>();
   const [isMenuOpen, setIsMenuOpen] = React.useState<boolean>(false);
@@ -17,8 +18,15 @@ export default function Nav() {
   const tabletMatches = useMediaQuery("(min-width: 640px)");
   const mobileMatches = useMediaQuery("(max-width: 639px)");
   let [activeTab, setActiveTab] = React.useState(pathname || undefined);
+  const [showNav, setShowNav] = React.useState<boolean>(true);
+  const [position, setPosition] = React.useState<number>(0);
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    setPosition(latest);
+  });
 
   React.useEffect(() => {
+    // console.log(position);
+
     if (desktopMatches) {
       setIsNavDevice(<DesktopNav />);
       setActiveTab(pathname);
@@ -29,11 +37,27 @@ export default function Nav() {
       setIsNavDevice(<MobileNav />);
       setActiveTab(pathname);
     }
-  }, [isMenuOpen, desktopMatches, tabletMatches, mobileMatches, pathname]);
+  }, [
+    isMenuOpen,
+    desktopMatches,
+    tabletMatches,
+    mobileMatches,
+    pathname,
+    scrollY,
+    showNav,
+    position,
+  ]);
 
   const MobileNav = () => {
     return (
-      <nav className="fixed bottom-0 w-full z-10 shadow-xl">
+      <motion.nav
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.2 }}
+        className={`fixed bottom-0 w-full z-10 shadow-xl ${
+          showNav ? "" : "hidden"
+        }`}
+      >
         <div className="flex justify-evenly items-center bg-dark">
           {NavigationLinks.map((link) => (
             <Link
@@ -59,7 +83,7 @@ export default function Nav() {
             </Link>
           ))}
         </div>
-      </nav>
+      </motion.nav>
     );
   };
 
