@@ -66,7 +66,7 @@ export default function Nav() {
     return (
       <motion.nav
         className={`fixed bottom-0 w-full z-10 shadow-xl  ${
-          scrollDirection === "up" ? "" : "hidden"
+          scrollDirection === "up" ? "" : "bottom-[-100%]"
         }`}
       >
         <div className="flex justify-evenly items-center bg-dark">
