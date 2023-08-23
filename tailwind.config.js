@@ -13,6 +13,11 @@ module.exports = {
       borderRadius: {
         "2.5xl": "1.25rem",
       },
+      boxShadow: {
+        og: "0 1px 1px hsl(0deg 0% 0% / 0.075), 0 2px 2px hsl(0deg 0% 0% / 0.075), 0 4px 4px hsl(0deg 0% 0% / 0.075), 0 8px 8px hsl(0deg 0% 0% / 0.075), 0 16px 16px hsl(0deg 0% 0% / 0.075)",
+        ogHover:
+          "0 1px 2px hsl(0deg 0% 0% / 0.085), 0 2px 3px hsl(0deg 0% 0% / 0.085), 0 4px 5px hsl(0deg 0% 0% / 0.085), 0 8px 9px hsl(0deg 0% 0% / 0.085), 0 16px 17px hsl(0deg 0% 0% / 0.085)",
+      },
       fontFamily: {
         outfit: ["var(--font-outfit)"],
         unbounded: ["var(--font-unbounded)"],
@@ -23,10 +28,10 @@ module.exports = {
         clamp3: "clamp(0.875rem, 0.2199rem + 2.2556vw, 2.25rem)", // title
       },
       colors: {
-        dark: "#1B1B1E",
-        light: "#D8DBE2",
-        lime: "#C3F73A",
-        poppy: "#D64045",
+        dark: "hsl(240, 5%, 11%)",
+        light: "hsl(222, 15%, 87%)",
+        lime: "hsl(77, 92%, 60%)",
+        poppy: "	hsl(358, 65%, 55%)",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         btn: {
