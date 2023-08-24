@@ -8,11 +8,11 @@ import { usePathname } from "next/navigation";
 import { scrollToTop } from "@/lib/util";
 
 export default function AboutPage() {
-  const pathname = usePathname();
+  // const pathname = usePathname();
 
-  useEffect(() => {
-    scrollToTop();
-  }, [pathname]);
+  // useEffect(() => {
+  //   scrollToTop();
+  // }, [pathname]);
 
   return (
     <main className="w-full">

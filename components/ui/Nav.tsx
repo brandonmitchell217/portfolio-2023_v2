@@ -75,6 +75,7 @@ export default function Nav() {
               key={link.id}
               href={link.url || ""}
               onClick={() => setActiveTab(link.url)}
+              scroll={true}
               className={`${
                 activeTab === link.url ? "" : "hover:text-white/60"
               } relative rounded-full px-3 py-3 text-sm font-medium text-white transition focus-visible:outline-2 flex flex-col items-center w-1/4`}
@@ -130,6 +131,7 @@ export default function Nav() {
                       <Link
                         onClick={() => tabletNavFunc(link)}
                         href={link.url || ""}
+                        scroll={true}
                         className="hover:text-light/60"
                       >
                         {link.name}
@@ -179,6 +181,7 @@ export default function Nav() {
                   <Link
                     href={link.url || ""}
                     onClick={() => setActiveTab(link.url || "")}
+                    scroll={true}
                     className="hover:text-dark/80"
                   >
                     {link.name}

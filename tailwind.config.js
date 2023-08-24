@@ -31,7 +31,7 @@ module.exports = {
         dark: "hsl(240, 5%, 11%)",
         light: "hsl(222, 15%, 87%)",
         lime: "hsl(77, 92%, 60%)",
-        poppy: "	hsl(358, 65%, 55%)",
+        poppy: "hsl(358, 65%, 55%)",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         btn: {
