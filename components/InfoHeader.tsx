@@ -42,7 +42,7 @@ export default function InfoHeader({ ...data }) {
           <motion.h5
             initial={{ y: 500 }}
             animate={{ y: 0 }}
-            transition={{ duration: 1.2 }}
+            transition={{ duration: 1.2, delay: 2.64 }}
           >
             {currentTime} EST | {currentDate}
           </motion.h5>
@@ -54,7 +54,7 @@ export default function InfoHeader({ ...data }) {
           <motion.h5
             initial={{ y: 500 }}
             animate={{ y: 0 }}
-            transition={{ duration: 1.2, delay: 0.5 }}
+            transition={{ duration: 1.2, delay: 2.8 }}
           >
             {info.location}
           </motion.h5>
