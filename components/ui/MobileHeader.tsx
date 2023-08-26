@@ -13,7 +13,7 @@ export default function MobileHeader() {
         <Image src="/logo.png" alt="Letter B logo" width="55" height="55" />
       </a>
 
-      <ul className={pathname !== "/contact" ? "flex gap-6" : "hidden"}>
+      <ul className={pathname !== "/contact" ? "flex gap-8" : "hidden"}>
         {SocialLinks.map((link) => (
           <li key={link.name}>
             <Link href={link.url || ""} target="_blank">

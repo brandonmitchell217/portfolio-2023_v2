@@ -20,6 +20,7 @@ export interface NavigationLinksProps {
   url?: string;
   query?: any | undefined;
   icon?: React.ReactNode;
+  iconFnc?: (size) => React.ReactNode;
   links?:
     | {
         id: number | undefined;

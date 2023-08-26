@@ -4,7 +4,7 @@ import useWeb3forms from "use-web3forms";
 import { useForm } from "react-hook-form";
 import { X } from "lucide-react";
 import Button from "./ui/Button";
-import SubmitMessage from "./SubmitMessage";
+import SubmitMessage from "./ui/SubmitMessage";
 
 interface FormData {
   Name: string;

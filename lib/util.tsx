@@ -6,19 +6,28 @@ export const SocialLinks: NavigationLinksProps[] = [
     id: 1,
     name: "Email",
     url: "mailto:brandonmitchell217@gmail.com",
-    icon: <Mail className="w-12 h-12" />,
+    icon: <Mail className="w-6 h-6" />,
+    iconFnc: (size: string) => {
+      return <Mail className={`${size}`} />;
+    },
   },
   {
     id: 2,
     name: "LinkedIn",
     url: "https://www.linkedin.com/in/brandonmitchell217/",
-    icon: <Linkedin className="w-12 h-12" />,
+    icon: <Linkedin className="w-6 h-6" />,
+    iconFnc: (size: string) => {
+      return <Linkedin className={`${size}`} />;
+    },
   },
   {
     id: 3,
     name: "Github",
     url: "https://www.github.com/brandonmitchell217",
-    icon: <Github className="w-12 h-12" />,
+    icon: <Github className="w-6 h-6" />,
+    iconFnc: (size: string) => {
+      return <Github className={`${size}`} />;
+    },
   },
 ];
 
@@ -28,28 +37,28 @@ export const NavigationLinks: NavigationLinksProps[] = [
     name: "Home",
     url: "/",
     query: "",
-    icon: <Home className="w-12 h-12" />,
+    icon: <Home className="w-6 h-6" />,
   },
   {
     id: 2,
     name: "About",
     url: "/about",
     query: "",
-    icon: <User className="w-12 h-12" />,
+    icon: <User className="w-6 h-6" />,
   },
   {
     id: 3,
     name: "Projects",
     url: "/projects",
     query: "",
-    icon: <Laptop className="w-12 h-12" />,
+    icon: <Laptop className="w-6 h-6" />,
   },
   {
     id: 4,
     name: "Contact",
     url: "/contact",
     query: "",
-    icon: <Mail className="w-12 h-12" />,
+    icon: <Mail className="w-6 h-6" />,
   },
 ];
 

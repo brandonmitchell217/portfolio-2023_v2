@@ -7,7 +7,7 @@ import SvgFunc from "./assets/Tech";
 interface SocialProps {
   links: NavigationLinksProps[];
   new_tab?: boolean;
-  size?: number;
+  size?: number | string;
   hover_text?: boolean;
 }
 
@@ -28,9 +28,9 @@ export default function Social({
               target={new_tab ? "_blank" : "_self"}
             >
               {/* {link.icon} */}
-              {link.name === "Email" && <Mail size={size} />}
-              {link.name === "LinkedIn" && <Linkedin size={size} />}
-              {link.name === "Github" && <Github size={size} />}
+              {link.name === "Email" && <Mail size={size || 32} />}
+              {link.name === "LinkedIn" && <Linkedin size={size || 32} />}
+              {link.name === "Github" && <Github size={size || 32} />}
               {/* <SvgFunc name={link.name} choice="social" />
               {link.name} */}
 

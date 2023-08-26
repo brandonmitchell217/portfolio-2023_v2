@@ -1,5 +1,6 @@
 import React from "react";
 import { X } from "lucide-react";
+import { twMerge } from "tailwind-merge";
 
 interface Props {
   isError: boolean;
@@ -7,18 +8,27 @@ interface Props {
   setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
+// TODO: Style this thing
+
 export default function SubmitMessage({
   isError,
   modalContent,
   setIsModalOpen,
 }: Props) {
+  const TypeStyles = (isError: Props["isError"]) => {
+    if (isError) {
+      return "bg-red-100 border-red-500 text-red-700";
+    } else {
+      return "border-green-500 text-green-700 bg-green-100";
+    }
+  };
+
   return (
     <div
-      className={`w-[280px] h-[100px] lg:h-1/2 lg:w-1/2 rounded-lg flex justify-center items-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 ${
-        isError
-          ? "bg-red-100 border-red-500 text-red-700"
-          : "border-green-500 text-green-700 bg-green-100"
-      }`}
+      className={twMerge(
+        TypeStyles(isError),
+        "w-[280px] h-[100px] lg:h-1/2 lg:w-1/2 rounded-lg flex justify-center items-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50"
+      )}
       role="alert"
     >
       <X

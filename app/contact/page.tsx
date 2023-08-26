@@ -15,12 +15,7 @@ export default function ContactPage() {
           </div>
         </div>
         <div>
-          <Social
-            links={SocialLinks}
-            new_tab={true}
-            size={32}
-            hover_text={true}
-          />
+          <Social links={SocialLinks} new_tab={true} hover_text={true} />
         </div>
       </section>
     </main>
