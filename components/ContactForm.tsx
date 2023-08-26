@@ -116,7 +116,6 @@ const ContactForm = () => {
         <SubmitMessage
           isError={isError ?? isError}
           modalContent={modalContent ?? modalContent}
-          isModalOpen={isModalOpen}
           setIsModalOpen={setIsModalOpen}
         />
       )}

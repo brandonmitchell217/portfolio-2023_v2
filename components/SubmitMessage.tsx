@@ -4,14 +4,12 @@ import { X } from "lucide-react";
 interface Props {
   isError: boolean;
   modalContent: string;
-  isModalOpen: boolean;
   setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export default function SubmitMessage({
   isError,
   modalContent,
-  isModalOpen,
   setIsModalOpen,
 }: Props) {
   return (
@@ -20,7 +18,7 @@ export default function SubmitMessage({
         isError
           ? "bg-red-100 border-red-500 text-red-700"
           : "border-green-500 text-green-700 bg-green-100"
-      } ${isModalOpen ? "" : "hidden"}`}
+      }`}
       role="alert"
     >
       <X
