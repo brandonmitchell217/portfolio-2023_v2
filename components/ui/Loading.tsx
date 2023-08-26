@@ -8,7 +8,7 @@ export default function Loading() {
 
   useEffect(() => {
     const hasVisited = localStorage.getItem("hasVisited");
-    localStorage.setItem("hasVisited", "true");
+    // localStorage.setItem("hasVisited", "true");
 
     if (!hasVisited) {
       setTimeout(() => {
