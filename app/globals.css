@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @layer base {
-  body::before {
+  /* body::before {
     content: "";
     position: fixed;
     top: 50%;
@@ -31,9 +31,9 @@
       opacity: 0;
       background-color: rgba(255, 255, 255, 0);
     }
-  }
+  } */
 
-  body::after {
+  /* body::after {
     content: "";
     position: fixed;
     top: 50%;
@@ -47,7 +47,7 @@
     border: 1px solid rgba(0, 0, 0, 1);
     border-radius: 8px;
     filter: blur(10px);
-  }
+  } */
   /* Change Autocomplete styles in Chrome*/
   /* input:-webkit-autofill,
   input:-webkit-autofill:hover,
