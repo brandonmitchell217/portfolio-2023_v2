@@ -41,7 +41,7 @@ export default function Loading() {
             initial={{ x: 0 }}
             animate={{ x: 210 }}
             transition={{
-              duration: 1.5,
+              duration: 1,
               delay: 0.25,
               repeat: Infinity,
               repeatDelay: 0.25,
@@ -53,7 +53,7 @@ export default function Loading() {
             initial={{ x: 0 }}
             animate={{ x: 220 }}
             transition={{
-              duration: 2,
+              duration: 1,
               delay: 0.5,
               repeat: Infinity,
               repeatDelay: 0.15,
