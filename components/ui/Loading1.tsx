@@ -17,7 +17,7 @@ export default function Loading1() {
     >
       <div className="bg-dark h-1/2 w-full absolute top-0 left-0"></div>
       <div className="bg-dark h-1/2 w-full absolute bottom-0 left-0"></div>
-      <div className="h-80 w-80 rounded-full bg-light relative z-[101] flex items-center justify-center animate-bounce">
+      <div className="h-[22vw] w-[22vw] rounded-full bg-light relative z-[101] flex items-center justify-center animate-bounce">
         <div className="absolute rounded-full bg-dark w-[85%] h-[85%]"></div>
         <h1 className="relative z-[101] font-unbounded font-bold text-light text-[15vw]">
           B
