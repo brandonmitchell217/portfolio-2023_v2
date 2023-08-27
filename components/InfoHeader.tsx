@@ -42,19 +42,24 @@ export default function InfoHeader({ ...data }) {
           <motion.h5
             initial={{ y: 500 }}
             animate={{ y: 0 }}
-            transition={{ duration: 1.2, delay: 2.64 }}
+            transition={{ duration: 1.2, delay: 0.65 }}
           >
             {currentTime} EST | {currentDate}
           </motion.h5>
         </div>
-        <div className="md:w-1/3 flex justify-center scale-75 xs:scale-100 xl:scale-125">
-          {isLoading ? null : <Circles />}
-        </div>
+        <motion.div
+          className="md:w-1/3 flex justify-center scale-75 xs:scale-100 xl:scale-125"
+          initial={{ opacity: 0, rotate: 0 }}
+          animate={{ opacity: 1, rotate: 360 }}
+          transition={{ duration: 1, delay: 0.25 }}
+        >
+          <Circles />
+        </motion.div>
         <div className="md:w-1/3 flex justify-end">
           <motion.h5
             initial={{ y: 500 }}
             animate={{ y: 0 }}
-            transition={{ duration: 1.2, delay: 2.8 }}
+            transition={{ duration: 1.2, delay: 0.25 }}
           >
             {info.location}
           </motion.h5>
