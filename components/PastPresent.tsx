@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { twMerge } from "tailwind-merge";
@@ -8,18 +8,21 @@ export const PastPresent = () => {
   const pastImage = "/pastMe.jpg";
   const presentImage = "/me1.jpg";
   const [currentAbout, setCurrentAbout] = useState(1);
-  const [testData, setTestData] = useState([
-    {
-      label: "past",
-      text: "Through the years I've always had an interest in technology in some kind of way. It all started with Dreamweaver & MySpace layouts back in middle school. Not to state my age or anything again... Since then I have worked with game development, 3D modeling & animation. Before having kids & learning web development, I've been a cook, dishwasher, baker, teacher & a soldier. Hardwork & dedication are at my core. These paths have led me to being the more adventurous, hardworking developer I am today. Growing up, video games were a huge part of my life. It was once I started trying to create models for games that I found my interest in design. While I'm certainly more confident at the code side of things, I'll always seek to create awesome things that are both cool to look at & functional.",
-      image: pastImage,
-    },
-    {
-      label: "present",
-      text: "My name is Brandon & I'm a 32 year old developer from North Carolina. I'm really enjoying using NextJS, TailwindCSS & framer-motion right now. Away from the computer, you'll usually find me spending time with my wife & two kids. When I'm not coding or chasing the kids around, which is more rare these days, music is always where my brain goes to settle down. Over the past few years however, code has become my primary focus. It lets me create, explore & never have a finish line. I love the fact that with every new thing I learn, a whole new world of other things I do not know opens up. I strive to learn something everyday & try to learn from anyone who is willing to teach. I bring a strong work ethic, a passion for learning & a sense of urgency with every project to which I'm involved.",
-      image: presentImage,
-    },
-  ]);
+  const aboutData = useMemo(
+    () => [
+      {
+        label: "past",
+        text: "Through the years I've always had an interest in technology in some kind of way. It all started with Dreamweaver & MySpace layouts back in middle school. Not to state my age or anything again... Since then I have worked with game development, 3D modeling & animation. Before having kids & learning web development, I've been a cook, dishwasher, baker, teacher & a soldier. Hardwork & dedication are at my core. These paths have led me to being the more adventurous, hardworking developer I am today. Growing up, video games were a huge part of my life. It was once I started trying to create models for games that I found my interest in design. While I'm certainly more confident at the code side of things, I'll always seek to create awesome things that are both cool to look at & functional.",
+        image: pastImage,
+      },
+      {
+        label: "present",
+        text: "My name is Brandon & I'm a 32 year old developer from North Carolina. I'm really enjoying using NextJS, TailwindCSS & framer-motion right now. Away from the computer, you'll usually find me spending time with my wife & two kids. When I'm not coding or chasing the kids around, which is more rare these days, music is always where my brain goes to settle down. Over the past few years however, code has become my primary focus. It lets me create, explore & never have a finish line. I love the fact that with every new thing I learn, a whole new world of other things I do not know opens up. I strive to learn something everyday & try to learn from anyone who is willing to teach. I bring a strong work ethic, a passion for learning & a sense of urgency with every project to which I'm involved.",
+        image: presentImage,
+      },
+    ],
+    []
+  );
 
   const spring = {
     type: "spring",
@@ -37,7 +40,7 @@ export const PastPresent = () => {
       {/* left */}
       <motion.div>
         <Image
-          src={testData[currentAbout].image}
+          src={aboutData[currentAbout].image}
           alt={`Picture of Me, Brandon Mitchell - ${
             currentAbout === 1 ? "Present" : "Past"
           }`}
@@ -45,7 +48,7 @@ export const PastPresent = () => {
           width={383}
           priority={true}
           placeholder="blur"
-          blurDataURL={testData[currentAbout].image}
+          blurDataURL={aboutData[currentAbout].image}
           className={
             "rounded-2.5xl lg:rounded-none lg:rounded-tl-2.5xl lg:rounded-bl-2.5xl m-auto w-60 sm:w-72 md:w-auto lg:h-full xl:w-[450px]"
           }
@@ -89,7 +92,7 @@ export const PastPresent = () => {
         </div>
         <div className="flex flex-col gap-6">
           <p className="px-4 lg:px-0 text-[14px] md:text-[16px] lg:text-[18px] xl:text-[22px] tracking-[0.0275em]">
-            {testData[currentAbout].text}
+            {aboutData[currentAbout].text}
           </p>
           {currentAbout === 1 && (
             <Link
