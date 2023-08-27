@@ -15,8 +15,8 @@ export default function ProjectSlalom({
     <div
       className={`${
         side === "start"
-          ? "flex-col-reverse justify-self-start md:flex-row-reverse"
-          : "flex-col justify-self-end self-end md:flex-row"
+          ? "flex-col justify-self-start md:flex-row"
+          : "flex-col-reverse justify-self-end self-end md:flex-row-reverse"
       } lg:max-w-[1029.22px] w-full flex gap-2 items-center justify-between ${className}`}
     >
       {children}
