@@ -1,10 +1,16 @@
 import React from "react";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function WorkStatus() {
   return (
-    <h3 className="px-2 md:px-8 lg:px-0 font-medium text-[20px] md:text-[40px] tracking-[0.02em] lg:leading-[60px] text-center">
+    <motion.h3
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ ease: "easeInOut", delay: 0.2 }}
+      className="px-2 md:px-8 lg:px-0 font-medium text-[20px] md:text-[40px] tracking-[0.02em] lg:leading-[60px] text-center"
+    >
       I am currently on the marketing team at{" "}
       <Link href={"https://www.gloo.us/"} target="_blank">
         <Image
@@ -17,6 +23,6 @@ export default function WorkStatus() {
       </Link>
       . Our team uses a combination of both React & Vue along with HubSpot to
       help drive new user/partner engagement.
-    </h3>
+    </motion.h3>
   );
 }

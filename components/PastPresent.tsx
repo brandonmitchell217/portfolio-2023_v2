@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 export const PastPresent = () => {
   const pastImage = "/pastMe.jpg";
-  const presentImage = "/me.jpg";
+  const presentImage = "/me1.jpg";
   const [currentAbout, setCurrentAbout] = useState(1);
   const [testData, setTestData] = useState([
     {
@@ -35,7 +35,7 @@ export const PastPresent = () => {
       className="px-1 py-4 lg:py-1 w-full flex flex-col lg:flex-row bg-dark text-light rounded-2.5xl"
     >
       {/* left */}
-      <div>
+      <motion.div>
         <Image
           src={testData[currentAbout].image}
           alt={`Picture of Me, Brandon Mitchell - ${
@@ -43,12 +43,14 @@ export const PastPresent = () => {
           }`}
           height={550}
           width={383}
-          priority={currentAbout === 1 ? true : false}
+          priority={true}
           placeholder="blur"
           blurDataURL={testData[currentAbout].image}
-          className="rounded-2.5xl lg:rounded-none lg:rounded-tl-2.5xl lg:rounded-bl-2.5xl m-auto w-60 sm:w-72 md:w-auto lg:h-full xl:w-[450px]"
+          className={
+            "rounded-2.5xl lg:rounded-none lg:rounded-tl-2.5xl lg:rounded-bl-2.5xl m-auto w-60 sm:w-72 md:w-auto lg:h-full xl:w-[450px]"
+          }
         />
-      </div>
+      </motion.div>
 
       {/* right */}
       <div className="flex-1 space-y-4 lg:space-y-8 w-full px-0.5 xs:px-4 lg:px-[60px] py-6 lg:pt-[57px] min-h-[350px]">

@@ -1,5 +1,4 @@
 import React from "react";
-import { motion } from "framer-motion";
 
 interface ProjectSlalomProps {
   side: "start" | "end";
@@ -16,9 +15,9 @@ export default function ProjectSlalom({
     <div
       className={`${
         side === "start"
-          ? "justify-self-start md:flex-row"
-          : "justify-self-end self-end md:flex-row-reverse"
-      } lg:max-w-[1029.22px] w-full flex flex-col gap-2 items-center justify-between ${className}`}
+          ? "flex-col-reverse justify-self-start md:flex-row-reverse"
+          : "flex-col justify-self-end self-end md:flex-row"
+      } lg:max-w-[1029.22px] w-full flex gap-2 items-center justify-between ${className}`}
     >
       {children}
     </div>

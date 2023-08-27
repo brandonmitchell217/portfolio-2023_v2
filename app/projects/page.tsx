@@ -5,11 +5,18 @@ import ProjectCard from "@/components/ProjectCard";
 import ProjectSlalom from "@/components/ProjectSlalom";
 import SectionTitle from "@/components/SectionTitle";
 import Button from "@/components/ui/Button";
+import { DataProps } from "@/lib/types";
 export const dynamic = "force-static";
 
 export default async function ProjectsPage() {
   const supabase = createServerComponentClient({ cookies });
   const { data: data } = await supabase.from("projects").select();
+
+  const filter = (data: any, num: number[]) => {
+    return data.filter(
+      (project: DataProps) => project.num === num[1] || project.num === num[0]
+    );
+  };
 
   return (
     <main className="relative w-full">
@@ -18,29 +25,17 @@ export default async function ProjectsPage() {
         <div className="w-full lg:px-4 xl:px-8 flex flex-col gap-2 md:gap-12">
           <ProjectSlalom side="start">
             {data &&
-              data
-                .filter((project) => project.num === 1 || project.num === 2)
-                .map((project) => (
-                  <ProjectCard key={project.id} data={{ ...project }} />
-                ))}
-          </ProjectSlalom>
-          <ProjectSlalom side="end">
-            {data &&
-              data
-                .filter((project) => project.num === 3 || project.num === 4)
-                .map((project) => (
-                  <ProjectCard key={project.id} data={{ ...project }} />
-                ))}
+              filter(data, [1, 2]).map((project: DataProps) => (
+                <ProjectCard key={project.id} data={{ ...project }} />
+              ))}
           </ProjectSlalom>
 
-          {/* <ProjectSlalom side="start">
+          <ProjectSlalom side="end">
             {data &&
-              data
-                .filter((project) => project.num === 5 || project.num === 6)
-                .map((project) => (
-                  <ProjectCard key={project.id} data={{ ...project }} />
-                ))}
-          </ProjectSlalom> */}
+              filter(data, [3, 4]).map((project: DataProps) => (
+                <ProjectCard key={project.id} data={{ ...project }} />
+              ))}
+          </ProjectSlalom>
         </div>
         <Button
           href={"https://github.com/brandonmitchell217?tab=repositories"}
