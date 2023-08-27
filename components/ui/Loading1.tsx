@@ -1,10 +1,11 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { delay, motion } from "framer-motion";
+import { set } from "react-hook-form";
 
 export default function Loading1() {
   const [loading, setLoading] = useState(true);
-
+  // TODO: Font size for B is not responsive
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
