@@ -57,3 +57,4 @@ export const NavigationLinks: NavigationLinksProps[] = [
 export function scrollToTop() {
   window.scrollTo(0, 0);
 }
+// Comments bruh
