@@ -33,6 +33,7 @@ export default function Nav() {
     const updateScrollDirection = () => {
       const offY = window.pageYOffset;
       const direction = offY > lastScrollY ? "down" : "up";
+
       if (
         direction !== scrollDirection &&
         (offY - lastScrollY > 10 || offY - lastScrollY < -5)
