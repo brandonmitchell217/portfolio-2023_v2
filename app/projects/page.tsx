@@ -6,7 +6,7 @@ import ProjectSlalom from "@/components/ProjectSlalom";
 import SectionTitle from "@/components/SectionTitle";
 import Button from "@/components/ui/Button";
 import { DataProps } from "@/lib/types";
-export const dynamic = "force-static";
+export const dynamic = "force-dynamic";
 
 export default async function ProjectsPage() {
   const supabase = createServerComponentClient({ cookies });
