@@ -18,6 +18,7 @@ export default async function ProjectsPage() {
     );
   };
 
+  // TODO: figure out why you need reverse on the first filter
   return (
     <main className="relative w-full">
       <section className="max-w-7xl m-auto space-y-8 lg:space-y-16 pt-32 pb-24 md:py-36 px-2 sm:px-4">
@@ -25,9 +26,11 @@ export default async function ProjectsPage() {
         <div className="w-full lg:px-4 xl:px-8 flex flex-col gap-2 md:gap-12">
           <ProjectSlalom side="start">
             {data &&
-              filter(data, [1, 2]).map((project: DataProps) => (
-                <ProjectCard key={project.id} data={{ ...project }} />
-              ))}
+              filter(data, [1, 2])
+                .reverse()
+                .map((project: DataProps) => (
+                  <ProjectCard key={project.id} data={{ ...project }} />
+                ))}
           </ProjectSlalom>
 
           <ProjectSlalom side="end">
