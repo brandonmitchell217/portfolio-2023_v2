@@ -1,12 +1,26 @@
 "use client";
 import Link from "next/link";
-import React from "react";
+import React, { useLayoutEffect } from "react";
 import BackBtn from "./assets/BackBtn";
 import Circles2 from "./assets/Circles2";
 import { scrollToTop } from "@/lib/util";
 import { motion } from "framer-motion";
+import { useMediaQuery } from "usehooks-ts";
 
 export default function Contact() {
+  const mobileMatches = useMediaQuery("(max-width: 639px)");
+
+  const links = [
+    {
+      name: "LinkedIn",
+      url: "https://www.linkedin.com/in/brandonmitchell217/",
+    },
+    {
+      name: "Github",
+      url: "https://www.github.com/brandonmitchell217",
+    },
+  ];
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 100 }}
@@ -28,24 +42,17 @@ export default function Contact() {
                   Socials & Stuff:
                 </h5>
                 <ul className="flex gap-20">
-                  <li>
-                    <Link
-                      href={"https://www.linkedin.com/in/brandonmitchell217/"}
-                      target="_blank"
-                      className="font-light text-[20px] tracking-[0.025em] hover:text-light/60"
-                    >
-                      LinkedIn
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href={"https://www.github.com/brandonmitchell217"}
-                      target="_blank"
-                      className="font-light text-[20px] tracking-[0.025em] hover:text-light/60"
-                    >
-                      Github
-                    </Link>
-                  </li>
+                  {links.map((link) => (
+                    <li key={link.name}>
+                      <Link
+                        href={link.url}
+                        target="_blank"
+                        className="font-light text-[20px] tracking-[0.025em] hover:text-light/60"
+                      >
+                        {link.name}
+                      </Link>
+                    </li>
+                  ))}
                 </ul>
               </div>
               <div>

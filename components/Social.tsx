@@ -11,7 +11,7 @@ interface SocialProps {
   hover_text?: boolean;
 }
 
-export default function Social({
+function Social({
   links,
   new_tab = false,
   size,
@@ -20,7 +20,7 @@ export default function Social({
   return (
     <div className="max-w-xl m-auto">
       <ul className="w-full flex flex-row justify-around items-center">
-        {links.map((link: any) => (
+        {links.map((link: NavigationLinksProps["links"]) => (
           <li key={link.name} className="relative ">
             <Link
               href={link.url}
@@ -28,9 +28,9 @@ export default function Social({
               target={new_tab ? "_blank" : "_self"}
             >
               {/* {link.icon} */}
-              {link.name === "Email" && <Mail size={size || 32} />}
-              {link.name === "LinkedIn" && <Linkedin size={size || 32} />}
-              {link.name === "Github" && <Github size={size || 32} />}
+              {link.name === "Email" && <Mail size={size || 28} />}
+              {link.name === "LinkedIn" && <Linkedin size={size || 28} />}
+              {link.name === "Github" && <Github size={size || 28} />}
               {/* <SvgFunc name={link.name} choice="social" />
               {link.name} */}
 
@@ -46,3 +46,5 @@ export default function Social({
     </div>
   );
 }
+
+export default Social;
