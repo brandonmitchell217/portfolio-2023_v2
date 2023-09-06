@@ -66,7 +66,7 @@ export default function Nav() {
       <motion.nav
         className={`fixed bottom-0 w-full z-10 shadow-xl  ${
           scrollDirection === "up" ? "" : "bottom-[-100%]"
-        }`}
+        } ${pathname === "/login" ? twMerge("hidden") : null}`}
       >
         <div className="flex justify-evenly items-center bg-dark">
           {NavigationLinks.map((link) => (
@@ -104,7 +104,11 @@ export default function Nav() {
       setActiveTab(link.url || "");
     };
     return (
-      <nav className="w-full fixed top-0 z-10">
+      <nav
+        className={`w-full fixed top-0 z-10 ${
+          pathname === "/login" ? twMerge("hidden") : null
+        }`}
+      >
         <div className="relative max-w-7xl m-auto p-4 flex justify-between items-center">
           <a href={"/"}>
             <Image src="/logo.png" alt="Letter B logo" width="56" height="56" />
