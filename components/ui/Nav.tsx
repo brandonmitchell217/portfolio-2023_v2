@@ -8,9 +8,9 @@ import { useMediaQuery } from "usehooks-ts";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { usePathname } from "next/navigation";
 import Social from "../Social";
+import { twMerge } from "tailwind-merge";
 
 export default function Nav() {
-  // const { scrollY } = useScroll();
   const pathname = usePathname();
   const [isNavDevice, setIsNavDevice] = React.useState<React.ReactNode>();
   const [isMenuOpen, setIsMenuOpen] = React.useState<boolean>(false);
@@ -18,8 +18,6 @@ export default function Nav() {
   const tabletMatches = useMediaQuery("(min-width: 640px)");
   const mobileMatches = useMediaQuery("(max-width: 639px)");
   let [activeTab, setActiveTab] = React.useState(pathname || undefined);
-  // const [showNav, setShowNav] = React.useState<boolean>(true);
-  // const [position, setPosition] = React.useState<number>(0);
 
   // TODO: Figure this out with framer motion
   // useMotionValueEvent(scrollY, "change", (latest) => {
@@ -165,7 +163,11 @@ export default function Nav() {
 
   const DesktopNav = () => {
     return (
-      <nav className="w-full fixed top-0 z-10">
+      <nav
+        className={`w-full fixed top-0 z-10 ${
+          pathname === "/login" ? twMerge("hidden") : null
+        }`}
+      >
         <div className="max-w-7xl m-auto p-4 xl:px-0 flex justify-between items-center">
           <div className="flex items-center gap-4">
             <a href={"/"}>
