@@ -1,19 +1,11 @@
 "use client";
-import React, { useEffect } from "react";
+import React from "react";
 import { PastPresent } from "@/components/PastPresent";
 import Tools from "@/components/Tools";
 import WorkStatus from "@/components/WorkStatus";
 import Contact from "@/components/Contact";
-import { usePathname } from "next/navigation";
-import { scrollToTop } from "@/lib/util";
 
 export default function AboutPage() {
-  // const pathname = usePathname();
-
-  // useEffect(() => {
-  //   scrollToTop();
-  // }, [pathname]);
-
   return (
     <main className="w-full">
       <div className="relative w-full px-2 sm:px-4 max-w-7xl m-auto">
