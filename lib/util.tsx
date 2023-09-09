@@ -62,7 +62,6 @@ export const NavigationLinks: NavigationLinksProps[] = [
   },
 ];
 
-// Need a function to scroll to top of page on onClick
 export function scrollToTop() {
   window.scrollTo(0, 0);
 }
