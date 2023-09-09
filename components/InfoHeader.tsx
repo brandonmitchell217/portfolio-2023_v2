@@ -37,21 +37,22 @@ export default function InfoHeader({ ...data }) {
 
   return (
     <div>
-      <div className="relative -mb-2 sm:mb-0 w-full flex items-center justify-center text-[0.75rem] md:text-clamp2 leading-[1.095] tracking-[-0.02em] overflow-y-hidden">
+      <div className="relative w-full flex items-center justify-center text-[0.75rem] md:text-clamp2 leading-[1.095] tracking-[-0.02em] overflow-y-hidden">
         <div className="md:w-1/3 flex justify-start">
           <motion.h5
             initial={{ y: 500 }}
             animate={{ y: 0 }}
             transition={{ duration: 1.2, delay: 0.65 }}
+            className="overflow-y-hidden"
           >
             {currentTime} EST | {currentDate}
           </motion.h5>
         </div>
         <motion.div
-          className="p-6 rounded-full md:w-1/3 flex justify-center scale-75 xs:scale-100 xl:scale-125"
+          className="p-3 lg:p-6 rounded-full md:w-1/3 flex justify-center scale-75 xs:scale-100 xl:scale-125 overflow-y-hidden "
           initial={{ opacity: 0, rotate: 0 }}
           animate={{ opacity: 1, rotate: 360 }}
-          transition={{ duration: 1, delay: 0.25 }}
+          transition={{ duration: 1, delay: 1 }}
         >
           <Circles />
         </motion.div>
@@ -66,7 +67,7 @@ export default function InfoHeader({ ...data }) {
         </div>
       </div>
 
-      <div className="text-center">
+      <div className="text-center -mt-4">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

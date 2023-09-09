@@ -46,3 +46,33 @@ export const useIsMobile = () => {
   const twBreakpoint = useTailwindBreakpoint();
   return twBreakpoint === TailwindBreakpoint.SM;
 };
+
+export const tailwindBreakpointLt = (
+  a: TailwindBreakpoint,
+  b: TailwindBreakpoint
+): boolean => {
+  if (a === b) {
+    return false;
+  }
+  switch (a) {
+    case TailwindBreakpoint.SM:
+      return [
+        TailwindBreakpoint.MD,
+        TailwindBreakpoint.LG,
+        TailwindBreakpoint.XL,
+        TailwindBreakpoint.XXL,
+      ].includes(b);
+    case TailwindBreakpoint.MD:
+      return [
+        TailwindBreakpoint.LG,
+        TailwindBreakpoint.XL,
+        TailwindBreakpoint.XXL,
+      ].includes(b);
+    case TailwindBreakpoint.LG:
+      return [TailwindBreakpoint.XL, TailwindBreakpoint.XXL].includes(b);
+    case TailwindBreakpoint.XL:
+      return b === TailwindBreakpoint.XXL;
+    case TailwindBreakpoint.XXL:
+      return false;
+  }
+};
