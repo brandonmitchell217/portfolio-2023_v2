@@ -12,7 +12,7 @@ export default async function ProjectsPage() {
   const supabase = createServerComponentClient({ cookies });
   const { data: data } = await supabase.from("projects").select();
 
-  const filter = (data: any, num: number[]) => {
+  const filter = (data: DataProps[], num: number[]) => {
     return data.filter(
       (project: DataProps) => project.num === num[1] || project.num === num[0]
     );
