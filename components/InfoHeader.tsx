@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 export default function InfoHeader({ ...data }) {
   const [currentDate, setCurrentDate] = useState("");
   const [currentTime, setCurrentTime] = useState("");
-  const [isLoading, setIsLoading] = useState(true);
+  // const [isLoading, setIsLoading] = useState(true);
   const info = data.data;
 
   useEffect(() => {
@@ -29,7 +29,7 @@ export default function InfoHeader({ ...data }) {
           minute: "2-digit",
         })
       );
-      setIsLoading(false);
+      // setIsLoading(false);
     }, 1000);
 
     return () => clearInterval(intervalId);
