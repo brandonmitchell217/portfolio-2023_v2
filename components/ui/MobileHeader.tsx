@@ -16,7 +16,11 @@ export default function MobileHeader() {
       <ul className={pathname !== "/contact" ? "flex gap-8" : "hidden"}>
         {SocialLinks.map((link) => (
           <li key={link.name}>
-            <Link href={link.url || ""} target="_blank">
+            <Link
+              href={link.url || ""}
+              target="_blank"
+              aria-label={link.name + " link"}
+            >
               {link.icon}
             </Link>
           </li>

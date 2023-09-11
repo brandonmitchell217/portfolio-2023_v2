@@ -74,6 +74,7 @@ export default function Nav() {
               key={link.id}
               href={link.url || ""}
               onClick={() => setActiveTab(link.url)}
+              aria-label={link.name + " link"}
               scroll={true}
               className={`${
                 activeTab === link.url ? "" : "hover:text-white/60"
@@ -136,6 +137,7 @@ export default function Nav() {
                         href={link.url || ""}
                         scroll={true}
                         className="hover:text-light/60"
+                        aria-label={link.name + " link"}
                       >
                         {link.name}
                       </Link>
@@ -150,6 +152,7 @@ export default function Nav() {
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
                         target="_blank"
                         className="hover:text-light/60"
+                        aria-label={link.name + " link"}
                       >
                         {link.icon}
                       </Link>
@@ -190,6 +193,7 @@ export default function Nav() {
                     onClick={() => setActiveTab(link.url || "")}
                     scroll={true}
                     className="hover:text-dark/80"
+                    aria-label={link.name + " link"}
                   >
                     {link.name}
                   </Link>
@@ -206,6 +210,7 @@ export default function Nav() {
                     href={link.url || ""}
                     target="_blank"
                     className="hover:text-dark/80"
+                    aria-label={link.name + " link"}
                   >
                     {link.icon}
                   </Link>
