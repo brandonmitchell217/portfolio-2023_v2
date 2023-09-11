@@ -26,6 +26,7 @@ function Social({
               href={link.url}
               className="flex flex-col justify-center items-center relative socialFillText group"
               target={new_tab ? "_blank" : "_self"}
+              aria-label={link.name + " link"}
             >
               {/* {link.icon} */}
               {link.name === "Email" && <Mail size={size || 28} />}
