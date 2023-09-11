@@ -30,12 +30,12 @@ export default function Contact() {
       <div className="h-full border-t-[6px] border-b-[6px] border-light pt-6 pb-16 w-full">
         <div className="relative max-w-7xl m-auto h-full px-4 xl:px-0">
           <div className="flex flex-col gap-12">
-            <h2 className="flex flex-col lg:flex-row lg:justify-between lg:items-center font-unbounded font-bold text-[48px] lg:text-[66px] tracking-[0.02em]">
+            <h4 className="flex flex-col lg:flex-row lg:justify-between lg:items-center font-unbounded font-bold text-[48px] lg:text-[66px] tracking-[0.02em]">
               Reach Out
               <div className="pt-1.5">
                 <Circles2 />
               </div>
-            </h2>
+            </h4>
             <div className="space-y-8">
               <div className="space-y-1">
                 <h5 className="font-semibold text-[28px] tracking-[0.02em]">
