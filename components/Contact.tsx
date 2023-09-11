@@ -56,9 +56,9 @@ export default function Contact() {
                 </ul>
               </div>
               <div>
-                <h5 className="font-semibold text-[28px] tracking-[0.02em]">
+                <h6 className="font-semibold text-[28px] tracking-[0.02em]">
                   Email:
-                </h5>
+                </h6>
                 <Link
                   href={"mailto:brandonmitchell217@gmail.com"}
                   className="font-light text-[20px] tracking-[0.025em] hover:text-light/60"
