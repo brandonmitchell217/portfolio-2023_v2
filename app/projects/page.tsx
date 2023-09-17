@@ -18,7 +18,8 @@ export default async function ProjectsPage() {
     );
   };
 
-  // TODO: figure out why you need reverse on the first filter
+  // console.log(data);
+  // TODO: figure out why you need reverse
   return (
     <main className="relative w-full">
       <section className="max-w-7xl m-auto space-y-8 lg:space-y-16 pt-32 pb-24 md:py-36 px-2 sm:px-4">
@@ -39,6 +40,22 @@ export default async function ProjectsPage() {
                 <ProjectCard key={project.id} data={{ ...project }} />
               ))}
           </ProjectSlalom>
+
+          <ProjectSlalom side="start">
+            {data &&
+              filter(data, [5, 6]).map((project: DataProps) => (
+                <ProjectCard key={project.id} data={{ ...project }} />
+              ))}
+          </ProjectSlalom>
+
+          {/* <ProjectSlalom side="end">
+            {data &&
+              filter(data, [7, 8])
+                .reverse()
+                .map((project: DataProps) => (
+                  <ProjectCard key={project.id} data={{ ...project }} />
+                ))}
+          </ProjectSlalom> */}
         </div>
         <Button
           href={"https://github.com/brandonmitchell217?tab=repositories"}
