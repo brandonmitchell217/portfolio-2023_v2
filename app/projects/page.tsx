@@ -41,12 +41,12 @@ export default async function ProjectsPage() {
               ))}
           </ProjectSlalom>
 
-          <ProjectSlalom side="start">
+          {/* <ProjectSlalom side="start">
             {data &&
               filter(data, [5, 6]).map((project: DataProps) => (
                 <ProjectCard key={project.id} data={{ ...project }} />
               ))}
-          </ProjectSlalom>
+          </ProjectSlalom> */}
 
           {/* <ProjectSlalom side="end">
             {data &&
