@@ -11,7 +11,7 @@ interface ProjectCardProps {
 }
 
 export default function ProjectCard({ data, className }: ProjectCardProps) {
-  console.log(data);
+  // console.log(data);
   return (
     <div
       className={`text-light bg-dark rounded-2.5xl shadow-og hover:shadow-ogHover flex flex-col gap-3 max-w-[479px] w-full hover:scale-105 transition-transform ${className}`}
