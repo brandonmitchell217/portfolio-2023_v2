@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import React from "react";
-import SvgFunc, { TechList } from "./assets/Tech";
+import SvgFunc from "./assets/Tech";
 import { Github, Link as LinkIcon } from "lucide-react";
 import { DataProps } from "@/lib/types";
 
@@ -14,7 +14,7 @@ export default function ProjectCard({ data, className }: ProjectCardProps) {
   // console.log(data);
   return (
     <div
-      className={`text-light bg-dark rounded-2.5xl shadow-og hover:shadow-ogHover flex flex-col gap-3 max-w-[479px] w-full hover:scale-105 transition-transform ${className}`}
+      className={`text-light bg-dark rounded-2.5xl shadow-og hover:shadow-ogHover flex flex-col gap-3 max-w-[479px] w-full sm:hover:scale-105 transition-transform ${className}`}
     >
       <div className="flex justify-between pt-3 pr-5">
         <h3 className="font-semibold text-[24px] sm:text-[32px] flex">
