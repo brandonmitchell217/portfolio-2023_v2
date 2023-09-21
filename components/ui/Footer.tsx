@@ -5,7 +5,7 @@ import SvgFunc, { TechList2 } from "../assets/Tech";
 export default function Footer() {
   let currentTime = new Date();
 
-  const techArray = [
+  const techArray: string[] = [
     "nextjs",
     "typescript",
     "tailwindcss",
@@ -26,8 +26,8 @@ export default function Footer() {
       className={`pb-20 pt-8 sm:py-8 bg-dark text-light w-full relative ${shadow}`}
     >
       <div className="max-w-7xl w-full m-auto px-4 xl:px-0">
-        <div className="w-full flex flex-col gap-2 sm:gap-0 sm:flex-row justify-between items-center sm:items-end text-xs sm:text-base">
-          <div className="space-y-1.5 flex-1 flex flex-col items-center justify-center sm:items-start max-w-[250px] w-full sm:max-w-none sm:w-auto">
+        <div className="w-full flex flex-col gap-4 lg:gap-0 sm:flex-row justify-between items-center sm:items-end text-xs sm:text-base">
+          <div className="pl-2 space-y-1.5 flex-1 flex flex-col items-center justify-center sm:items-start max-w-[250px] w-full sm:max-w-none sm:w-auto border-l-2 border-poppy">
             <span className="text-sm self-start">Built with:</span>
             <ul className="flex items-center justify-between max-w-[250px] w-full">
               {siteTech.map((tech) => (
@@ -45,7 +45,7 @@ export default function Footer() {
           </div>
 
           <div className="flex-1 text-center text-sm md:text-base">
-            <p className="">
+            <p>
               Designed & developed by{" "}
               <Link href={"/"} className="hover:text-lime transition-colors">
                 Brandon
