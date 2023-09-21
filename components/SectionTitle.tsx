@@ -6,13 +6,13 @@ import Dice from "./assets/Dice";
 
 interface SectionTitleProps {
   title: string;
-  size: "small" | "large";
+  size?: "small" | "large";
   className?: string;
 }
 
 export default function SectionTitle({
   title,
-  size,
+  size = "large",
   className,
 }: SectionTitleProps) {
   const Icon = () => {
