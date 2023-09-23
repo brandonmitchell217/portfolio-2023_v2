@@ -27,9 +27,11 @@ export default async function ProjectsPage() {
         <div className="w-full lg:px-4 xl:px-8 flex flex-col gap-2 md:gap-12">
           <ProjectSlalom side="start">
             {data &&
-              filter(data, [1, 2]).map((project: DataProps) => (
-                <ProjectCard key={project.id} data={{ ...project }} />
-              ))}
+              filter(data, [1, 2])
+                .reverse()
+                .map((project: DataProps) => (
+                  <ProjectCard key={project.id} data={{ ...project }} />
+                ))}
           </ProjectSlalom>
 
           <ProjectSlalom side="end">
