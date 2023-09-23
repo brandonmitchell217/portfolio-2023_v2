@@ -23,7 +23,7 @@ export default function ProjectCard({ data, className }: ProjectCardProps) {
           {data.title}
         </h3>
         <div className="flex gap-4 sm:gap-6 items-center">
-          {/* {data.title === "Delicieux" || data.title === "MyTeam" ? null : (
+          {data.gh_link === "" ? null : (
             <Link
               href={data.gh_link}
               target="_blank"
@@ -31,14 +31,8 @@ export default function ProjectCard({ data, className }: ProjectCardProps) {
             >
               <Github />
             </Link>
-          )} */}
-          <Link
-            href={data.gh_link}
-            target="_blank"
-            className="hover:scale-110 hover:text-lime"
-          >
-            <Github />
-          </Link>
+          )}
+
           <Link
             href={data.live_link}
             target="_blank"
