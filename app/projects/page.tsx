@@ -13,13 +13,15 @@ export default async function ProjectsPage() {
   const { data: data } = await supabase.from("projects").select();
 
   const filter = (data: DataProps[], num: number[]) => {
-    return data.filter(
-      (project: DataProps) => project.num === num[1] || project.num === num[0]
-    );
+    return data
+      .filter(
+        (project: DataProps) => project.num === num[1] || project.num === num[0]
+      )
+      .sort((a: any, b: any) => a.num - b.num);
   };
 
   // console.log(data);
-  // TODO: figure out why you need reverse
+
   return (
     <main className="relative w-full">
       <section className="max-w-7xl m-auto space-y-8 lg:space-y-16 pt-32 pb-24 md:py-36 px-2 sm:px-4">
@@ -27,28 +29,24 @@ export default async function ProjectsPage() {
         <div className="w-full lg:px-4 xl:px-8 flex flex-col gap-2 md:gap-12">
           <ProjectSlalom side="start">
             {data &&
-              filter(data, [1, 2])
-                .reverse()
-                .map((project: DataProps) => (
-                  <ProjectCard key={project.id} data={{ ...project }} />
-                ))}
+              filter(data, [1, 2]).map((project: DataProps) => (
+                <ProjectCard key={project.id} data={{ ...project }} />
+              ))}
           </ProjectSlalom>
 
           <ProjectSlalom side="end">
             {data &&
-              filter(data, [3, 4])
-                .reverse()
-                .map((project: DataProps) => (
-                  <ProjectCard key={project.id} data={{ ...project }} />
-                ))}
+              filter(data, [3, 4]).map((project: DataProps) => (
+                <ProjectCard key={project.id} data={{ ...project }} />
+              ))}
           </ProjectSlalom>
 
-          <ProjectSlalom side="start">
+          {/* <ProjectSlalom side="start">
             {data &&
               filter(data, [5, 6]).map((project: DataProps) => (
                 <ProjectCard key={project.id} data={{ ...project }} />
               ))}
-          </ProjectSlalom>
+          </ProjectSlalom> */}
 
           {/* <ProjectSlalom side="end">
             {data &&
