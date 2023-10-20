@@ -1,4 +1,3 @@
-"use client";
 import React from "react";
 import { PastPresent } from "@/components/PastPresent";
 import Tools from "@/components/Tools";

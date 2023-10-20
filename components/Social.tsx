@@ -2,7 +2,6 @@ import React from "react";
 import Link from "next/link";
 import { Mail, Github, Linkedin } from "lucide-react";
 import { NavigationLinksProps } from "@/lib/types";
-import SvgFunc from "./assets/Tech";
 
 interface SocialProps {
   links: NavigationLinksProps[];
@@ -28,12 +27,9 @@ function Social({
               target={new_tab ? "_blank" : "_self"}
               aria-label={link.name + " link"}
             >
-              {/* {link.icon} */}
               {link.name === "Email" && <Mail size={size || 28} />}
               {link.name === "LinkedIn" && <Linkedin size={size || 28} />}
               {link.name === "Github" && <Github size={size || 28} />}
-              {/* <SvgFunc name={link.name} choice="social" />
-              {link.name} */}
 
               {hover_text && (
                 <span className="absolute left-1/2 -bottom-6 -translate-x-1/2 hidden group-hover:block text-sm">
