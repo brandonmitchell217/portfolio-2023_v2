@@ -20,8 +20,6 @@ export default async function ProjectsPage() {
       .sort((a: any, b: any) => a.num - b.num);
   };
 
-  // console.log(data);
-
   return (
     <main className="relative w-full">
       <section className="max-w-7xl m-auto space-y-8 lg:space-y-16 pt-32 pb-24 md:py-36 px-2 sm:px-4">
