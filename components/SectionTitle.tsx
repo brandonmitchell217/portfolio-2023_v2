@@ -10,21 +10,21 @@ interface SectionTitleProps {
   className?: string;
 }
 
+const Icon: React.FC<{ title: string }> = ({ title }) => {
+  if (title === "Projects") {
+    return <Dice />;
+  } else if (title === "Contact") {
+    return <Mail />;
+  } else {
+    return <Star />;
+  }
+};
+
 export default function SectionTitle({
   title,
   size = "large",
   className,
 }: SectionTitleProps) {
-  const Icon = () => {
-    if (title === "Projects") {
-      return <Dice />;
-    } else if (title === "Contact") {
-      return <Mail />;
-    } else {
-      return <Star />;
-    }
-  };
-
   return (
     <div
       className={`${twMerge(
@@ -32,7 +32,7 @@ export default function SectionTitle({
         className
       )}`}
     >
-      {Icon()}
+      {Icon({ title })}
       <h2
         className={`border-b-[1.5px] md:border-b-[3px] border-dark font-unbounded font-semibold tracking-[0.03em] leading-none ${
           size === "small"

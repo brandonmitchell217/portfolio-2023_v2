@@ -20,9 +20,9 @@ const ContactForm = () => {
     handleSubmit,
     reset,
   } = useForm<FormData>();
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [modalContent, setModalContent] = useState("");
-  const [isError, setIsError] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const [modalContent, setModalContent] = useState<string>("");
+  const [isError, setIsError] = useState<boolean>(false);
 
   const { submit } = useWeb3forms<FormData>({
     apikey: process.env.NEXT_PUBLIC_ACCESS_KEY as string,

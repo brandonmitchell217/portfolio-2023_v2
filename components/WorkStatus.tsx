@@ -32,6 +32,7 @@ export default function WorkStatus({ working = true }: Props) {
       </motion.h3>
     );
   }
+
   return (
     <motion.h3
       initial={{ opacity: 0 }}

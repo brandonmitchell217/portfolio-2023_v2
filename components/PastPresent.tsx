@@ -6,10 +6,10 @@ import { twMerge } from "tailwind-merge";
 import { motion } from "framer-motion";
 
 export const PastPresent = () => {
-  const pastImage = "/pastMe.jpg";
-  const presentImage = "/me1.jpg";
-  const [currentAbout, setCurrentAbout] = useState(1);
-  const aboutData = [
+  const pastImage: string = "/pastMe.jpg";
+  const presentImage: string = "/me1.jpg";
+  const [currentAbout, setCurrentAbout] = useState<number>(1);
+  const aboutData: { label: string; text: string; image: string }[] = [
     {
       label: "past",
       text: "Through the years I've always had an interest in technology in some kind of way. It all started with Dreamweaver & MySpace layouts back in middle school. Not to state my age or anything again... Since then I have worked with game development, 3D modeling & animation. Before having kids & learning web development, I've been a cook, dishwasher, baker, teacher & a soldier. Hardwork & dedication are at my core. These paths have led me to being the more adventurous, hardworking developer I am today. Growing up, video games were a huge part of my life. It was once I started trying to create models for games that I found my interest in design. While I'm certainly more confident at the code side of things, I'll always seek to create awesome things that are both cool to look at & functional.",
