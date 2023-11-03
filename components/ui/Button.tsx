@@ -29,15 +29,15 @@ export default function Button({
         {children}
       </Link>
     );
-  } else {
-    return (
-      <button
-        type={type}
-        onClick={onClick}
-        className={`py-3 rounded-xl w-full sm:w-64 lg:w-72 border ${className}`}
-      >
-        {children}
-      </button>
-    );
   }
+
+  return (
+    <button
+      type={type}
+      onClick={onClick}
+      className={`py-3 rounded-xl w-full sm:w-64 lg:w-72 border ${className}`}
+    >
+      {children}
+    </button>
+  );
 }

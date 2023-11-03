@@ -8,8 +8,6 @@ interface Props {
   setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-// TODO: Style this thing
-
 export default function SubmitMessage({
   isError,
   modalContent,
@@ -27,7 +25,7 @@ export default function SubmitMessage({
     <div
       className={twMerge(
         TypeStyles(isError),
-        "w-[280px] h-[100px] lg:h-1/2 lg:w-1/2 rounded-lg flex justify-center items-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50"
+        "w-[280px] h-[100px] md:w-1/3 md:h-1/3 py-20 rounded-lg flex justify-center items-center absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/4 z-50 shadow-md"
       )}
       role="alert"
     >
