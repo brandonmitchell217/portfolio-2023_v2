@@ -5,12 +5,14 @@ import { motion, useInView } from "framer-motion";
 import SectionTitle from "./SectionTitle";
 
 export default function Tools() {
-  const ref = React.useRef(null);
+  const ref = React.useRef<HTMLDivElement>(null);
   const isInView = useInView(ref);
+
   const listItem = {
     hidden: { opacity: 0 },
     show: { opacity: 1 },
   };
+
   return (
     <motion.div
       initial={{ opacity: 0 }}

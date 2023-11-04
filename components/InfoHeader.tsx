@@ -4,9 +4,8 @@ import Circles from "./assets/Circles1";
 import { motion } from "framer-motion";
 
 export default function InfoHeader({ ...data }) {
-  const [currentDate, setCurrentDate] = useState("");
-  const [currentTime, setCurrentTime] = useState("");
-  // const [isLoading, setIsLoading] = useState(true);
+  const [currentDate, setCurrentDate] = useState<string>("");
+  const [currentTime, setCurrentTime] = useState<string>("");
   const info = data.data;
 
   useEffect(() => {
@@ -29,7 +28,6 @@ export default function InfoHeader({ ...data }) {
           minute: "2-digit",
         })
       );
-      // setIsLoading(false);
     }, 1000);
 
     return () => clearInterval(intervalId);

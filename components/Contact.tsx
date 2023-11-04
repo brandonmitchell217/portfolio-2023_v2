@@ -1,16 +1,13 @@
 "use client";
 import Link from "next/link";
-import React, { useLayoutEffect } from "react";
+import React from "react";
 import BackBtn from "./assets/BackBtn";
 import Circles2 from "./assets/Circles2";
 import { scrollToTop } from "@/lib/util";
 import { motion } from "framer-motion";
-import { useMediaQuery } from "usehooks-ts";
 
 export default function Contact() {
-  const mobileMatches = useMediaQuery("(max-width: 639px)");
-
-  const links = [
+  const links: { name: string; url: string }[] = [
     {
       name: "LinkedIn",
       url: "https://www.linkedin.com/in/brandonmitchell217/",
