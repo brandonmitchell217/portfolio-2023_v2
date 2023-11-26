@@ -12,7 +12,7 @@ interface ProjectCardProps {
 }
 
 export default function ProjectCard({ data, className }: ProjectCardProps) {
-  console.log(data);
+  // console.log(data);
   return (
     <div
       className={`text-light bg-dark rounded-2.5xl shadow-og hover:shadow-ogHover flex flex-col gap-3 max-w-[479px] w-full sm:hover:scale-105 transition-transform relative group ${className}`}
@@ -20,7 +20,7 @@ export default function ProjectCard({ data, className }: ProjectCardProps) {
       <Image
         src={data.imageURL}
         alt={`Screenshot of ${data.title} project`}
-        className="absolute z-10 top-0 left-0 max-w-[300px] h-[170px] rounded-tl-2.5xl rounded-br-2.5xl hidden lg:group-hover:block"
+        className="absolute z-10 -top-[170px] left-0 max-w-[300px] h-[170px] rounded-2.5xl hidden lg:group-hover:block"
         width={1482}
         height={833}
       />
