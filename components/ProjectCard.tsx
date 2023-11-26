@@ -4,6 +4,7 @@ import React from "react";
 import SvgFunc from "./assets/Tech";
 import { Github, Link as LinkIcon } from "lucide-react";
 import { DataProps } from "@/lib/types";
+import Image from "next/image";
 
 interface ProjectCardProps {
   data: DataProps;
@@ -14,8 +15,15 @@ export default function ProjectCard({ data, className }: ProjectCardProps) {
   // console.log(data);
   return (
     <div
-      className={`text-light bg-dark rounded-2.5xl shadow-og hover:shadow-ogHover flex flex-col gap-3 max-w-[479px] w-full sm:hover:scale-105 transition-transform ${className}`}
+      className={`text-light bg-dark rounded-2.5xl shadow-og hover:shadow-ogHover flex flex-col gap-3 max-w-[479px] w-full sm:hover:scale-105 transition-transform relative group ${className}`}
     >
+      <Image
+        src={data.imageURL}
+        alt={`Screenshot of ${data.title} project`}
+        className="absolute z-10 -top-[170px] left-0 max-w-[300px] h-[170px] rounded-2.5xl hidden lg:group-hover:block"
+        width={1482}
+        height={833}
+      />
       <div className="flex justify-between pt-3 pr-5">
         <h3 className="font-semibold text-[24px] sm:text-[32px] flex">
           <span className="block -rotate-90 text-poppy">[0{data.num}]</span>
@@ -51,10 +59,10 @@ export default function ProjectCard({ data, className }: ProjectCardProps) {
         <div className="py-3 px-5">
           <ul className="flex gap-4">
             {data.tag_array.map((tag) => (
-              <li key={tag} className="group">
+              <li key={tag} className="group/icon">
                 <SvgFunc
                   name={tag}
-                  className={`w-5 sm:w-6 group-hover:scale-110 fill-current sm:fill-light group-hover:fill-current transition cursor-cell`}
+                  className={`w-5 sm:w-6 group-hover/icon:scale-110 fill-current sm:fill-light group-hover/icon:fill-current transition cursor-cell`}
                 />
               </li>
             ))}
