@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useRef } from "react";
 import { SocialLinks, NavigationLinks } from "@/lib/util";
 import { Grip, X } from "lucide-react";
 import { useMediaQuery } from "usehooks-ts";
@@ -9,11 +9,13 @@ import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { usePathname } from "next/navigation";
 import Social from "../Social";
 import { twMerge } from "tailwind-merge";
+import { NavigationLinksProps } from "@/lib/types";
 
 export default function Nav() {
   const pathname = usePathname();
   const [isNavDevice, setIsNavDevice] = React.useState<React.ReactNode>();
   const [isMenuOpen, setIsMenuOpen] = React.useState<boolean>(false);
+  const tabletNavRef = useRef<HTMLDivElement>(null);
   const desktopMatches = useMediaQuery("(min-width: 1023px)");
   const tabletMatches = useMediaQuery("(min-width: 640px)");
   const mobileMatches = useMediaQuery("(max-width: 639px)");
@@ -27,6 +29,25 @@ export default function Nav() {
 
   React.useEffect(() => {
     let lastScrollY = window.pageYOffset;
+
+    const handleOutsideClick = (event: MouseEvent) => {
+      if (
+        tabletNavRef.current &&
+        !tabletNavRef.current.contains(event.target as Node)
+      ) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    const handleEscapeKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("click", handleOutsideClick);
+    document.addEventListener("keydown", handleEscapeKey);
+    window.addEventListener("resize", () => setIsMenuOpen(false));
 
     const updateScrollDirection = () => {
       const offY = window.pageYOffset;
@@ -51,7 +72,13 @@ export default function Nav() {
       setIsNavDevice(<MobileNav />);
       setActiveTab(pathname);
     }
-    return () => window.removeEventListener("scroll", updateScrollDirection);
+
+    return () => {
+      window.removeEventListener("scroll", updateScrollDirection);
+      document.removeEventListener("click", handleOutsideClick);
+      document.removeEventListener("keydown", handleEscapeKey);
+      window.removeEventListener("resize", () => setIsMenuOpen(false));
+    };
   }, [
     isMenuOpen,
     desktopMatches,
@@ -100,12 +127,13 @@ export default function Nav() {
   };
 
   const TabletNav = () => {
-    const tabletNavFunc = (link: any) => {
+    const tabletNavFunc = (link: NavigationLinksProps["links"]) => {
       setIsMenuOpen(!isMenuOpen);
       setActiveTab(link.url || "");
     };
     return (
       <nav
+        ref={tabletNavRef}
         className={`w-full fixed top-0 z-10 ${
           pathname === "/login" ? twMerge("hidden") : null
         }`}
