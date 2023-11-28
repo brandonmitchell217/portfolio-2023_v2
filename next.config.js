@@ -1,10 +1,12 @@
 /** @type {import('next').NextConfig} */
+
 const nextConfig = {
-  experimental: {
-    serverActions: true,
-  },
   images: {
-    domains: ["boenonnbcwyqchdfeiil.supabase.co"],
+    remotePatterns: [
+      {
+        hostname: "boenonnbcwyqchdfeiil.supabase.co",
+      },
+    ],
   },
   async redirects() {
     return [
