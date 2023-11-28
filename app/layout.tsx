@@ -4,6 +4,7 @@ import { Outfit, Unbounded } from "next/font/google";
 import Footer from "@/components/ui/Footer";
 import MobileHeader from "@/components/ui/MobileHeader";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
+import { Analytics } from "@vercel/analytics/react";
 
 const outfit = Outfit({
   weight: ["300", "400", "500", "600", "700", "800", "900"],
@@ -32,12 +33,13 @@ export default function RootLayout({
         lang="en"
         className={`${outfit.variable} ${unbounded.variable} scroll-smooth`}
       >
-        <GoogleAnalytics />
         <body className="h-full bg-light text-dark relative z-[1] font-outfit flex flex-col items-center">
           <Nav />
           <MobileHeader />
           {children}
           <Footer />
+          <GoogleAnalytics />
+          <Analytics />
         </body>
       </html>
     </>
