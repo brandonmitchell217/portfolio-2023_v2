@@ -20,7 +20,7 @@ export default function ProjectCard({ data, className }: ProjectCardProps) {
       <Image
         src={data.imageURL}
         alt={`Screenshot of ${data.title} project`}
-        className="absolute z-10 -top-[170px] left-0 max-w-[300px] h-[170px] rounded-2.5xl hidden lg:group-hover:block"
+        className="absolute z-50 -top-[170px] left-0 max-w-[300px] h-[170px] rounded-2.5xl hidden lg:group-hover:block"
         width={1482}
         height={833}
       />
