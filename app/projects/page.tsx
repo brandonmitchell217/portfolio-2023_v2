@@ -10,7 +10,10 @@ export const dynamic = "force-dynamic";
 
 export default async function ProjectsPage() {
   const supabase = createServerComponentClient({ cookies });
-  const { data: data } = await supabase.from("projects").select();
+  const { data: data } = await supabase
+    .from("projects")
+    .select()
+    .eq("featured", true);
 
   const filter = (data: DataProps[], num: number[]) => {
     return data
