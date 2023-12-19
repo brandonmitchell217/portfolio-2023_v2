@@ -6,8 +6,8 @@ import { twMerge } from "tailwind-merge";
 import { motion } from "framer-motion";
 
 export const PastPresent = () => {
-  const pastImage: string = "/pastMe.jpg";
-  const presentImage: string = "/me1.jpg";
+  const pastImage: string = "/pastMe.webp";
+  const presentImage: string = "/me1.webp";
   const [currentAbout, setCurrentAbout] = useState<number>(1);
   const aboutData: { label: string; text: string; image: string }[] = [
     {
@@ -44,7 +44,7 @@ export const PastPresent = () => {
           }`}
           height={550}
           width={383}
-          priority
+          priority={true}
           className={
             "rounded-2.5xl lg:rounded-none lg:rounded-tl-2.5xl lg:rounded-bl-2.5xl m-auto w-60 sm:w-72 md:w-auto lg:h-full xl:w-[450px]"
           }
