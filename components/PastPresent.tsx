@@ -45,6 +45,9 @@ export const PastPresent = () => {
           height={550}
           width={383}
           priority={true}
+          loader={({ src, width, quality }) => {
+            return `${src}?w=${width}&q=${quality || 75}`;
+          }}
           className={
             "rounded-2.5xl lg:rounded-none lg:rounded-tl-2.5xl lg:rounded-bl-2.5xl m-auto w-60 sm:w-72 md:w-auto lg:h-full xl:w-[450px]"
           }
