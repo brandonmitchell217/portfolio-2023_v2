@@ -11,7 +11,7 @@ export default function AboutPage() {
         <section className="py-24 sm:py-32 lg:py-44 xl:pt-36 xl:pb-52">
           <PastPresent />
         </section>
-        <section className="pb-20 md:pb-48 space-y-20 md:space-y-48">
+        <section className="relative pb-20 md:pb-48 space-y-20 md:space-y-36">
           <Tools />
           <WorkStatus working={false} />
         </section>
