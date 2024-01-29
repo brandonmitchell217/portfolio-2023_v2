@@ -10,7 +10,7 @@ export interface DataProps {
   gh_link: string;
   live_link: string;
   featured?: boolean;
-  num?: number;
+  num: number;
   category?: string[];
 }
 
@@ -18,7 +18,6 @@ export interface NavigationLinksProps {
   id?: number;
   name?: string;
   url?: string;
-  query?: any | undefined;
   icon?: React.ReactNode;
   iconFnc?: (size) => React.ReactNode;
   links?:
