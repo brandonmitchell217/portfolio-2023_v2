@@ -36,28 +36,24 @@ export const NavigationLinks: NavigationLinksProps[] = [
     id: 1,
     name: "Home",
     url: "/",
-    query: "",
     icon: <Home className="w-6 h-6" />,
   },
   {
     id: 2,
     name: "About",
     url: "/about",
-    query: "",
     icon: <User className="w-6 h-6" />,
   },
   {
     id: 3,
     name: "Projects",
     url: "/projects",
-    query: "",
     icon: <Laptop className="w-6 h-6" />,
   },
   {
     id: 4,
     name: "Contact",
     url: "/contact",
-    query: "",
     icon: <Mail className="w-6 h-6" />,
   },
 ];

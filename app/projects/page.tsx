@@ -20,7 +20,7 @@ export default async function ProjectsPage() {
       .filter(
         (project: DataProps) => project.num === num[1] || project.num === num[0]
       )
-      .sort((a: any, b: any) => a.num - b.num);
+      .sort((a: DataProps, b: DataProps) => a.num - b.num);
   };
 
   // console.log(data);
