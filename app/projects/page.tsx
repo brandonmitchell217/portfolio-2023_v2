@@ -1,5 +1,5 @@
 import React from "react";
-import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+import { createServerClient } from "@supabase/ssr";
 import { cookies } from "next/headers";
 import ProjectCard from "@/components/ProjectCard";
 import ProjectSlalom from "@/components/ProjectSlalom";
@@ -9,7 +9,19 @@ import { DataProps } from "@/lib/types";
 export const dynamic = "force-dynamic";
 
 export default async function ProjectsPage() {
-  const supabase = createServerComponentClient({ cookies });
+  const cookieStore = cookies();
+
+  const supabase = createServerClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    {
+      cookies: {
+        get(name: string) {
+          return cookieStore.get(name)?.value;
+        },
+      },
+    }
+  );
   const { data: data } = await supabase
     .from("projects")
     .select()
