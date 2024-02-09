@@ -8,7 +8,7 @@ import Button from "@/components/ui/Button";
 import { DataProps } from "@/lib/types";
 export const dynamic = "force-dynamic";
 
-export default async function ProjectsPage() {
+async function getProjects() {
   const cookieStore = cookies();
 
   const supabase = createServerClient(
@@ -26,6 +26,12 @@ export default async function ProjectsPage() {
     .from("projects")
     .select()
     .eq("featured", true);
+
+  return { data };
+}
+
+export default async function ProjectsPage() {
+  const { data } = await getProjects();
 
   const filter = (data: DataProps[], num: number[]) => {
     return data
