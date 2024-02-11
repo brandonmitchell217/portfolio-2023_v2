@@ -33,13 +33,13 @@ async function getProjects() {
 export default async function ProjectsPage() {
   const { data } = await getProjects();
 
-  const filter = (data: DataProps[], num: number[]) => {
-    return data
-      .filter(
-        (project: DataProps) => project.num === num[1] || project.num === num[0]
-      )
-      .sort((a: DataProps, b: DataProps) => a.num - b.num);
-  };
+  // const filter = (data: DataProps[], num: number[]) => {
+  //   return data
+  //     .filter(
+  //       (project: DataProps) => project.num === num[1] || project.num === num[0]
+  //     )
+  //     .sort((a: DataProps, b: DataProps) => a.num - b.num);
+  // };
 
   // console.log(data);
 
@@ -50,14 +50,19 @@ export default async function ProjectsPage() {
         <div className="w-full lg:px-4 xl:px-8 flex flex-col gap-2 md:gap-12">
           <ProjectSlalom side="start">
             {data &&
-              filter(data, [1, 2]).map((project: DataProps) => (
-                <ProjectCard key={project.id} data={{ ...project }} />
-              ))}
+              data
+                .sort((a: DataProps, b: DataProps) => a.num - b.num)
+                .slice(0, 2)
+                .map((project: DataProps) => (
+                  <ProjectCard key={project.id} data={{ ...project }} />
+                ))}
           </ProjectSlalom>
 
           <ProjectSlalom side="end">
             {data &&
-              filter(data, [3, 4])
+              data
+                .sort((a: DataProps, b: DataProps) => a.num - b.num)
+                .slice(2, 4)
                 .reverse()
                 .map((project: DataProps) => (
                   <ProjectCard key={project.id} data={{ ...project }} />
