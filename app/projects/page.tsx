@@ -6,7 +6,7 @@ import ProjectSlalom from "@/components/ProjectSlalom";
 import SectionTitle from "@/components/SectionTitle";
 import Button from "@/components/ui/Button";
 import { DataProps } from "@/lib/types";
-export const dynamic = "force-dynamic";
+// export const dynamic = "force-dynamic";
 
 async function getProjects() {
   const cookieStore = cookies();
