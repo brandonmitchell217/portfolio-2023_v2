@@ -1,10 +1,11 @@
 "use client";
 import Link from "next/link";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import SvgFunc from "./assets/Tech";
 import { Github, Link as LinkIcon } from "lucide-react";
 import { DataProps } from "@/lib/types";
 import Image from "next/image";
+import { CircleDashed } from "lucide-react";
 
 interface ProjectCardProps {
   data: DataProps;
@@ -12,7 +13,23 @@ interface ProjectCardProps {
 }
 
 export default function ProjectCard({ data, className }: ProjectCardProps) {
+  const [loading, setLoading] = useState(true);
   // console.log(data);
+
+  useEffect(() => {
+    data && setLoading(false);
+  }, []);
+
+  if (loading) {
+    return (
+      <div
+        className={`text-light bg-dark rounded-2.5xl shadow-og lg:hover:shadow-ogHover flex flex-col justify-center items-center gap-3 h-[203px] md:h-[218px] xl:h-[229px] max-w-[479px] w-full lg:hover:scale-105 transition-transform relative group ${className}`}
+      >
+        <CircleDashed size={45} className="animate-spin-slow" />
+      </div>
+    );
+  }
+
   return (
     <div
       className={`text-light bg-dark rounded-2.5xl shadow-og lg:hover:shadow-ogHover flex flex-col gap-3 max-w-[479px] w-full lg:hover:scale-105 transition-transform relative group ${className}`}

@@ -51,7 +51,7 @@ export default function WorkStatus({ working = true }: Props) {
         </h3>
         <Button
           href={"/about/resume"}
-          className="border-dark bg-dark text-light block max-w-xs m-auto text-center lg:text-lg xl:text-xl hover:bg-transparent hover:text-dark transition-all"
+          className="border-dark bg-dark text-light block max-w-xs m-auto text-center md:text-lg xl:text-xl hover:bg-transparent hover:text-dark transition-all"
         >
           My Resume
         </Button>

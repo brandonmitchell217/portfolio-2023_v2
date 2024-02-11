@@ -39,7 +39,7 @@ export default function SectionTitle({
             ? twMerge(
                 "text-[28px] xs:text-[32px] md:text-[48px] xl:text-[72px] "
               )
-            : twMerge("text-[48px] xl:text-[72px]")
+            : twMerge("text-[32px] md:text-[48px] xl:text-[72px]")
         } `}
       >
         {title}:
