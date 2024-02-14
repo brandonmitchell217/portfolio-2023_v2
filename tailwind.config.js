@@ -36,7 +36,7 @@ module.exports = {
       },
       fontSize: {
         clamp1: "clamp(2rem, 0.4981rem + 6.391vw, 6.25rem)", // name
-        clamp2: "clamp(0.85rem, 0.2406rem + 1.5549vw, 2rem)", // date/location
+        clamp2: "clamp(0.85rem, 0.2406rem + 1.5549vw, 1.87rem)", // date/location
         clamp3: "clamp(0.875rem, 0.2199rem + 2.2556vw, 2.25rem)", // title
       },
 

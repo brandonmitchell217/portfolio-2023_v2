@@ -25,7 +25,7 @@ const maxWidth = 800;
 type PDFFile = string | File | null;
 
 export default function MyResume() {
-  const [file, setFile] = useState<PDFFile>("../BrandonMitchell-resume1.pdf");
+  const [file, setFile] = useState<PDFFile>("../BrandonMitchell-resume03.pdf");
   const [numPages, setNumPages] = useState<number>();
   const [containerRef, setContainerRef] = useState<HTMLElement | null>(null);
   const [containerWidth, setContainerWidth] = useState<number>();
@@ -61,20 +61,21 @@ export default function MyResume() {
         onLoadSuccess={onDocumentLoadSuccess}
         options={options}
       >
-        <Page
+        {/* <Page
           key={`page_${1}`}
           pageNumber={1}
           width={containerWidth ? Math.min(containerWidth, maxWidth) : maxWidth}
-        />
-        {/* {Array.from(new Array(numPages), (el, index) => (
+        /> */}
+        {Array.from(new Array(numPages), (el, index) => (
           <Page
             key={`page_${index + 1}`}
             pageNumber={index + 1}
             width={
               containerWidth ? Math.min(containerWidth, maxWidth) : maxWidth
             }
+            className={`page_${index + 1} ${index === 1 && "mt-4"}`}
           />
-        ))} */}
+        ))}
       </Document>
     </div>
   );
