@@ -6,28 +6,7 @@ import ProjectSlalom from "@/components/ProjectSlalom";
 import SectionTitle from "@/components/SectionTitle";
 import Button from "@/components/ui/Button";
 import { DataProps } from "@/lib/types";
-
-async function getProjects() {
-  const cookieStore = cookies();
-
-  const supabase = createServerClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-    {
-      cookies: {
-        get(name: string) {
-          return cookieStore.get(name)?.value;
-        },
-      },
-    }
-  );
-  const { data: data } = await supabase
-    .from("projects")
-    .select()
-    .eq("featured", true);
-
-  return { data };
-}
+import { getProjects } from "./actions";
 
 export default async function ProjectsPage() {
   const { data } = await getProjects();
