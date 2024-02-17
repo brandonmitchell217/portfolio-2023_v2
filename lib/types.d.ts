@@ -1,18 +1,5 @@
 import { SocialLinks } from "./util";
 
-export interface DataProps {
-  id: number;
-  created_at: string;
-  title: string;
-  description: string;
-  imageURL: string;
-  tag_array: string[];
-  gh_link: string;
-  live_link: string;
-  featured?: boolean;
-  num: number;
-  category?: string[];
-}
 
 export interface NavigationLinksProps {
   id?: number;
@@ -28,4 +15,10 @@ export interface NavigationLinksProps {
         icon?: React.ReactNode;
       }[]
     | any;
+}
+
+export interface ProjectsProps {
+  data: DataProps | Database;
+  filter?: (data: Database) => Database | React.JSX.Element;
+  sort?: (a: Database, b: Database) => number;
 }

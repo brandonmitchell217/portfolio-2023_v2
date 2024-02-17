@@ -1,22 +1,23 @@
 import React from "react";
-import { createServerClient } from "@supabase/ssr";
-import { cookies } from "next/headers";
 import ProjectCard from "@/components/ProjectCard";
 import ProjectSlalom from "@/components/ProjectSlalom";
 import SectionTitle from "@/components/SectionTitle";
 import Button from "@/components/ui/Button";
-import { DataProps } from "@/lib/types";
+import { ProjectsProps } from "@/lib/types";
 import { getProjects } from "./actions";
 
 export default async function ProjectsPage() {
   const { data } = await getProjects();
 
-  const filter = (data: DataProps[], num: number[]) => {
+  const filter = (data: ProjectsProps["data"][], num: number[]) => {
     return data
       .filter(
-        (project: DataProps) => project.num === num[1] || project.num === num[0]
+        (project: ProjectsProps["data"]) =>
+          project.num === num[1] || project.num === num[0]
       )
-      .sort((a: DataProps, b: DataProps) => a.num - b.num);
+      .sort(
+        (a: ProjectsProps["data"], b: ProjectsProps["data"]) => a.num - b.num
+      );
   };
 
   // console.log(data);
@@ -28,7 +29,7 @@ export default async function ProjectsPage() {
         <div className="w-full lg:px-4 xl:px-8 flex flex-col gap-2 md:gap-12">
           <ProjectSlalom side="start">
             {data &&
-              filter(data, [1, 2]).map((project: DataProps) => (
+              filter(data, [1, 2]).map((project: ProjectsProps["data"]) => (
                 <ProjectCard key={project.id} data={{ ...project }} />
               ))}
           </ProjectSlalom>
@@ -37,14 +38,14 @@ export default async function ProjectsPage() {
             {data &&
               filter(data, [3, 4])
                 .reverse()
-                .map((project: DataProps) => (
+                .map((project: ProjectsProps["data"]) => (
                   <ProjectCard key={project.id} data={{ ...project }} />
                 ))}
           </ProjectSlalom>
 
           {/* <ProjectSlalom side="start">
             {data &&
-              filter(data, [5, 6]).map((project: DataProps) => (
+              filter(data, [5, 6]).map((project: ProjectsProps['data']) => (
                 <ProjectCard key={project.id} data={{ ...project }} />
               ))}
           </ProjectSlalom> */}
@@ -53,7 +54,7 @@ export default async function ProjectsPage() {
             {data &&
               filter(data, [7, 8])
                 .reverse()
-                .map((project: DataProps) => (
+                .map((project: ProjectsProps['data']) => (
                   <ProjectCard key={project.id} data={{ ...project }} />
                 ))}
           </ProjectSlalom> */}

@@ -3,12 +3,12 @@ import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import SvgFunc from "./assets/Tech";
 import { Github, Link as LinkIcon } from "lucide-react";
-import { DataProps } from "@/lib/types";
+import { ProjectsProps } from "@/lib/types";
 import Image from "next/image";
 import { CircleDashed } from "lucide-react";
 
 interface ProjectCardProps {
-  data: DataProps;
+  data: ProjectsProps["data"];
   className?: string;
 }
 
@@ -35,7 +35,7 @@ export default function ProjectCard({ data, className }: ProjectCardProps) {
       className={`text-light bg-dark rounded-2.5xl shadow-og lg:hover:shadow-ogHover flex flex-col gap-3 max-w-[479px] w-full lg:hover:scale-105 transition-transform relative group ${className}`}
     >
       <Image
-        src={data.imageURL}
+        src={data.imageURL || ""}
         alt={`Screenshot of ${data.title} project`}
         className="absolute z-50 -top-[170px] left-0 max-w-[300px] h-[170px] rounded-2.5xl hidden lg:group-hover:block"
         width={1482}
@@ -50,7 +50,7 @@ export default function ProjectCard({ data, className }: ProjectCardProps) {
         <div className="flex gap-4 sm:gap-6 items-center">
           {data.gh_link === "" ? null : (
             <Link
-              href={data.gh_link}
+              href={data.gh_link || ""}
               target="_blank"
               className="hover:scale-110 hover:text-lime"
             >
@@ -59,7 +59,7 @@ export default function ProjectCard({ data, className }: ProjectCardProps) {
           )}
 
           <Link
-            href={data.live_link}
+            href={data.live_link || ""}
             target="_blank"
             className="hover:scale-110 hover:text-lime"
           >
@@ -75,7 +75,7 @@ export default function ProjectCard({ data, className }: ProjectCardProps) {
 
         <div className="py-3 px-5">
           <ul className="flex gap-4">
-            {data.tag_array.map((tag) => (
+            {data.tag_array?.map((tag: ProjectsProps["data"]) => (
               <li key={tag} className="group/icon">
                 <SvgFunc
                   name={tag}
