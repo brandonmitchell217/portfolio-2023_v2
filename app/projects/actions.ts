@@ -5,7 +5,7 @@ import { ProjectsProps } from "@/lib/types";
 export async function getProjects() {
   const cookieStore = cookies();
 
-  const supabase = createServerClient<ProjectsProps['data']>(
+  const supabase = createServerClient<ProjectsProps["data"]>(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
     {
@@ -14,7 +14,7 @@ export async function getProjects() {
           return cookieStore.get(name)?.value;
         },
       },
-    }
+    },
   );
   const { data: data } = await supabase
     .from("projects")
