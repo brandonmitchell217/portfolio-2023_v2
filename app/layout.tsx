@@ -20,7 +20,7 @@ const unbounded = Unbounded({
 
 export const metadata = {
   title: "Brandon Mitchell - Portfolio",
-  description: "Portfolio of Brandon Mitchell, a frontend developer",
+  description: "Portfolio of Brandon Mitchell, Software Developer",
 };
 
 export default function RootLayout({

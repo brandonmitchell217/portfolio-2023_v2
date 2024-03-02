@@ -25,7 +25,9 @@ const maxWidth = 800;
 type PDFFile = string | File | null;
 
 export default function MyResume() {
-  const [file, setFile] = useState<PDFFile>("../BrandonMitchell-resume03.pdf");
+  const [file, setFile] = useState<PDFFile>(
+    "../BrandonMitchell-resume04.1.pdf"
+  );
   const [numPages, setNumPages] = useState<number>();
   const [containerRef, setContainerRef] = useState<HTMLElement | null>(null);
   const [containerWidth, setContainerWidth] = useState<number>();

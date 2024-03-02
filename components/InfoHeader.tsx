@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import Circles from "./assets/Circles1";
 import { motion } from "framer-motion";
+import { useMediaQuery } from "usehooks-ts";
 
 export default function InfoHeader({ ...data }) {
   const [currentDate, setCurrentDate] = useState<string>("");
@@ -35,7 +36,7 @@ export default function InfoHeader({ ...data }) {
 
   return (
     <div>
-      <div className="relative w-full flex items-center justify-center text-[0.75rem] md:text-clamp2 leading-[1.095] tracking-[-0.02em] overflow-y-hidden">
+      <div className="relative w-full flex items-center justify-center text-[0.60rem] xs:text-[0.75rem] md:text-clamp2 leading-[1.095] tracking-[-0.02em] overflow-y-hidden">
         <div className="md:w-1/3 flex justify-start">
           <motion.h5
             initial={{ y: 500 }}
