@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from "react";
 import Circles from "./assets/Circles1";
 import { motion } from "framer-motion";
-import { useMediaQuery } from "usehooks-ts";
 
 export default function InfoHeader({ ...data }) {
   const [currentDate, setCurrentDate] = useState<string>("");
