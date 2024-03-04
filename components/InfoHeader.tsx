@@ -2,8 +2,10 @@
 import React, { useState, useEffect } from "react";
 import Circles from "./assets/Circles1";
 import { motion } from "framer-motion";
+import { useMediaQuery } from "usehooks-ts";
 
 export default function InfoHeader({ ...data }) {
+  const isMobile = useMediaQuery("(max-width: 450px)");
   const [currentDate, setCurrentDate] = useState<string>("");
   const [currentTime, setCurrentTime] = useState<string>("");
   const info = data.data;
@@ -35,7 +37,7 @@ export default function InfoHeader({ ...data }) {
 
   return (
     <div>
-      <div className="relative w-full flex items-center justify-center text-[0.60rem] xs:text-[0.75rem] md:text-clamp2 leading-[1.095] tracking-[-0.02em] overflow-y-hidden">
+      <div className="relative w-full mb-2 xs:mb-0 flex items-center justify-between sm:justify-center text-[0.60rem] xs:text-[0.75rem] md:text-clamp2 leading-[1.095] tracking-[-0.02em] overflow-y-hidden">
         <div className="md:w-1/3 flex justify-start">
           <motion.h5
             initial={{ y: 500 }}
@@ -43,7 +45,10 @@ export default function InfoHeader({ ...data }) {
             transition={{ duration: 1.2, delay: 0.65 }}
             className="overflow-y-hidden"
           >
-            {currentTime} EST | {currentDate}
+            {currentTime} EST |{" "}
+            {!isMobile
+              ? currentDate
+              : currentDate.slice(0, currentDate.length - 6)}
           </motion.h5>
         </div>
         <motion.div
