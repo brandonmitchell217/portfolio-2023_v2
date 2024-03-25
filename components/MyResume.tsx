@@ -7,6 +7,7 @@ import type { PDFDocumentProxy } from "pdfjs-dist";
 
 import "react-pdf/dist/esm/Page/AnnotationLayer.css";
 import "react-pdf/dist/esm/Page/TextLayer.css";
+import Button from "./ui/Button";
 
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
   "pdfjs-dist/build/pdf.worker.min.js",
@@ -55,7 +56,7 @@ export default function MyResume() {
   }
 
   return (
-    <div className="max-w-[800px] m-auto" ref={setContainerRef}>
+    <div className="max-w-[800px] m-auto px-4 lg:px-0" ref={setContainerRef}>
       <Document
         file={file}
         onLoadSuccess={onDocumentLoadSuccess}
@@ -77,6 +78,13 @@ export default function MyResume() {
           />
         ))}
       </Document>
+      <Button
+        href={"../BrandonMitchellResume-web.pdf"}
+        download="Brandon Mitchell Resume"
+        className="mt-16 border-dark bg-dark text-light block max-w-xs m-auto text-center md:text-lg xl:text-xl hover:bg-transparent hover:text-dark transition-all"
+      >
+        Download PDF
+      </Button>
     </div>
   );
 }
