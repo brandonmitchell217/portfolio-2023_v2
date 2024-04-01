@@ -13,15 +13,15 @@ const nextConfig = {
 
     return config;
   },
-  // async redirects() {
-  //   return [
-  //     {
-  //       source: "/login",
-  //       destination: "/",
-  //       permanent: true,
-  //     },
-  //   ];
-  // },
+  async redirects() {
+    return [
+      {
+        source: ["/login", "/admin"],
+        destination: "/",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;
