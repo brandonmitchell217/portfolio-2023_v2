@@ -20,6 +20,11 @@ const nextConfig = {
         destination: "/",
         permanent: true,
       },
+      {
+        source: "/admin",
+        destination: "/",
+        permanent: true,
+      },
     ];
   },
 };
