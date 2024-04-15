@@ -7,7 +7,7 @@ import { ProjectsProps } from "@/lib/types";
 import Image from "next/image";
 import { CircleDashed } from "lucide-react";
 
-interface ProjectCardProps {
+export interface ProjectCardProps {
   data: ProjectsProps["data"];
   className?: string;
 }
@@ -43,7 +43,9 @@ export default function ProjectCard({ data, className }: ProjectCardProps) {
       />
       <div className="flex justify-between pt-3 pr-5">
         <h3 className="font-semibold text-[24px] sm:text-[32px] flex">
-          <span className="block -rotate-90 text-poppy">[0{data.num}]</span>
+          <span className="block -rotate-90 text-poppy">
+            [{data.num < 10 ? "0" + data.num : data.num}]
+          </span>
           <span className="sm:-ml-2 mr-2">-</span>
           {data.title}
         </h3>
