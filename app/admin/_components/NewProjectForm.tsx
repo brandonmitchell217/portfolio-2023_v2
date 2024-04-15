@@ -1,20 +1,8 @@
 "use client";
 import React, { useState } from "react";
-// import { createProject, uploadImage } from "../actions";
-import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
-
-// category: string[] | null
-// created_at: string | null
-// description: string | null
-// featured: boolean | null
-// gh_link: string | null
-// id: number
-// imageURL: string | null
-// live_link: string | null
-// num: number | null
-// tag_array: string[] | null
-// title: string | null
+import Button from "@/components/ui/Button";
+import { useRouter } from "next/navigation";
 
 type FormProps = {
   title: string;
@@ -28,7 +16,10 @@ type FormProps = {
   num: string | number;
 };
 
+// TODO: add category and tag_array to form
+
 export default function NewProjectForm() {
+  const router = useRouter();
   const supabase = createClient();
   const [formData, setFormData] = useState<FormProps>({
     title: "",
@@ -52,13 +43,13 @@ export default function NewProjectForm() {
       console.error("Error uploading image", error);
       return;
     }
-    // console.log(data);
 
     return data.path;
   }
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+
     const image = await createImage();
     const projectData = {
       ...formData,
@@ -72,7 +63,20 @@ export default function NewProjectForm() {
       console.error("Error creating project", error);
       return;
     }
-    // console.log(data);
+
+    setFormData({
+      title: "",
+      description: "",
+      live_link: "",
+      gh_link: "",
+      imageURL: null,
+      featured: false,
+      category: [""],
+      tag_array: [""],
+      num: "",
+    });
+
+    router.push("/admin/projects");
   }
 
   return (
@@ -162,19 +166,13 @@ export default function NewProjectForm() {
             })
           }
         />
-        <button
+        <Button
           type="submit"
-          className="px-4 py-1 border border-black bg-black text-white"
+          className="mx-auto lg:w-full mt-4 px-4 py-1 border border-black bg-black text-white"
         >
           Create Project
-        </button>
+        </Button>
       </form>
-      {/* <button
-        onClick={() => getUser()}
-        className="px-4 py-1 border border-black bg-black text-white"
-      >
-        Get images
-      </button> */}
     </>
   );
 }

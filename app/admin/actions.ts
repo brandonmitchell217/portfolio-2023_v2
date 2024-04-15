@@ -78,27 +78,5 @@ export async function createProject(formData: any) {
     console.error("Error creating project", projectError);
     return;
   }
-  
-//    const { data, error: uploadError } = await supabase.storage
-//    .from("images")
-//    .upload(`${formData.image}`, formData.image);
- 
-//  if (uploadError) {
-//    console.error("Error uploading image", uploadError);
-//    return;
-//     }
-   
-  
-   
-   // const rowData = {
-   //   ...Object.fromEntries(formData),
-   //   num: 0,
-   // };
 
-
-   
-  //  await supabase.from("projects").insert([formData]);
-
-  //  revalidatePath("/admin/projects");
-  //  redirect("/admin/projects");
 }
