@@ -5,6 +5,13 @@ import { redirect } from "next/navigation";
 // import { createClient as supabaseClient } from "@/lib/supabase/client";
 
 
+export async function getSupabaseUser() {
+  const supabase = createClient();
+  const { data: user } = await supabase.auth.getUser();
+  return user;
+}
+
+
 export async function getAdminProjects() {
   const supabase = createClient();
   const { data: user } = await supabase.auth.getUser();

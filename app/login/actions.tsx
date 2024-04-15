@@ -5,6 +5,12 @@ import { redirect } from "next/navigation";
 
 import { createClient } from "@/lib/supabase/server";
 
+export async function getSupabaseUser() {
+  const supabase = createClient();
+  const { data: user } = await supabase.auth.getUser();
+  return user;
+}
+
 export async function login(formData: FormData) {
   const supabase = createClient();
 
@@ -22,7 +28,7 @@ export async function login(formData: FormData) {
   }
 
   revalidatePath("/", "layout");
-  redirect("/");
+  redirect("/admin");
 }
 
 export async function signup(formData: FormData) {
@@ -36,6 +42,19 @@ export async function signup(formData: FormData) {
   };
 
   const { error } = await supabase.auth.signUp(data);
+
+  if (error) {
+    redirect("/error");
+  }
+
+  revalidatePath("/", "layout");
+  redirect("/");
+}
+
+export async function logout() {
+  const supabase = createClient();
+
+  const { error } = await supabase.auth.signOut();
 
   if (error) {
     redirect("/error");

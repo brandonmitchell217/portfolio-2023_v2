@@ -1,13 +1,13 @@
 import Link from "next/link";
-import { login } from "./actions";
 import { createClient } from "@/lib/supabase/server";
+import LoginForm from "./_components/LoginForm";
+import { getSupabaseUser } from "../admin/actions";
+import SignOut from "./_components/SignOut";
 
 export default async function LoginPage() {
-  const supabase = createClient();
+  const user = await getSupabaseUser();
 
-  const { data } = await supabase.auth.getSession();
-
-  if (data) {
+  if (user?.user != null) {
     return (
       <main className="min-h-screen flex justify-center items-center flex-col">
         <h1 className="text-4xl font-bold text-center my-8">
@@ -17,26 +17,16 @@ export default async function LoginPage() {
           <Link href="/admin">Admin Page</Link>
           <Link href="/">Go Home</Link>
         </div>
+        <div>
+          <SignOut />
+        </div>
       </main>
     );
   }
 
   return (
     <main className="min-h-screen flex justify-center items-center">
-      <form className="flex flex-col">
-        <label htmlFor="email">Email:</label>
-        <input id="email" name="email" type="email" required />
-        <label htmlFor="password">Password:</label>
-        <input id="password" name="password" type="password" required />
-        <div className="mt-4 space-x-6">
-          <button
-            className="px-4 py-1 border border-black bg-black text-white"
-            formAction={login}
-          >
-            Log in
-          </button>
-        </div>
-      </form>
+      <LoginForm />
     </main>
   );
 }
