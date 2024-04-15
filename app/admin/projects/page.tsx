@@ -4,7 +4,7 @@ import ProjectCard from "@/components/ProjectCard";
 import ProjectButton from "../_components/ProjectButton";
 
 export default async function AdminProjectsPage() {
-  const { user, data } = await getAdminProjects();
+  const { data } = await getAdminProjects();
 
   return (
     <main className="flex justify-center items-center flex-col">
