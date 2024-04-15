@@ -93,7 +93,7 @@ export default function Nav() {
       <motion.nav
         className={`fixed bottom-0 w-full z-10 shadow-xl  ${
           scrollDirection === "up" ? "" : "bottom-[-100%]"
-        } ${pathname === "/login" ? twMerge("hidden") : null}`}
+        }`}
       >
         <div className="flex justify-evenly items-center bg-dark">
           {NavigationLinks.map((link) => (
@@ -132,12 +132,7 @@ export default function Nav() {
       setActiveTab(link.url || "");
     };
     return (
-      <nav
-        ref={tabletNavRef}
-        className={`w-full fixed top-0 z-10 ${
-          pathname === "/login" ? twMerge("hidden") : null
-        }`}
-      >
+      <nav ref={tabletNavRef} className={`w-full fixed top-0 z-10`}>
         <div className="relative max-w-7xl m-auto p-4 flex justify-between items-center">
           <a href={"/"}>
             <Image src="/logo.png" alt="Letter B logo" width="56" height="56" />
@@ -198,11 +193,7 @@ export default function Nav() {
 
   const DesktopNav = () => {
     return (
-      <nav
-        className={`w-full fixed top-0 z-10 ${
-          pathname === "/login" ? twMerge("hidden") : null
-        }`}
-      >
+      <nav className={`w-full fixed top-0 z-10`}>
         <div className="max-w-7xl m-auto p-4 xl:px-0 flex justify-between items-center">
           <div className="flex items-center gap-4">
             <a href={"/"}>

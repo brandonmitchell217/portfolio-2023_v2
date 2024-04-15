@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { createClient } from "@/lib/supabase/server";
 import LoginForm from "./_components/LoginForm";
 import { getSupabaseUser } from "../admin/actions";
 import SignOut from "./_components/SignOut";

@@ -1,39 +1,23 @@
-import ProjectCard from "@/components/ProjectCard";
-import Button from "@/components/ui/Button";
-import { createClient } from "@/lib/supabase/server";
 import Link from "next/link";
 import { getAdminProjects } from "./actions";
 import ProjectButton from "./_components/ProjectButton";
-import { getSupabaseUser } from "./actions";
 import SignOut from "../login/_components/SignOut";
-
-// TODO: create dashboard feel, show number of projects & ability to add new projects
+import NotAuthenticated from "./_components/NotAuthenticated";
 
 export default async function AdminPage() {
   const { user, data } = await getAdminProjects();
-  // const user = await getSupabaseUser();
-
-  // console.log(session);
-
-  console.log(user);
 
   if (user?.user === null) {
-    return (
-      <main className="min-h-screen">
-        <h1 className="text-4xl font-bold text-center mt-8">Admin Page</h1>
-        <p>Please log in</p>
-        <Button href="/login">Log in</Button>
-      </main>
-    );
+    return <NotAuthenticated title="Admin Page" />;
   }
 
   return (
-    <main className="min-h-screen py-16">
-      <h1 className="text-4xl font-bold text-center mb-8">Admin Page</h1>
-      <div>
+    <main className="min-h-screen pt-32 space-y-32 container">
+      <div className="w-full flex justify-between items-center">
+        <h1 className="text-4xl font-bold text-center">Dashboard</h1>
         <SignOut />
       </div>
-      <div className="flex justify-between items-center text-white mb-4">
+      <div className="flex flex-col justify-between items-center gap-8 text-white">
         <Link
           href={"/admin/projects"}
           className="text-xl bg-dark px-4 py-6 max-w-xs w-full h-52 rounded-2xl flex items-end"
