@@ -8,8 +8,9 @@ import ProjectButton from "./_components/ProjectButton";
 // TODO: create dashboard feel, show number of projects & ability to add new projects
 
 export default async function AdminPage() {
-  const supabase = createClient();
   const { user, data } = await getAdminProjects();
+
+  console.log(user);
 
   if (!user) {
     return (
