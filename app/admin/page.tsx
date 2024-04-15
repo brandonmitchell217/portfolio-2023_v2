@@ -9,8 +9,7 @@ import ProjectButton from "./_components/ProjectButton";
 
 export default async function AdminPage() {
   const supabase = createClient();
-  const { data } = await getAdminProjects();
-  const { data: user } = await supabase.auth.getUser();
+  const { user, data } = await getAdminProjects();
 
   if (!user) {
     return (

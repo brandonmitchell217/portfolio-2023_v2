@@ -6,17 +6,21 @@ import { redirect } from "next/navigation";
 
 
 export async function getAdminProjects() {
-   const supabase = createClient();
-   const { data } = await supabase
-     .from("projects")
-     .select("*")
-      .order("num", { ascending: true });
-   
-   if (!data) {
-     return { data: [] };
-   }
-   
-   return { data };
+  const supabase = createClient();
+  const { data: user } = await supabase.auth.getUser();
+  if (user) {
+    const { data } = await supabase
+    .from("projects")
+    .select("*")
+     .order("num", { ascending: true });
+  
+  if (!data) {
+    return { data: [] };
+  }
+  
+  return { user, data };
+  }
+  return { data: [] };
 }
 
 export async function uploadImage(file: File) {
