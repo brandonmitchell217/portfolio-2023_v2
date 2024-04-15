@@ -2,9 +2,21 @@ import React from "react";
 import { getAdminProjects } from "../actions";
 import ProjectCard from "@/components/ProjectCard";
 import ProjectButton from "../_components/ProjectButton";
+import Button from "@/components/ui/Button";
 
 export default async function AdminProjectsPage() {
-  const { data } = await getAdminProjects();
+  const { user, data } = await getAdminProjects();
+
+  if (user?.user === null) {
+    return (
+      <main className="min-h-screen flex justify-center items-center flex-col">
+        <p>Please log in</p>
+        <Button href="/login" className="text-center">
+          Log in
+        </Button>
+      </main>
+    );
+  }
 
   return (
     <main className="flex justify-center items-center flex-col">

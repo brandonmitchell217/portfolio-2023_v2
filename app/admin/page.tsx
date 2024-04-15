@@ -10,9 +10,8 @@ import SignOut from "../login/_components/SignOut";
 // TODO: create dashboard feel, show number of projects & ability to add new projects
 
 export default async function AdminPage() {
-  const supabase = createClient();
-  const { data } = await getAdminProjects();
-  const user = await getSupabaseUser();
+  const { user, data } = await getAdminProjects();
+  // const user = await getSupabaseUser();
 
   // console.log(session);
 

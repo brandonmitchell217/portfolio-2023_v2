@@ -1,17 +1,13 @@
 import InfoHeader from "@/components/InfoHeader";
 import Quote from "@/components/Quote";
 import Contact from "@/components/Contact";
-import { getSupabaseUser } from "./admin/actions";
 
-export default async function Index() {
-  const user = await getSupabaseUser();
+export default function Index() {
   const BasicInfo: { name: string; title: string; location: string } = {
     name: "Brandon Mitchell",
     title: "Software Developer",
     location: "Raleigh, North Carolina",
   };
-
-  console.log(user);
 
   return (
     <main className="relative w-full space-y-6 md:space-y-12">
