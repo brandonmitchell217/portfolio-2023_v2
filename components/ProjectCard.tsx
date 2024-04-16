@@ -5,7 +5,9 @@ import SvgFunc from "./assets/Tech";
 import { Github, Link as LinkIcon } from "lucide-react";
 import { ProjectsProps } from "@/lib/types";
 import Image from "next/image";
-import { CircleDashed } from "lucide-react";
+import { CircleDashed, XIcon } from "lucide-react";
+import { usePathname } from "next/navigation";
+import { deleteProject } from "@/app/admin/actions";
 
 export interface ProjectCardProps {
   data: ProjectsProps["data"];
@@ -13,8 +15,8 @@ export interface ProjectCardProps {
 }
 
 export default function ProjectCard({ data, className }: ProjectCardProps) {
+  const pathname = usePathname();
   const [loading, setLoading] = useState(true);
-  // console.log(data);
 
   useEffect(() => {
     data && setLoading(false);
@@ -88,6 +90,15 @@ export default function ProjectCard({ data, className }: ProjectCardProps) {
           </ul>
         </div>
       </div>
+      {pathname === "/admin/projects" && (
+        <button
+          type="button"
+          className="absolute right-5 bottom-3 hover:text-poppy"
+          onClick={() => deleteProject(data.id)}
+        >
+          <XIcon size={32} />
+        </button>
+      )}
     </div>
   );
 }
