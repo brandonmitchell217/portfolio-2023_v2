@@ -1,5 +1,5 @@
 import React from "react";
-import { getAdminProjects } from "../actions";
+import { getAdminProjects, deleteProject } from "../actions";
 import ProjectCard from "@/components/ProjectCard";
 import ProjectButton from "../_components/ProjectButton";
 import NotAuthenticated from "../_components/NotAuthenticated";
