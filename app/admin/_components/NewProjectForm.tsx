@@ -16,8 +16,6 @@ type FormProps = {
   num: string | number;
 };
 
-// TODO: add category and tag_array to form
-
 export default function NewProjectForm() {
   const router = useRouter();
   const supabase = createClient();
@@ -149,10 +147,24 @@ export default function NewProjectForm() {
         />
         <label htmlFor="featured">Featured:</label>
         <input id="featured" name="featured" type="checkbox" />
-        {/* <label htmlFor="category">Category:</label>
-        <input id="category" name="category" type="text" /> */}
-        {/* <label htmlFor="tag_array">Tags:</label>
-         <input id="tag_array" name="tag_array" type="text" /> */}
+        <label htmlFor="category">Category:</label>
+        <input
+          id="category"
+          name="category"
+          type="text"
+          placeholder="Enter multiple strings seperated by comma"
+          onChange={(e) => {
+            const inputString = e.target.value;
+            const trimmedStringArray = inputString
+              .split(",")
+              .map((str) => str.trim());
+            setFormData({
+              ...formData,
+              category: trimmedStringArray,
+              tag_array: trimmedStringArray,
+            });
+          }}
+        />
         <label htmlFor="num">Number:</label>
         <input
           id="num"
