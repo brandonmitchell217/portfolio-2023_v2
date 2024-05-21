@@ -54,7 +54,7 @@ export default function Footer() {
           </div>
 
           <div className="text-right text-sm md:text-base flex-1">
-            <p>Copyright &#169;{currentTime.getFullYear()}</p>
+            <p>Copyright &#169;2023</p>
           </div>
         </div>
       </div>
