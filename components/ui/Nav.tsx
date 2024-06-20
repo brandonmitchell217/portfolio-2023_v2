@@ -5,7 +5,7 @@ import React, { useRef } from "react";
 import { SocialLinks, NavigationLinks } from "@/lib/util";
 import { Grip, X } from "lucide-react";
 import { useMediaQuery } from "usehooks-ts";
-import { motion, useScroll, useMotionValueEvent } from "framer-motion";
+import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 import Social from "../Social";
 import { twMerge } from "tailwind-merge";
@@ -88,29 +88,39 @@ export default function Nav() {
     scrollDirection,
   ]);
 
+  function MobileActiveResumeCheck(url: string) {
+    if (pathname === "/about/resume" && url === "/about") {
+      return true;
+    } else if (url === activeTab) {
+      return true;
+    }
+  }
+
   const MobileNav = () => {
     return (
       <motion.nav
-        className={`fixed bottom-0 w-full z-10 shadow-xl  ${
-          scrollDirection === "up" ? "" : "bottom-[-100%]"
-        }`}
+        className={twMerge(
+          "fixed bottom-0 w-full z-10 shadow-xl",
+          scrollDirection === "up" && "bottom-[-100%]"
+        )}
       >
         <div className="flex justify-evenly items-center bg-dark">
           {NavigationLinks.map((link) => (
             <Link
               key={link.id}
-              href={link.url || ""}
+              href={link.url as string}
               onClick={() => setActiveTab(link.url)}
               aria-label={link.name + " link"}
               scroll={true}
-              className={`${
-                activeTab === link.url ? "" : "hover:text-white/60"
-              } relative rounded-full px-3 py-3 text-sm font-medium text-white transition focus-visible:outline-2 flex flex-col items-center w-1/4`}
+              className={twMerge(
+                "relative rounded-full px-3 py-3 text-sm font-medium text-white transition focus-visible:outline-2 flex flex-col items-center w-1/4",
+                activeTab === link.url && "hover:text-white/60"
+              )}
               style={{
                 WebkitTapHighlightColor: "transparent",
               }}
             >
-              {activeTab === link.url && (
+              {MobileActiveResumeCheck(link.url as string) && (
                 <motion.span
                   layoutId="bubble"
                   className="absolute inset-0 z-10 bg-lime mix-blend-difference"
@@ -129,7 +139,7 @@ export default function Nav() {
   const TabletNav = () => {
     const tabletNavFunc = (link: NavigationLinksProps["links"]) => {
       setIsMenuOpen(!isMenuOpen);
-      setActiveTab(link.url || "");
+      setActiveTab(link.url as string);
     };
     return (
       <nav ref={tabletNavRef} className={`w-full fixed top-0 z-10`}>
@@ -157,7 +167,7 @@ export default function Nav() {
                     <li key={link.id}>
                       <Link
                         onClick={() => tabletNavFunc(link)}
-                        href={link.url || ""}
+                        href={link.url as string}
                         scroll={true}
                         className="hover:text-light/60"
                         aria-label={link.name + " link"}
@@ -171,7 +181,7 @@ export default function Nav() {
                   {SocialLinks.map((link) => (
                     <li key={link.name}>
                       <Link
-                        href={link.url || ""}
+                        href={link.url as string}
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
                         target="_blank"
                         className="hover:text-light/60"
@@ -208,8 +218,8 @@ export default function Nav() {
               {NavigationLinks.slice(1).map((link) => (
                 <li key={link.id}>
                   <Link
-                    href={link.url || ""}
-                    onClick={() => setActiveTab(link.url || "")}
+                    href={link.url as string}
+                    onClick={() => setActiveTab(link.url as string)}
                     scroll={true}
                     className="hover:text-dark/80"
                     aria-label={link.name + " link"}
@@ -226,7 +236,7 @@ export default function Nav() {
               {SocialLinks.map((link) => (
                 <li key={link.name}>
                   <Link
-                    href={link.url || ""}
+                    href={link.url as string}
                     target="_blank"
                     className="hover:text-dark/80"
                     aria-label={link.name + " link"}
