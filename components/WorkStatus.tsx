@@ -19,7 +19,7 @@ export default function WorkStatus({ working = true }: Props) {
         whileInView={{ opacity: 1 }}
         transition={{ ease: "easeInOut", delay: 0.2 }}
         className="px-2 md:px-8 lg:px-0 font-medium text-[20px] md:text-[40px] tracking-[0.02em] lg:leading-[60px] text-center">
-        I'm currently working as a Frontend Developer at<br /><Link href={"https://www.molestreet.com/"} target="_blank" className="hover:text-[#ff4000] transition">Mole Street</Link>.
+        I'm currently working as a Frontend Developer at<br className="hidden lg:block" /> <Link href={"https://www.molestreet.com/"} target="_blank" className="hover:text-[#ff4000] transition">Mole Street</Link>.
         {/* We specialize in HubSpot to get sh<Star className="inline-block pb-2 pr-0.5 pl-0.5 w-[65px] md:w-[80px] xl:w-[40px]" color="#ff4000" />t done. */}
       </motion.h3>
     );
