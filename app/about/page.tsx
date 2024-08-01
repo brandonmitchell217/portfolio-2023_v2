@@ -13,7 +13,7 @@ export default function AboutPage() {
         </section>
         <section className="relative pb-20 md:pb-48 space-y-20 md:space-y-36">
           <Tools />
-          <WorkStatus working={false} />
+          <WorkStatus />
         </section>
       </div>
       <Contact />

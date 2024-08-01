@@ -17,6 +17,25 @@ export interface ProjectCardProps {
 export default function ProjectCard({ data, className }: ProjectCardProps) {
   const pathname = usePathname();
   const [loading, setLoading] = useState(true);
+  const [activeTitle, setActiveTitle] = useState<Element | null>(null);
+
+
+  function showTitle(e: React.MouseEvent<HTMLLIElement, MouseEvent>) {
+    const target = e.currentTarget;
+    const title = target.querySelector(".svg-title");
+
+    const allTitles = document.querySelectorAll('.svg-title');
+    allTitles.forEach((t) => t.classList.add('hidden'));
+
+    if (title) {
+      if (activeTitle === title) {
+        setActiveTitle(null);
+      } else {
+        title.classList.remove('hidden');
+        setActiveTitle(title);
+      }
+    }
+  }
 
   useEffect(() => {
     data && setLoading(false);
@@ -80,11 +99,12 @@ export default function ProjectCard({ data, className }: ProjectCardProps) {
         <div className="py-3 px-5">
           <ul className="flex gap-4">
             {data.tag_array?.map((tag: ProjectsProps["data"]) => (
-              <li key={tag} className="group/icon">
+              <li key={tag} className="group/icon relative" onClick={showTitle}>
                 <SvgFunc
                   name={tag}
                   className={`w-5 sm:w-6 group-hover/icon:scale-110 fill-current sm:fill-light group-hover/icon:fill-current transition cursor-cell`}
                 />
+                <div className={`svg-title hidden lg:hidden absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-1 capitalize text-lime text-xs border border-lime rounded-2.5xl`}>{tag}</div>
               </li>
             ))}
           </ul>

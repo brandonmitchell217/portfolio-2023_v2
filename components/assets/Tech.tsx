@@ -208,6 +208,8 @@ export const TechList2: { name: string; path: string; color: string }[] = [
   },
 ];
 
+
+
 interface TechPathProps {
   name: string;
   className?: string;
