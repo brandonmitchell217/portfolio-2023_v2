@@ -5,7 +5,7 @@ import Contact from "@/components/Contact";
 export default function Index() {
   const BasicInfo: { name: string; title: string; location: string } = {
     name: "Brandon Mitchell",
-    title: "Software Developer",
+    title: "Frontend Developer",
     location: "Raleigh, North Carolina",
   };
 
