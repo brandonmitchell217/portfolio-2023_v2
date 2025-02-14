@@ -20,6 +20,7 @@ export default function Nav() {
   const tabletMatches = useMediaQuery("(min-width: 640px)");
   const mobileMatches = useMediaQuery("(max-width: 639px)");
   let [activeTab, setActiveTab] = React.useState(pathname || undefined);
+  const [browser, setBrowser] = React.useState<string | null>(null);
 
   // TODO: Figure this out with framer motion
   // useMotionValueEvent(scrollY, "change", (latest) => {
@@ -73,6 +74,20 @@ export default function Nav() {
       setActiveTab(pathname);
     }
 
+    if (typeof navigator !== "undefined") {
+      const userAgent = navigator.userAgent.toLowerCase();
+
+      if (userAgent.includes("safari") && !userAgent.includes("chrome")) {
+        setBrowser("safari");
+      } else if (userAgent.includes("chrome") && !userAgent.includes("edg")) {
+        setBrowser("chrome");
+      } else if (userAgent.includes("firefox")) {
+        setBrowser("firefox");
+      } else if (userAgent.includes("edg")) {
+        setBrowser("edge");
+      } 
+    }
+
     return () => {
       window.removeEventListener("scroll", updateScrollDirection);
       document.removeEventListener("click", handleOutsideClick);
@@ -99,12 +114,19 @@ export default function Nav() {
   const MobileNav = () => {
     return (
       <motion.nav
+        id="mobile-nav"
         className={twMerge(
-          "fixed bottom-0 w-full z-10 shadow-xl",
-          scrollDirection === "up" && "bottom-[-100%]"
+          "fixed w-full z-10 shadow-xl",
+          scrollDirection === "up" ? "bottom-[-100%]" : "bottom-0"
         )}
       >
-        <div className="flex justify-evenly items-center bg-dark">
+        <div
+          className={twMerge(
+            "flex justify-evenly items-center bg-dark",
+            scrollDirection != "up" && "pb-8",
+            browser
+          )}
+        >
           {NavigationLinks.map((link) => (
             <Link
               key={link.id}
