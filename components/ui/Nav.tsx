@@ -99,6 +99,7 @@ export default function Nav() {
   const MobileNav = () => {
     return (
       <motion.nav
+        id="mobile-nav"
         className={twMerge(
           "fixed w-full z-10 shadow-xl",
           scrollDirection === "up" ? "bottom-[-100%]" : "bottom-0"
@@ -107,7 +108,7 @@ export default function Nav() {
         <div
           className={twMerge(
             "flex justify-evenly items-center bg-dark",
-            scrollDirection != "up" && "pb-8"
+            scrollDirection != "up" && "pb-8 safari-only"
           )}
         >
           {NavigationLinks.map((link) => (
