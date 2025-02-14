@@ -100,11 +100,16 @@ export default function Nav() {
     return (
       <motion.nav
         className={twMerge(
-          "fixed bottom-0 w-full z-10 shadow-xl",
-          scrollDirection === "up" && "bottom-[-100%]"
+          "fixed w-full z-10 shadow-xl",
+          scrollDirection === "up" ? "bottom-[-100%]" : "bottom-0"
         )}
       >
-        <div className="flex justify-evenly items-center bg-dark">
+        <div
+          className={twMerge(
+            "flex justify-evenly items-center bg-dark",
+            scrollDirection != "up" && "pb-8"
+          )}
+        >
           {NavigationLinks.map((link) => (
             <Link
               key={link.id}
