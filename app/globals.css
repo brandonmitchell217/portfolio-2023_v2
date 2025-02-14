@@ -36,8 +36,8 @@
 } */
 
 @layer components {
-@supports (-webkit-backdrop-filter: none) {
-   /* For Safari, mobile nav position on scroll */
+  /* For Safari, mobile nav position on scroll */
+  @supports (hanging-punctuation: first) and (font: -apple-system-body) and (-webkit-appearance: none) {
     #mobile-nav .safari-only {
       padding-bottom: 0;
     }
