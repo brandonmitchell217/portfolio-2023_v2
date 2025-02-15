@@ -76,32 +76,6 @@ export const schema: WithContext<Person> = {
     "Figma",
     "Storybook"
   ],
-  hasOccupation: {
-    "@type": "Occupation",
-    name: "Frontend Developer",
-    description: "Frontend Developer specializing in modern web technologies, UI/UX, and performance optimization.",
-    occupationLocation: {
-      "@type": "City",
-      name: "Raleigh, North Carolina"
-    },
-    mainEntityOfPage: {
-      "@type": "WebPage",
-      "@id": "https://brandon-mitchell.dev",
-      lastReviewed: "2025-02-14T02:54:12Z"
-    },
-    estimatedSalary: {
-      "@type": "MonetaryAmountDistribution",
-      name: "Frontend Developer Salary",
-      currency: "USD",
-      duration: "P1Y",
-      median: 80000,
-      percentile10: 65000,
-      percentile25: 72000,
-      percentile75: 85000,
-      percentile90: 120000
-    },
-    occupationalCategory: "15-1256.00"
-  },
   worksFor: {
     "@type": "Organization",
     name: "Mole Street",
@@ -123,7 +97,7 @@ export default function RootLayout({
       >
         <head>
         <title>Brandon Mitchell | Frontend Developer</title>
-        <meta name="description" content="Portfolio of Brandon Mitchell, a frontend developer specializing in React, Next.js, and SCSS." />
+        <meta name="description" content="Portfolio of Brandon Mitchell, a frontend developer from Raleigh, North Carolina who specializes in React, Next.js, HubSpot CMS and TailwindCSS. I developer responsive, performant websites and web applications." />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
