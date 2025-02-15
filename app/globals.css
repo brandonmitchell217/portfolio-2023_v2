@@ -3,9 +3,6 @@
 @tailwind utilities;
 
 @layer components {
-  #mobile-nav .safari {
-    padding-bottom: 0;
-  }
   .loading {
     display: inline-block;
     position: relative;
