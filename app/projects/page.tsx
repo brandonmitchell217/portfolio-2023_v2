@@ -24,7 +24,10 @@ export default async function ProjectsPage() {
 
   return (
     <main className="relative w-full">
-      <section className="max-w-7xl m-auto space-y-8 lg:space-y-16 pt-32 pb-24 md:py-36 px-2 sm:px-4">
+      <section
+        aria-label="Projects"
+        className="max-w-7xl m-auto space-y-8 lg:space-y-16 pt-32 pb-24 md:py-36 px-2 sm:px-4"
+      >
         <SectionTitle title="Projects" size="large" />
         <div className="w-full lg:px-4 xl:px-8 flex flex-col gap-2 md:gap-12">
           <ProjectSlalom side="start">
