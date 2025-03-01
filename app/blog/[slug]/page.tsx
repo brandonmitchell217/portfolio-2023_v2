@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
     };
   }
 
-  const ogImage = post.coverImage || 'https://brandon-mitchell.dev/og-image.jpg';
+  const ogImage = post.coverImage || 'https://www.brandon-mitchell.dev/me1.jpg';
 
   return {
     title: post.title,
