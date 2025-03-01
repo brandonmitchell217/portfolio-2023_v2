@@ -1,14 +1,12 @@
 import React from "react";
-import { createServerClient } from "@supabase/ssr";
 import { getPublishedBlogPosts } from "./actions";
-import { cookies } from "next/headers";
 import Link from "next/link";
 
 export default async function BlogPage() {
  const posts = await getPublishedBlogPosts();
 
   return (
-    <main className="min-h-screen pt-32 container">
+    <main className="min-h-screen pt-32 pb-16 container">
       <h1 className="text-4xl font-bold mb-12">Blog</h1>
       <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
         {posts?.map((post) => (

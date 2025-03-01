@@ -1,5 +1,5 @@
 import React from 'react';
-import type { Person, WithContext, Blog, Thing } from "schema-dts";
+import type { WithContext, Blog } from "schema-dts";
 import { Metadata } from 'next';
 
 interface ExtendedBlog extends Blog {
