@@ -127,3 +127,28 @@ export async function deleteProject(id: string) {
 
   revalidatePath("/admin/projects", "layout");
 }
+
+export async function getAdminBlogPosts() { 
+  const supabase = createClient();
+
+  const { data: posts } = await supabase
+    .from("blog_posts")
+    .select("*")
+    .order("created_at", { ascending: false });
+
+  return posts;
+}
+
+
+export async function createBlogPost(formData: any) { 
+  const supabase = createClient();
+  const { data, error } = await supabase.from("blog_posts").insert([formData]);
+
+  if (error) {
+    console.error("Error creating blog post", error);
+    return;
+  }
+
+  revalidatePath("/admin/blog", "layout");
+  redirect("/admin/blog");
+}

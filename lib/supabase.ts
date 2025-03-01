@@ -1,3 +1,5 @@
+import { BlogPost } from "./types"
+
 export type Json =
   | string
   | number
@@ -69,6 +71,11 @@ export type Database = {
         }
         Relationships: []
       }
+      blog_posts: {
+        Row: BlogPost;
+        Insert: Omit<BlogPost, 'id' | 'created_at' | 'updated_at'>;
+        Update: Partial<Omit<BlogPost, 'id'>>;
+      };
     }
     Views: {
       [_ in never]: never

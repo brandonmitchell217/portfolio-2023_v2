@@ -21,3 +21,15 @@ export interface ProjectsProps {
   filter?: (data: Database) => Database | React.JSX.Element;
   sort?: (a: Database, b: Database) => number;
 }
+
+export interface BlogPost {
+  id: number;
+  created_at: string;
+  title: string;
+  content: string;
+  description: string;
+  published: boolean;
+  slug: string;
+  tags: string[];
+  updated_at: string;
+}
