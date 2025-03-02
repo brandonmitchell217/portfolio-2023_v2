@@ -13,18 +13,20 @@ const nextConfig = {
     return config;
   },
   async rewrites() {
-    return [
-      {
-        source: "/:path*",
-        has: [
-          {
-            type: "host",
-            value: "blog.brandon-mitchell.dev",
-          },
-        ],
-        destination: "/blog/:path*",
-      },
-    ];
+    return {
+      beforeFiles: [
+        {
+          source: '/:path*',
+          has: [
+            {
+              type: 'host',
+              value: 'blog.brandon-mitchell.dev',
+            },
+          ],
+          destination: '/blog/:path*',
+        },
+      ],
+    };
   },
 };
 
