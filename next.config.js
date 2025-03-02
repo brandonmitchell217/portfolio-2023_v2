@@ -12,16 +12,18 @@ const nextConfig = {
     config.resolve.alias.canvas = false;
     return config;
   },
-  async rewrites() {
+  async redirects() {
     return [
       {
         source: "/blog",
         destination: "https://blog.brandon-mitchell.dev",
+        permanent: true
       },
       {
-        source: "/blog/:slug",
-        destination: "https://blog.brandon-mitchell.dev/:slug",
-      },
+        source: "/blog/:slug*",
+        destination: "https://blog.brandon-mitchell.dev/:slug*",
+        permanent: true
+      }
     ];
   },
 };
