@@ -15,24 +15,14 @@ const nextConfig = {
   async rewrites() {
     return [
       {
-        source: '/blog/:path*',
-        has: [
-          {
-            type: 'host',
-            value: 'blog.brandon-mitchell.dev',
-          },
-        ],
-        destination: "/:path*",
-      },
-      {
-        source: "/blog",
+        source: "/:path*",
         has: [
           {
             type: "host",
             value: "blog.brandon-mitchell.dev",
           },
         ],
-        destination: "https://blog.brandon-mitchell.dev",
+        destination: "/blog/:path*",
       },
     ];
   },
