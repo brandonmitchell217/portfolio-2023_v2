@@ -12,18 +12,28 @@ const nextConfig = {
     config.resolve.alias.canvas = false;
     return config;
   },
-  async redirects() {
+  async rewrites() {
     return [
       {
-        source: "/blog",
-        destination: "https://blog.brandon-mitchell.dev",
-        permanent: true
+        source: '/blog/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'blog.brandon-mitchell.dev',
+          },
+        ],
+        destination: "/:path*",
       },
       {
-        source: "/blog/:slug*",
-        destination: "https://blog.brandon-mitchell.dev/:slug*",
-        permanent: true
-      }
+        source: "/blog",
+        has: [
+          {
+            type: "host",
+            value: "blog.brandon-mitchell.dev",
+          },
+        ],
+        destination: "https://blog.brandon-mitchell.dev",
+      },
     ];
   },
 };
