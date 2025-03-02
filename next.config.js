@@ -10,47 +10,29 @@ const nextConfig = {
   },
   webpack: (config) => {
     config.resolve.alias.canvas = false;
-
     return config;
   },
-  // domain config
   async rewrites() {
-    return {
-      beforeFiles: [
-        {
-          source: '/',
-          has: [
-            {
-              type: 'host',
-              value: 'blog.brandon-mitchell.dev',
-            },
-          ],
-          destination: '/blog',
-        },
-        {
-          source: '/:slug',
-          has: [
-            {
-              type: 'host',
-              value: 'blog.brandon-mitchell.dev',
-            },
-          ],
-          destination: '/blog/:slug',
-        },
-      ],
-    };
-  },
-  async redirects() {
     return [
       {
-        source: '/blog',
-        destination: 'https://blog.brandon-mitchell.dev',
-        permanent: true,
+        source: "/",
+        has: [
+          {
+            type: "host",
+            value: "blog.brandon-mitchell.dev",
+          },
+        ],
+        destination: "/blog",
       },
       {
-        source: '/blog/:slug',
-        destination: 'https://blog.brandon-mitchell.dev/:slug',
-        permanent: true,
+        source: "/:slug",
+        has: [
+          {
+            type: "host",
+            value: "blog.brandon-mitchell.dev",
+          },
+        ],
+        destination: "/blog/:slug",
       },
     ];
   },
