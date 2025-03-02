@@ -13,6 +13,23 @@ const nextConfig = {
 
     return config;
   },
+  // domain config
+  async rewrites() {
+    return {
+      beforeFiles: [
+        {
+          source: '/:path*',
+          has: [
+            {
+              type: 'host',
+              value: 'blog.brandon-mitchell.dev',
+            },
+          ],
+          destination: '/blog/:path*',
+        },
+      ],
+    };
+  },
 };
 
 module.exports = nextConfig;
