@@ -18,14 +18,24 @@ const nextConfig = {
     return {
       beforeFiles: [
         {
-          source: '/:path*',
+          source: '/',
           has: [
             {
               type: 'host',
               value: 'blog.brandon-mitchell.dev',
             },
           ],
-          destination: '/blog/:path*',
+          destination: '/blog',
+        },
+        {
+          source: '/:slug',
+          has: [
+            {
+              type: 'host',
+              value: 'blog.brandon-mitchell.dev',
+            },
+          ],
+          destination: '/blog/:slug',
         },
       ],
     };
@@ -38,8 +48,8 @@ const nextConfig = {
         permanent: true,
       },
       {
-        source: '/blog/:path*',
-        destination: 'https://blog.brandon-mitchell.dev/:path*',
+        source: '/blog/:slug',
+        destination: 'https://blog.brandon-mitchell.dev/:slug',
         permanent: true,
       },
     ];
