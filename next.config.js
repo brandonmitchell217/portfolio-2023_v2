@@ -48,8 +48,8 @@ const nextConfig = {
         permanent: true,
       },
       {
-        source: '/blog/:path*',
-        destination: 'https://blog.brandon-mitchell.dev/:path*',
+        source: '/blog/:slug',
+        destination: 'https://blog.brandon-mitchell.dev/:slug',
         permanent: true,
       },
     ];
