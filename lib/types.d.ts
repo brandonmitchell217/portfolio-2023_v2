@@ -28,8 +28,13 @@ export interface BlogPost {
   title: string;
   content: string;
   description: string;
+  post_image?: string;
   published: boolean;
   slug: string;
   tags: string[];
   updated_at: string;
+}
+
+export interface BlogCardProps {
+  post: BlogPost;
 }

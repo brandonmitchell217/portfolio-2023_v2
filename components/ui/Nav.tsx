@@ -148,7 +148,7 @@ export default function Nav() {
     return (
       <nav ref={tabletNavRef} className={`w-full fixed top-0 z-10`}>
         <div className="relative max-w-7xl m-auto p-4 flex justify-between items-center">
-          <a href={"/"}>
+          <a href={process.env.NODE_ENV === "development" ? "/" : "https://www.brandon-mitchell.dev"} aria-label="Home page">
             <Image src="/logo.png" alt="Letter B logo" width="56" height="56" />
           </a>
 
@@ -210,7 +210,7 @@ export default function Nav() {
       <nav className={`w-full fixed top-0 z-10`}>
         <div className="max-w-7xl m-auto p-4 xl:px-0 flex justify-between items-center">
           <div className="flex items-center gap-4">
-            <a href={"/"}>
+            <a href={process.env.NODE_ENV === "development" ? "/" : "https://www.brandon-mitchell.dev"} aria-label="Home page">
               <Image
                 src="/logo.png"
                 alt="Letter B logo"

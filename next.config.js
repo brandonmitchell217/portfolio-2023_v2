@@ -13,21 +13,17 @@ const nextConfig = {
     return config;
   },
   async rewrites() {
-    return {
-      beforeFiles: [
-        {
-          source: '/:path*',
-          has: [
-            {
-              type: 'host',
-              value: 'blog.brandon-mitchell.dev',
-            },
-          ],
-          destination: '/blog/:path*',
-        },
-      ],
-    };
-  },
+    return [
+      {
+        source: '/blog',
+        destination: 'https://blog.brandon-mitchell.dev/', 
+      },
+      {
+        source: '/blog/:slug',
+        destination: 'https://blog.brandon-mitchell.dev/:slug',
+      }
+    ]
+  }
 };
 
 module.exports = nextConfig;
