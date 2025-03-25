@@ -1,6 +1,12 @@
 /** @type {import('next').NextConfig} */
 
 const nextConfig = {
+  domains: [
+    'brandon-mitchell.dev',
+    'www.brandon-mitchell.dev',
+    'blog.brandon-mitchell.dev',
+    'www.blog.brandon-mitchell.dev',
+  ],
   images: {
     remotePatterns: [
       {
