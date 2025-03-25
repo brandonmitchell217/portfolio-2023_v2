@@ -16,11 +16,11 @@ const nextConfig = {
     return [
       {
         source: '/blog',
-        destination: 'https://blog.brandon-mitchell.dev/', 
+        destination: 'https://www.blog.brandon-mitchell.dev', 
       },
       {
         source: '/blog/:slug',
-        destination: 'https://blog.brandon-mitchell.dev/:slug',
+        destination: 'https://www.blog.brandon-mitchell.dev/:slug',
       }
     ]
   }
