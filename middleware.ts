@@ -6,7 +6,7 @@ export async function middleware(request: NextRequest) {
   const subdomain = hostname?.split('.')[0]
 
   if (subdomain === 'blog') {
-    return NextResponse.rewrite(`/blog/${request.nextUrl.pathname}`)
+    return NextResponse.rewrite(`/blog`)
   }
 
 
@@ -23,6 +23,6 @@ export const config = {
      * Feel free to modify this pattern to include more paths.
      */
     '/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)',
-    '/blog/.*',
+    '/blog',
   ],
 }
