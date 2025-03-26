@@ -16,12 +16,12 @@ const nextConfig = {
   async rewrites() {
     return [
       {
-        source: "https://www.blog.brandon-mitchell.dev",
-        destination: "/blog",
+        source: "/blog",
+        destination: "https://www.blog.brandon-mitchell.dev",
       },
       {
-        source: "https://www.blog.brandon-mitchell.dev/:slug",
-        destination: "/blog/:slug",
+        source: "/blog/:slug",
+        destination: "https://www.blog.brandon-mitchell.dev/:slug",
       },
     ];
   },
