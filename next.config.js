@@ -1,7 +1,6 @@
 /** @type {import('next').NextConfig} */
 
 const nextConfig = {
-  domains: ["brandon-mitchell.dev", "blog.brandon-mitchell.dev"],
   images: {
     remotePatterns: [
       {
@@ -18,11 +17,7 @@ const nextConfig = {
       {
         source: "/blog",
         destination: "https://www.blog.brandon-mitchell.dev",
-      },
-      {
-        source: "/blog/:slug",
-        destination: "https://www.blog.brandon-mitchell.dev/:slug",
-      },
+      }
     ];
   },
 };
