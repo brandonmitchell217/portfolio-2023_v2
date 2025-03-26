@@ -1,12 +1,7 @@
 /** @type {import('next').NextConfig} */
 
 const nextConfig = {
-  domains: [
-    'brandon-mitchell.dev',
-    'www.brandon-mitchell.dev',
-    'blog.brandon-mitchell.dev',
-    'www.blog.brandon-mitchell.dev',
-  ],
+  domains: ["brandon-mitchell.dev", "blog.brandon-mitchell.dev"],
   images: {
     remotePatterns: [
       {
@@ -21,15 +16,15 @@ const nextConfig = {
   async rewrites() {
     return [
       {
-        source: '/blog',
-        destination: 'https://www.blog.brandon-mitchell.dev', 
+        source: "https://www.blog.brandon-mitchell.dev",
+        destination: "/blog",
       },
       {
-        source: '/blog/:slug',
-        destination: 'https://www.blog.brandon-mitchell.dev/:slug',
-      }
-    ]
-  }
+        source: "https://www.blog.brandon-mitchell.dev/:slug",
+        destination: "/blog/:slug",
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;
