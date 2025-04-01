@@ -10,24 +10,28 @@ import "easymde/dist/easymde.min.css";
 const SimpleMDE = dynamic(() => import("react-simplemde-editor"), { ssr: false });
 
 type BlogFormProps = {
+  featured_image?: File | null;
   title: string;
   content: string;
   description: string;
   published: boolean;
   slug: string;
   tags: string[];
+  anchors?: string[];
 };
 
 export default function NewBlogForm() {
   const router = useRouter();
   const supabase = createClient();
   const [formData, setFormData] = useState<BlogFormProps>({
+    featured_image: null,
     title: "",
     content: "",
     description: "",
     published: false,
     slug: "",
     tags: [],
+    anchors: []
   });
    
    useEffect(() => { 
@@ -39,6 +43,20 @@ export default function NewBlogForm() {
       }
 
    }, [formData])
+  
+   async function createImage() {
+    const { data, error } = await supabase.storage
+      .from("images")
+      .upload(`${formData.featured_image?.name}`, formData.featured_image as File);
+
+    formData.featured_image = null;
+    if (error) {
+      console.error("Error uploading image", error);
+      return;
+    }
+
+    return data.path;
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -46,9 +64,15 @@ export default function NewBlogForm() {
     // Create URL-friendly slug if not provided
     const slug = formData.slug || formData.title.toLowerCase().replace(/\s+/g, "-");
 
+    const image = await createImage();
+    const blogData = {
+      ...formData,
+      featured_image: `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/images/${image}`,
+    };
+
     const { data, error } = await supabase
       .from("blog_posts")
-      .insert([{ ...formData, slug }]);
+      .insert([blogData]);
 
     if (error) {
       console.error("Error creating blog post", error);
@@ -56,12 +80,14 @@ export default function NewBlogForm() {
     }
 
     setFormData({
+      featured_image: null,
       title: "",
       content: "",
       description: "",
       published: false,
       slug: "",
       tags: [],
+      anchors: []
     });
 
     router.push("/admin/blog");
@@ -69,6 +95,23 @@ export default function NewBlogForm() {
 
   return (
     <form className="flex flex-col max-w-4xl mx-auto p-4 space-y-4" onSubmit={handleSubmit}>
+      <div className="space-y-2">
+        <label htmlFor="featuredImg" className="text-lg font-medium">Featured Image:</label>
+        <input
+          id="featuredImg"
+          name="featuredImg"
+          type="file"
+          required
+          className="w-full p-2 border rounded-md"
+          onChange={(e) =>
+            setFormData({
+              ...formData,
+              featured_image: e.target.files ? e.target.files[0] : null,
+            })
+          }
+        />
+      </div>
+
       <div className="space-y-2">
         <label htmlFor="title" className="text-lg font-medium">Title:</label>
         <input
@@ -151,6 +194,24 @@ export default function NewBlogForm() {
           }}
         />
       </div>
+
+      <div className="space-y-2">
+        <label htmlFor="anchors" className="text-lg font-medium">Anchor Tags:</label>
+        <input
+          id="anchors"
+          name="anchors"
+          type="text"
+          className="w-full p-2 border rounded-md"
+          placeholder="Enter anchor tags separated by commas"
+          onChange={(e) => {
+            const anchors = e.target.value.split(",").map((tag) => tag.trim());
+            setFormData({
+              ...formData,
+              anchors
+            });
+          }}
+        />
+      </div>      
 
       <div className="flex items-center space-x-2">
         <input

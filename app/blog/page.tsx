@@ -15,8 +15,7 @@ export default async function BlogPage() {
         href={`/blog/${post.slug}`}
         className="blog-card"
         aria-label={`Read more about ${post.title}`}
-        data-testid={`blog-card-${post.id}`}
-      >
+        data-testid={`blog-card-${post.id}`}>
         <article className="h-full p-6 border rounded-lg transition-all group-hover:shadow-lg">
           {post.post_image && (
             <div className="mb-4">
@@ -40,8 +39,7 @@ export default async function BlogPage() {
             {post.tags?.map((tag: string) => (
               <span
                 key={tag}
-                className="px-2 py-1 bg-gray-100 rounded-full text-sm"
-              >
+                className="px-2 py-1 bg-gray-100 rounded-full text-sm">
                 {tag}
               </span>
             ))}
