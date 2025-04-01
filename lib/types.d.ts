@@ -25,6 +25,7 @@ export interface ProjectsProps {
 export interface BlogPost {
   id: number;
   created_at: string;
+  featured_image?: string | null;
   title: string;
   content: string;
   description: string;
@@ -32,6 +33,7 @@ export interface BlogPost {
   published: boolean;
   slug: string;
   tags: string[];
+  anchors?: string[];
   updated_at: string;
 }
 

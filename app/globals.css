@@ -36,3 +36,35 @@
     }
   }
 }
+
+@layer base {
+  /* TODO: improve all of this */
+  .blog-markdown h1,
+  .blog-markdown h2,
+  .blog-markdown h3,
+  .blog-markdown h4,
+  .blog-markdown h5,
+  .blog-markdown h6 {
+    @apply relative text-xl font-bold;
+  }
+  .blog-markdown h1:before,
+  .blog-markdown h2:before,
+  .blog-markdown h3:before,
+  .blog-markdown h4:before,
+  .blog-markdown h5:before,
+  .blog-markdown h6:before  {
+    opacity: 0;
+  }
+  .blog-markdown h1:hover:before,
+  .blog-markdown h2:hover:before,
+  .blog-markdown h3:hover:before,
+  .blog-markdown h4:hover:before,
+  .blog-markdown h5:hover:before,
+  .blog-markdown h6:hover:before {
+    content: "#";
+    position: absolute;
+    left: -16px;
+    top: 0;
+    opacity: 1;
+  }
+}

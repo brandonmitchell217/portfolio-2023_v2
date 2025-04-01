@@ -12,14 +12,6 @@ const nextConfig = {
     config.resolve.alias.canvas = false;
     return config;
   },
-  async rewrites() {
-    return [
-      {
-        source: "/blog",
-        destination: "https://www.blog.brandon-mitchell.dev",
-      }
-    ];
-  },
 };
 
 module.exports = nextConfig;
