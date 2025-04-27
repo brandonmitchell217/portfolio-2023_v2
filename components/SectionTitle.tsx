@@ -32,7 +32,7 @@ export default function SectionTitle({
         className
       )}`}
     >
-      {Icon({ title })}
+      <Icon title={title} />
       <h2
         className={`border-b-[1.5px] md:border-b-[3px] border-dark font-unbounded font-semibold tracking-[0.03em] leading-none ${
           size === "small"
