@@ -6,14 +6,14 @@ import { redirect } from "next/navigation";
 
 
 export async function getSupabaseUser() {
-  const supabase = createClient();
+  const supabase = await createClient();
   const { data: user } = await supabase.auth.getUser();
   return user;
 }
 
 
 export async function getAdminProjects() {
-  const supabase = createClient();
+  const supabase = await createClient();
   const { data: user } = await supabase.auth.getUser();
   if (user) {
     const { data } = await supabase
@@ -31,7 +31,7 @@ export async function getAdminProjects() {
 }
 
 export async function uploadImage(file: File) {
-   const supabase = createClient();  
+   const supabase = await createClient();  
    const { data, error: uploadError } = await supabase.storage
      .from("images")
      .upload(`${file.name}`, file);
@@ -45,7 +45,7 @@ export async function uploadImage(file: File) {
 }
  
 export async function imageUpload(file: File) {
-  const supabase = createClient();
+  const supabase = await createClient();
    const { data, error: uploadError } = await supabase.storage
      .from("images")
      .upload(`${file.name}`, file);
@@ -59,7 +59,7 @@ export async function imageUpload(file: File) {
 }
 
 export async function createProject(formData: any) {
-  const supabase = createClient();
+  const supabase = await createClient();
   
   const imageFile = formData.image[0];
 
@@ -81,7 +81,7 @@ export async function createProject(formData: any) {
 }
 
 export async function createImage(formData: any) {
-  const supabase = createClient();
+  const supabase = await createClient();
   const { data, error } = await supabase.storage
     .from("images")
     .upload(`${formData.imageURL?.name}`, formData.imageURL as File);
@@ -96,7 +96,7 @@ export async function createImage(formData: any) {
 }
 
 export async function handleProjectSubmit(formData: any) { 
-  const supabase = createClient();
+  const supabase = await createClient();
   const image = await createImage(formData);
   const projectData = {
     ...formData,
@@ -117,7 +117,7 @@ if (error) {
 }
 
 export async function deleteProject(id: string) {
-  const supabase = createClient();
+  const supabase = await createClient();
   const { error } = await supabase.from("projects").delete().eq("id", id);
 
   if (error) {
@@ -129,7 +129,7 @@ export async function deleteProject(id: string) {
 }
 
 export async function getAdminBlogPosts() { 
-  const supabase = createClient();
+  const supabase = await createClient();
 
   const { data: posts } = await supabase
     .from("blog_posts")
@@ -141,7 +141,7 @@ export async function getAdminBlogPosts() {
 
 
 export async function createBlogPost(formData: any) { 
-  const supabase = createClient();
+  const supabase = await createClient();
   const { data, error } = await supabase.from("blog_posts").insert([formData]);
 
   if (error) {
