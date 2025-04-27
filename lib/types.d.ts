@@ -4,6 +4,8 @@ import { MotionProps as OriginalMotionProps } from "framer-motion";
 declare module "framer-motion" {
   interface MotionProps extends OriginalMotionProps {
     className?: string;
+    onMouseMove?: (event: React.MouseEvent) => void;
+    onMouseLeave?: () => void;
   }
 }
 
