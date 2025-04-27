@@ -6,7 +6,7 @@ import SectionTitle from "./SectionTitle";
 
 export default function Tools() {
   const ref = React.useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref);
+  const isInView = useInView(ref as React.RefObject<Element>);
 
   const listItem = {
     hidden: { opacity: 0 },
