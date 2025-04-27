@@ -3,7 +3,7 @@ import { cookies } from "next/headers";
 import { ProjectsProps } from "@/lib/types";
 
 export async function getProjects() {
-  const cookieStore = cookies();
+  const cookieStore = await cookies();
 
   const supabase = createServerClient<ProjectsProps["data"]>(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,

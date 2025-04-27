@@ -1,4 +1,14 @@
 import { SocialLinks } from "./util";
+import { MotionProps as OriginalMotionProps } from "framer-motion";
+
+declare module "framer-motion" {
+  interface MotionProps extends OriginalMotionProps {
+    id?: string;
+    className?: string;
+    onMouseMove?: (event: React.MouseEvent) => void;
+    onMouseLeave?: () => void;
+  }
+}
 
 export interface NavigationLinksProps {
   id?: number;

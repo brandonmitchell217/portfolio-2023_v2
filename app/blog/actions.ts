@@ -1,7 +1,7 @@
 import { createClient } from "@/lib/supabase/server";
 
 export async function getPublishedBlogPosts() { 
-   const supabase = createClient();
+   const supabase = await createClient();
  
    const { data: posts } = await supabase
      .from("blog_posts")
@@ -13,7 +13,7 @@ export async function getPublishedBlogPosts() {
 }
  
 export async function getBlogPostBySlug(slug: string) { 
-  const supabase = createClient();
+  const supabase = await createClient();
   const { data: post } = await supabase
     .from("blog_posts")
     .select("*")
