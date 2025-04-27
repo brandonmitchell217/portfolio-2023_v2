@@ -1,4 +1,11 @@
 import { SocialLinks } from "./util";
+import { MotionProps as OriginalMotionProps } from "framer-motion";
+
+declare module "framer-motion" {
+  interface MotionProps extends OriginalMotionProps {
+    className?: string;
+  }
+}
 
 export interface NavigationLinksProps {
   id?: number;
