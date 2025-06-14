@@ -57,7 +57,9 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
         </div>
       </header>
 
-      <MDXContent content={post.content} />
+      <div className="prose prose-lg max-w-none">
+        <MDXContent content={post.content} />
+      </div>
     </article>
   )
 }

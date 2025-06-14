@@ -6,17 +6,22 @@ interface MDXContentProps {
 }
 
 export default async function MDXContent({ content }: MDXContentProps) {
-  const mdxSource = await serialize(content, {
-    parseFrontmatter: true,
-    mdxOptions: {
-      development: process.env.NODE_ENV === 'development',
-    },
-  })
+  if (!content) {
+    return null
+  }
 
-  // Return a client component with the serialized content
-  return (
-    <div className="mdx-content">
-      <MDXClient content={mdxSource} />
-    </div>
-  )
+  try {
+    const mdxSource = await serialize(content, {
+      parseFrontmatter: true,
+      mdxOptions: {
+        development: process.env.NODE_ENV === 'development',
+        format: 'mdx',
+      },
+    })
+
+    return <MDXClient content={mdxSource} />
+  } catch (error) {
+    console.error('Error serializing MDX content:', error)
+    return <div>Error loading content</div>
+  }
 } 

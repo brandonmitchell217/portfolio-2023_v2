@@ -13,6 +13,10 @@ const components = {
 }
 
 export default function MDXClient({ content }: MDXClientProps) {
+  if (!content) {
+    return null
+  }
+
   return (
     <div className="prose prose-lg max-w-none">
       <MDXRemote {...content} components={components} />
