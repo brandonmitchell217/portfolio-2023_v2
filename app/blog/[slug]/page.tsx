@@ -3,16 +3,10 @@ import { notFound } from 'next/navigation'
 import Image from 'next/image'
 import MDXContent from '@/app/blog/_components/MDXContent'
 
-export async function generateStaticParams() {
-  const posts = getAllPosts()
-  return posts.map((post) => ({
-    slug: post.slug,
-  }))
-}
 
 export default async function BlogPost({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
-  const post = getPostBySlug(slug)
+  const post = await getPostBySlug(slug)
 
   if (!post) {
     notFound()
@@ -57,9 +51,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
         </div>
       </header>
 
-      <div className="prose prose-lg max-w-none">
-        <MDXContent content={post.content} />
-      </div>
+      <MDXContent content={post.content} />
     </article>
   )
 }
