@@ -3,6 +3,56 @@ import { createClient } from "@/lib/supabase/server";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 // import { createClient as supabaseClient } from "@/lib/supabase/client";
+import fs from 'fs'
+import path from 'path'
+import matter from 'gray-matter'
+
+const contentDirectory = path.join(process.cwd(), 'content/blog')
+
+export async function createMDXPost(post: {
+  title: string
+  content: string
+  description: string
+  published: boolean
+  slug?: string
+  tags: string[]
+  date: string
+  featured_image?: string
+}) {
+  const slug = post.slug || post.title.toLowerCase().replace(/\s+/g, '-')
+  const filePath = path.join(contentDirectory, `${slug}.mdx`)
+  
+  const frontmatter = {
+    title: post.title,
+    description: post.description,
+    date: post.date,
+    tags: post.tags,
+    published: post.published,
+    featured_image: post.featured_image,
+  }
+  
+  const content = `---
+${Object.entries(frontmatter)
+  .map(([key, value]) => `${key}: ${JSON.stringify(value)}`)
+  .join('\n')}
+---
+
+${post.content}`
+  
+  try {
+    // Ensure the directory exists
+    if (!fs.existsSync(contentDirectory)) {
+      fs.mkdirSync(contentDirectory, { recursive: true })
+    }
+    
+    fs.writeFileSync(filePath, content)
+    return { success: true, slug }
+  } catch (error) {
+    console.error('Error creating MDX file:', error)
+    return { success: false, error: 'Failed to create blog post' }
+  }
+} 
+
 
 
 export async function getSupabaseUser() {

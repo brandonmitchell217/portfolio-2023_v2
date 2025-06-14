@@ -1,62 +1,67 @@
-import React from "react";
-import { getPublishedBlogPosts } from "./actions";
-import Link from "next/link";
-import Image from "next/image";
-import { BlogCardProps } from "@/lib/types";
+import { getAllPosts } from '@/lib/mdx'
+import Link from 'next/link'
+import Image from 'next/image'
 
-export default async function BlogPage() {
-  const posts = await getPublishedBlogPosts();
-
-  const BlogCard = (item: BlogCardProps) => {
-    const post = item.post;
-    return (
-      <Link
-        key={post.id}
-        href={`/blog/${post.slug}`}
-        className="blog-card"
-        aria-label={`Read more about ${post.title}`}
-        data-testid={`blog-card-${post.id}`}>
-        <article className="h-full p-6 border rounded-lg transition-all group-hover:shadow-lg">
-          {post.post_image && (
-            <div className="mb-4">
-              <Image
-                src={post.post_image}
-                alt={post.title}
-                width={356}
-                height={200}
-              />
-            </div>
-          )}
-          <h2 className="text-2xl font-semibold mb-2 group-hover:text-blue-600">
-            {post.title}
-          </h2>
-          <p className="text-gray-600 mb-4">
-            {post.description.length > 100
-              ? post.description.slice(0, 100) + "..."
-              : post.description}
-          </p>
-          <div className="flex gap-2">
-            {post.tags?.map((tag: string) => (
-              <span
-                key={tag}
-                className="px-2 py-1 bg-gray-100 rounded-full text-sm">
-                {tag}
-              </span>
-            ))}
-          </div>
-        </article>
-      </Link>
-    );
-  };
+export default function BlogIndex() {
+  const posts = getAllPosts()
 
   return (
-    <main className="min-h-screen pt-32 pb-16 container">
-      <h1 className="text-4xl font-bold mb-12">Blog</h1>
-      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-        {posts?.map((post) => (
-          <BlogCard key={post.id} post={post} />
+    <div className="max-w-4xl mx-auto px-4 py-8">
+      <h1 className="text-4xl font-bold mb-8">Blog Posts</h1>
+      
+      <div className="grid gap-8">
+        {posts.map((post) => (
+          <article key={post.slug} className="border-b border-gray-200 pb-8">
+            <Link href={`/blog/${post.slug}`} className="group">
+              <div className="flex flex-col md:flex-row gap-6">
+                {post.featured_image && (
+                  <div className="relative w-full md:w-48 h-48 flex-shrink-0">
+                    <Image
+                      src={post.featured_image}
+                      alt={post.title}
+                      fill
+                      className="object-cover rounded-lg"
+                    />
+                  </div>
+                )}
+                
+                <div className="flex-1">
+                  <h2 className="text-2xl font-bold mb-2 group-hover:text-blue-600 transition-colors">
+                    {post.title}
+                  </h2>
+                  
+                  <p className="text-gray-600 mb-4">
+                    {post.description}
+                  </p>
+                  
+                  <div className="flex items-center gap-4 text-sm text-gray-500">
+                    <time dateTime={post.date}>
+                      {new Date(post.date).toLocaleDateString('en-US', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric',
+                      })}
+                    </time>
+                    
+                    {post.tags.length > 0 && (
+                      <div className="flex gap-2">
+                        {post.tags.map((tag) => (
+                          <span
+                            key={tag}
+                            className="bg-gray-100 px-2 py-1 rounded-full"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </Link>
+          </article>
         ))}
       </div>
-    </main>
-  );
+    </div>
+  )
 }
