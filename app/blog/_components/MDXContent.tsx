@@ -1,4 +1,3 @@
-'use client'
 import { serialize } from 'next-mdx-remote/serialize'
 import MDXClient from './MDXClient'
 
@@ -13,5 +12,11 @@ export default async function MDXContent({ content }: MDXContentProps) {
       development: process.env.NODE_ENV === 'development',
     },
   })
-  return <MDXClient content={mdxSource} />
+
+  // Return a client component with the serialized content
+  return (
+    <div className="mdx-content">
+      <MDXClient content={mdxSource} />
+    </div>
+  )
 } 
