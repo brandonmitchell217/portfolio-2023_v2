@@ -1,3 +1,4 @@
+'use client'
 import { serialize } from 'next-mdx-remote/serialize'
 import MDXClient from './MDXClient'
 
