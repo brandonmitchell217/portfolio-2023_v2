@@ -9,7 +9,7 @@ interface MDXClientProps {
 }
 
 const components = {
-  Alert,
+  Alert: (props: any) => <Alert {...props} />,
 }
 
 export default function MDXClient({ content }: MDXClientProps) {

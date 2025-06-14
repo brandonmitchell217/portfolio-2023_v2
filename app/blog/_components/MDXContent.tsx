@@ -16,6 +16,8 @@ export default async function MDXContent({ content }: MDXContentProps) {
       mdxOptions: {
         development: process.env.NODE_ENV === 'development',
         format: 'mdx',
+        remarkPlugins: [],
+        rehypePlugins: [],
       },
     })
 
