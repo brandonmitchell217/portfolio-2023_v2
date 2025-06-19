@@ -3,6 +3,17 @@
 @tailwind utilities;
 
 @layer components {
+  .blog-card {
+    @apply relative max-w-[406px] w-full;
+  }
+
+  .blog-card::before {
+    @apply content-[''] absolute top-0 left-[-0.5px] bottom-0 w-1 h-full rounded-tl-2.5xl rounded-bl-2.5xl bg-poppy;
+  }
+
+  .blog-card .tag {
+    @apply w-fit inline-flex text-[12px] font-medium lowercase bg-lime text-dark rounded-2.5xl px-2;
+  }
   .loading {
     display: inline-block;
     position: relative;

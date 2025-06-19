@@ -22,17 +22,7 @@ export default async function MDXContent({ content }: MDXContentProps) {
       },
     })
 
-    // During static generation, return a simple div
-    if (process.env.NODE_ENV === 'production') {
-      return (
-        <div 
-          className="prose prose-lg max-w-none"
-          dangerouslySetInnerHTML={{ __html: content }}
-        />
-      )
-    }
-
-    // During development, use the full MDX client
+    // Always use the MDX client with proper components
     return <MDXClient content={mdxSource} />
   } catch (error) {
     console.error('Error serializing MDX content:', error)

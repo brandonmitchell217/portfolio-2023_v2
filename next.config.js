@@ -14,6 +14,12 @@ const nextConfig = {
       {
         hostname: "boenonnbcwyqchdfeiil.supabase.co",
       },
+      {
+        hostname: "www.brandon-mitchell.dev",
+      },
+      {
+        hostname: "placehold.co",
+      },
     ],
   },
   webpack: (config) => {

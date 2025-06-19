@@ -13,7 +13,7 @@ const components: MDXComponents = {
   ),
   ul: ({ children }) => <ul className="list-disc ml-6 mb-4 space-y-2">{children}</ul>,
   ol: ({ children }) => <ol className="list-decimal ml-6 mb-4 space-y-2">{children}</ol>,
-  li: ({ children }) => <li className="mb-1">{children}</li>,
+  li: ({ children }) => <li className="mb-1 marker:text-dark ">{children}</li>,
   code: ({ children }) => (
     <code className="bg-gray-100 rounded px-1 py-0.5 font-mono text-sm">{children}</code>
   ),
@@ -28,12 +28,21 @@ const components: MDXComponents = {
   img: ({ src, alt }) => (
     <img src={src} alt={alt} className="rounded-lg my-4 max-w-full" />
   ),
+  section: ({ children, className, ...props }) => (
+    <section className={className} {...props}>{children}</section>
+  ),
+  details: ({ children, className, ...props }) => (
+    <details className={className} {...props}>{children}</details>
+  ),
+  summary: ({ children, className, ...props }) => (
+    <summary className={className} {...props}>{children}</summary>
+  ),
   Alert,
 }
 
-export function useMDXComponents(components: MDXComponents): MDXComponents {
+export function useMDXComponents(customComponents: MDXComponents = {}): MDXComponents {
   return {
     ...components,
-    ...components,
+    ...customComponents,
   }
 } 
