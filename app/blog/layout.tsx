@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 import type { WithContext, Blog } from "schema-dts";
-import { Metadata } from 'next';
+import { Metadata } from "next";
 
 interface ExtendedBlog extends Blog {
   "@graph"?: Array<{
@@ -22,14 +22,15 @@ export const metadata: Metadata = {
     siteName: "Brandon Mitchell's Blog",
     locale: "en_US",
     type: "website",
-  }
+  },
 };
 
 const blogSchema: WithContext<ExtendedBlog> = {
   "@context": "https://schema.org",
   "@type": "Blog",
   name: "Brandon Mitchell's Blog",
-  description: "Articles about frontend development, web technologies, and software engineering by Brandon Mitchell",
+  description:
+    "Articles about frontend development, web technologies, and software engineering by Brandon Mitchell",
   url: "https://blog.brandon-mitchell.dev",
   author: {
     "@type": "Person",
@@ -39,13 +40,13 @@ const blogSchema: WithContext<ExtendedBlog> = {
     image: "https://www.brandon-mitchell.dev/me1.jpg",
     sameAs: [
       "https://www.linkedin.com/in/brandonmitchell217/",
-      "https://www.github.com/brandonmitchell217"
-    ]
+      "https://www.github.com/brandonmitchell217",
+    ],
   },
   publisher: {
     "@type": "Person",
     name: "Brandon Mitchell",
-    url: "https://brandon-mitchell.dev"
+    url: "https://brandon-mitchell.dev",
   },
   inLanguage: "en-US",
   copyrightYear: new Date().getFullYear(),
@@ -59,22 +60,26 @@ const blogSchema: WithContext<ExtendedBlog> = {
     "Web Design",
     "UI/UX",
     "Performance Optimization",
-    "Software Engineering"
+    "Software Engineering",
   ],
   mainEntityOfPage: {
     "@type": "WebPage",
-    "@id": "https://blog.brandon-mitchell.dev"
+    "@id": "https://blog.brandon-mitchell.dev",
   },
-  "@graph": [{
-    "@type": "ItemList",
-    itemListElement: [{
-      "@type": "ListItem",
-      item: {
-        "@type": "BlogPosting",
-        "@id": "https://blog.brandon-mitchell.dev#posts"
-      }
-    }]
-  }]
+  "@graph": [
+    {
+      "@type": "ItemList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          item: {
+            "@type": "BlogPosting",
+            "@id": "https://blog.brandon-mitchell.dev#posts",
+          },
+        },
+      ],
+    },
+  ],
 };
 
 export default function BlogLayout({

@@ -1,19 +1,11 @@
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
+import { BlogPost } from './types'
 
 const contentDirectory = path.join(process.cwd(), 'content/blog')
 
-export type BlogPost = {
-  slug: string
-  title: string
-  description: string
-  date: string
-  content: string
-  tags: string[]
-  published: boolean
-  featured_image?: string
-}
+
 
 export function getAllPosts(): BlogPost[] {
   const files = fs.readdirSync(contentDirectory)

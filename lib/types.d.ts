@@ -32,19 +32,30 @@ export interface ProjectsProps {
   sort?: (a: Database, b: Database) => number;
 }
 
-export interface BlogPost {
-  id: number;
-  created_at: string;
-  featured_image?: string | null;
-  title: string;
-  content: string;
-  description: string;
-  post_image?: string;
-  published: boolean;
-  slug: string;
-  tags: string[];
-  anchors?: string[];
-  updated_at: string;
+// export interface BlogPost {
+//   id: number;
+//   created_at: string;
+//   featured_image?: string | null;
+//   title: string;
+//   content: string;
+//   description: string;
+//   post_image?: string;
+//   published: boolean;
+//   slug: string;
+//   tags: string[];
+//   anchors?: string[];
+//   updated_at: string;
+// }
+
+export type BlogPost = {
+  slug: string
+  title: string
+  description: string
+  date: string
+  content: string
+  tags: string[]
+  published: boolean
+  featured_image?: string
 }
 
 export interface BlogCardProps {

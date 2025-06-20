@@ -1,5 +1,5 @@
 import React from 'react'
-import { BlogPost } from '@/lib/mdx'
+import { BlogPost } from '@/lib/types'
 import Link from "next/link"
 
 export default function FeaturedBlogCard({ ...data }: BlogPost) {
@@ -15,7 +15,7 @@ export default function FeaturedBlogCard({ ...data }: BlogPost) {
 
   return (
      <article className="blog-card max-w-full relative px-4 py-5 bg-dark text-light rounded-md w-full">
-        <Link href={`/blog/${slug}`} className="flex flex-col gap-2" aria-label={`${title} blog post`}>
+        <Link href={`/blog/${slug}`} className="h-full flex flex-col gap-2" aria-label={`${title} blog post`}>
         <div className="tags flex gap-2 items-center">
             {tags.slice(0, 2).map((tag) => (
                <span key={tag} className="tag">{tag}</span>
