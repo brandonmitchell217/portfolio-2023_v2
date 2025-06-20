@@ -1,13 +1,13 @@
 import React from "react";
-import { getSupabaseUser, getAdminBlogPosts } from "../actions";
+import { getSupabaseUser } from "../actions";
 import Link from "next/link";
 import Button from "@/components/ui/Button";
 import NotAuthenticated from "../_components/NotAuthenticated";
+import { getAllPosts } from "@/lib/mdx";
 
 export default async function AdminBlogPage() {
-   const user = await getSupabaseUser();
-   const posts = await getAdminBlogPosts();
-  
+  const user = await getSupabaseUser();
+  const posts = getAllPosts();
 
   if (!user) {
     return <NotAuthenticated title="Admin Blog Page" />;
@@ -26,16 +26,16 @@ export default async function AdminBlogPage() {
       </div>
 
       <div className="grid gap-4">
-        {posts?.map((post) => (
+        {posts.map((post) => (
           <div
-            key={post.id}
+            key={post.slug}
             className="p-4 border rounded-lg flex justify-between items-center"
           >
             <div>
               <h2 className="text-xl font-semibold">{post.title}</h2>
               <p className="text-gray-600">{post.description}</p>
               <div className="flex gap-2 mt-2">
-                {post.tags?.map((tag: string | any) => (
+                {post.tags?.map((tag) => (
                   <span
                     key={tag}
                     className="px-2 py-1 bg-gray-100 rounded-full text-sm"
@@ -52,7 +52,7 @@ export default async function AdminBlogPage() {
                 }`}
               />
               <Link
-                href={`/admin/blog/${post.id}`}
+                href={`/admin/blog/${post.slug}`}
                 className="text-blue-600 hover:underline"
               >
                 Edit

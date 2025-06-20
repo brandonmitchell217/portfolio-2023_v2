@@ -3,6 +3,7 @@ import Star from "@/components/assets/Star";
 import { twMerge } from "tailwind-merge";
 import Mail from "./assets/Mail";
 import Dice from "./assets/Dice";
+import ScrollText from "./assets/ScrollText";
 
 interface SectionTitleProps {
   title: string;
@@ -15,6 +16,8 @@ const Icon: React.FC<{ title: string }> = ({ title }) => {
     return <Dice />;
   } else if (title === "Contact") {
     return <Mail />;
+  } else if (title === "Blog Posts") {
+    return <ScrollText />;
   } else {
     return <Star />;
   }
