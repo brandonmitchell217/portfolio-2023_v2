@@ -11,7 +11,7 @@ import Social from "../Social";
 import { twMerge } from "tailwind-merge";
 import { NavigationLinksProps } from "@/lib/types";
 
-export default function Nav() {
+export default function Nav({ className }: { className?: string }) {
   const pathname = usePathname();
   const [isNavDevice, setIsNavDevice] = React.useState<React.ReactNode>();
   const [isMenuOpen, setIsMenuOpen] = React.useState<boolean>(false);
@@ -26,6 +26,7 @@ export default function Nav() {
   //   setPosition(latest);
   // });
   const [scrollDirection, setScrollDirection] = React.useState<string>("up");
+  const position = pathname?.startsWith('/blog') ? "relative" : "fixed";
 
   React.useEffect(() => {
     let lastScrollY = window.pageYOffset;
@@ -102,7 +103,7 @@ export default function Nav() {
       <motion.nav
         id="mobile-nav"
         className={twMerge(
-          "fixed w-full z-10 shadow-xl",
+          `fixed w-full z-10 shadow-xl ${className}`,
           scrollDirection === "up" ? "bottom-[-100%]" : "bottom-0"
         )}
       >
@@ -146,7 +147,7 @@ export default function Nav() {
       setActiveTab(link.url as string);
     };
     return (
-      <nav ref={tabletNavRef} className={`w-full fixed top-0 z-10`}>
+      <nav ref={tabletNavRef} className={`w-full fixed top-0 z-10 ${className}`}>
         <div className="relative max-w-7xl m-auto p-4 flex justify-between items-center">
           <a href={process.env.NODE_ENV === "development" ? "/" : "https://www.brandon-mitchell.dev"} aria-label="Home page">
             <Image src="/logo.png" alt="Letter B logo" width="56" height="56" />
@@ -207,7 +208,7 @@ export default function Nav() {
 
   const DesktopNav = () => {
     return (
-      <nav className={`w-full fixed top-0 z-10`}>
+      <nav className={`w-full ${position} top-0 z-10 ${className}`}>
         <div className="max-w-7xl m-auto p-4 xl:px-0 flex justify-between items-center">
           <div className="flex items-center gap-4">
             <a href={process.env.NODE_ENV === "development" ? "/" : "https://www.brandon-mitchell.dev"} aria-label="Home page">

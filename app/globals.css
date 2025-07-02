@@ -3,6 +3,17 @@
 @tailwind utilities;
 
 @layer components {
+  /* .blog-card {
+    @apply relative max-w-[406px] w-full;
+  }
+
+  .blog-card::before {
+    @apply content-[''] absolute top-0 left-[-0.5px] bottom-0 w-1 h-full rounded-tl-2.5xl rounded-bl-2.5xl bg-poppy;
+  }
+
+  .blog-card .tag {
+    @apply w-fit inline-flex text-[12px] font-medium lowercase bg-lime text-dark rounded-2.5xl px-2;
+  } */
   .loading {
     display: inline-block;
     position: relative;
@@ -35,6 +46,73 @@
       opacity: 0;
     }
   }
+
+  .featured-blog, .grid-blog {
+    @apply grid gap-4 grid-cols-1 sm:grid-cols-8 xl:gap-6 lg:grid-cols-12;
+  }
+
+  .featured-blog .blog-card:first-of-type {
+    @apply col-span-8 h-[450px] lg:h-auto;
+  }
+  .featured-blog .blog-card:last-of-type {
+    @apply hidden lg:block col-span-4;
+  }
+
+  .grid-blog .blog-card {
+    @apply col-span-4;
+  }
+
+  .blog-card {
+    @apply shadow-md;
+  }
+
+  .blog-card a {
+    @apply flex flex-col;
+  }
+
+  .featured-blog-card a {
+    @apply relative h-full w-full flex flex-row items-end;
+  }
+
+  .blog-card .content {
+    @apply py-4 px-2 flex flex-col justify-between border-l border-r border-b rounded-bl-lg rounded-br-lg border-dark transition-all;
+  }
+
+  .featured-blog-card .content {
+    @apply relative z-10 min-h-[216px] px-4 flex-1 bg-light/80;
+  }
+  .featured-blog-card:hover .content {
+    @apply bg-light/90;
+  }
+
+  .blog-card .image {
+    @apply w-full h-[200px] overflow-hidden rounded-tl-lg rounded-tr-lg;
+  }
+
+  .blog-card .image img {
+    @apply w-full h-full object-cover rounded-tl-lg rounded-tr-lg transition-all;
+  }
+  .blog-card:hover .image img {
+    @apply scale-105;
+  }
+
+  .featured-blog-card .image {
+    @apply absolute top-0 left-0 w-full h-full overflow-hidden rounded-lg;
+  }
+  .featured-blog-card .image img {
+    @apply rounded-lg;
+  }
+
+  .blog-card .tags {
+    @apply mt-4 flex gap-2 items-center content-end;
+  }
+
+  .blog-card .tag {
+    @apply px-4 pt-0.5 pb-1 w-fit bg-dark rounded-full text-light text-xs transition-all;
+  }
+  .blog-card .tag:hover {
+    @apply bg-poppy;
+  }
 }
 
 @layer base {
@@ -66,5 +144,13 @@
     left: -16px;
     top: 0;
     opacity: 1;
+  }
+
+  details summary::marker, details summary::-webkit-details-marker {
+    content: none;
+  }
+
+  .table-of-contents ul li::marker:not(.social-share) {
+    content: '- ';
   }
 }

@@ -1,127 +1,87 @@
-import React from "react";
+import { getPostBySlug, getAllPosts } from "@/lib/mdx";
 import { notFound } from "next/navigation";
-import ReactMarkdown from "react-markdown";
-import rehypeRaw from "rehype-raw";
-import { getBlogPostBySlug } from "../actions";
-import type { WithContext, BlogPosting } from "schema-dts";
-import { Metadata } from "next";
-import TableOfContents from "../_components/TableOfContents";
 import Image from "next/image";
+import MDXContent from "@/app/blog/_components/MDXContent";
+import { Info } from "lucide-react";
+import TableOfContents from "../_components/TableOfContents";
 
-interface BlogPostPageProps {
-  params: Promise<{
-    slug: string;
-  }>;
-}
-
-export async function generateMetadata(props: BlogPostPageProps): Promise<Metadata> {
-  const params = await props.params;
-  const post = await getBlogPostBySlug(params.slug);
-
-  if (!post) {
-    return {
-      title: "Post Not Found",
-    };
-  }
-
-  const ogImage = post.coverImage || "https://www.brandon-mitchell.dev/me1.jpg";
-
-  return {
-    title: post.title,
-    openGraph: {
-      type: "article",
-      title: post.title,
-      description: post.description,
-      publishedTime: post.created_at,
-      modifiedTime: post.updated_at,
-      authors: ["Brandon Mitchell"],
-      tags: post.tags,
-      images: [
-        {
-          url: ogImage,
-          width: 1200,
-          height: 630,
-          alt: post.title,
-        },
-      ],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: post.title,
-      description: post.description,
-      images: [ogImage],
-    },
-  };
-}
-
-export default async function BlogPostPage(props: BlogPostPageProps) {
-  const params = await props.params;
-  const post = await getBlogPostBySlug(params.slug);
+export default async function BlogPost({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const post = await getPostBySlug(slug);
 
   if (!post) {
     notFound();
   }
 
-  const postSchema: WithContext<BlogPosting> = {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    headline: post.title,
-    description: post.description,
-    author: {
-      "@type": "Person",
-      name: "Brandon Mitchell",
-      url: "https://brandon-mitchell.dev",
-    },
-    "image": [post.featured_image || post.post_image],
-    datePublished: post.created_at,
-    dateModified: post.updated_at,
-    publisher: {
-      "@type": "Person",
-      name: "Brandon Mitchell",
-      url: "https://brandon-mitchell.dev",
-    },
-    mainEntityOfPage: {
-      "@type": "WebPage",
-      "@id": `https://brandon-mitchell.dev/blog/${post.slug}`,
-    },
-    keywords: post.tags,
-    articleBody: post.content,
-    isPartOf: {
-      "@type": "Blog",
-      "@id": "https://brandon-mitchell.dev/blog",
-    },
-  };
+  const {
+    title,
+    description,
+    date,
+    tags,
+    featured_image,
+    content,
+  } = post;
 
   return (
-    <>
-       <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(postSchema) }}
-        />
-      <TableOfContents anchors={post.anchors} slug={params.slug} />
+    <main className="blog-post relative container mx-auto pb-8 pt-16 px-4 flex flex-col lg:flex-row gap-20">
+      <div className="relative flex-[1]">
+        <TableOfContents title={title} />
+      </div>
+      <article className="max-w-4xl mx-auto prose">
+        {featured_image && (
+          <div className="relative w-full aspect-video mb-8">
+            <Image
+              src={featured_image.url}
+              alt={featured_image.alt || title}
+              fill
+              className="object-cover rounded-lg mt-0"
+            />
+          </div>
+        )}
 
-      <main className="min-h-screen px-4 md:px-0 pt-32 pb-16 container max-w-4xl">       
-        <article className="prose lg:prose-xl">
-          {post.featured_image && (
-            <Image src={post.featured_image} alt="Blog Article Featured" width={350} height={250} priority className="m-auto" />
-          )}
-          <h1 className="font-bold text-3xl mt-8">{post.title}</h1>
-          <div className="tags flex gap-2 mt-4 mb-8">
-            {post.tags?.map((tag: string) => (
-              <span
-                key={tag}
-                className="px-2 py-1 bg-gray-100 rounded-full text-sm">
-                {tag}
-              </span>
-            ))}
+        <div className="flex gap-1 text-md items-center">
+          <Info />
+          <p className="text-md">Image from</p>
+          <p
+            dangerouslySetInnerHTML={
+              featured_image?.attribution
+                ? { __html: featured_image?.attribution }
+                : undefined
+            }
+          ></p>
+        </div>
+
+        <header className="mb-8">
+          <div className="flex items-center gap-4 text-sm text-gray-500">
+            <time dateTime={date}>
+              {new Date(date).toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })}
+            </time>
+            {tags.length > 0 && (
+              <div className="flex gap-2">
+                {tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="bg-gray-100 px-2 py-1 rounded-full"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            )}
           </div>
-          <div className="blog-markdown space-y-28">
-            <ReactMarkdown rehypePlugins={[rehypeRaw]}>
-              {post.content}
-            </ReactMarkdown>
-          </div>
-        </article>
-      </main>
-    </>
+        </header>
+        <div className="blog-post__content">
+          <MDXContent content={content} />
+        </div>
+      </article>
+    </main>
   );
 }

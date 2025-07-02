@@ -1,16 +1,16 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { createClient } from "@/lib/supabase/client";
 import Button from "@/components/ui/Button";
 import { useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
 import "easymde/dist/easymde.min.css";
+import { createMDXPost } from "../actions";
 
 // Dynamically import SimpleMDE to avoid SSR issues
 const SimpleMDE = dynamic(() => import("react-simplemde-editor"), { ssr: false });
 
 type BlogFormProps = {
-  featured_image?: File | null;
+  featured_image?: string;
   title: string;
   content: string;
   description: string;
@@ -22,9 +22,8 @@ type BlogFormProps = {
 
 export default function NewBlogForm() {
   const router = useRouter();
-  const supabase = createClient();
   const [formData, setFormData] = useState<BlogFormProps>({
-    featured_image: null,
+    featured_image: "",
     title: "",
     content: "",
     description: "",
@@ -34,53 +33,40 @@ export default function NewBlogForm() {
     anchors: []
   });
    
-   useEffect(() => { 
-      const blogTitle = document.querySelector("#blog-title");
-      const pageTitle = formData.title ? formData.title : "New Blog Post";
+  useEffect(() => { 
+    const blogTitle = document.querySelector("#blog-title");
+    const pageTitle = formData.title ? formData.title : "New Blog Post";
 
-      if (blogTitle) {
-         blogTitle.textContent = pageTitle;
-      }
-
-   }, [formData])
-  
-   async function createImage() {
-    const { data, error } = await supabase.storage
-      .from("images")
-      .upload(`${formData.featured_image?.name}`, formData.featured_image as File);
-
-    formData.featured_image = null;
-    if (error) {
-      console.error("Error uploading image", error);
-      return;
+    if (blogTitle) {
+      blogTitle.textContent = pageTitle;
     }
-
-    return data.path;
-  }
-
+  }, [formData]);
+  
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     // Create URL-friendly slug if not provided
     const slug = formData.slug || formData.title.toLowerCase().replace(/\s+/g, "-");
 
-    const image = await createImage();
-    const blogData = {
-      ...formData,
-      featured_image: `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/images/${image}`,
-    };
+    // Create the blog post as an MDX file using the server action
+    const result = await createMDXPost({
+      title: formData.title,
+      content: formData.content,
+      description: formData.description,
+      published: formData.published,
+      slug,
+      tags: formData.tags,
+      date: new Date().toISOString(),
+      featured_image: formData.featured_image,
+    });
 
-    const { data, error } = await supabase
-      .from("blog_posts")
-      .insert([blogData]);
-
-    if (error) {
-      console.error("Error creating blog post", error);
+    if (!result.success) {
+      console.error('Failed to create blog post:', result.error);
       return;
     }
 
     setFormData({
-      featured_image: null,
+      featured_image: "",
       title: "",
       content: "",
       description: "",
@@ -96,17 +82,18 @@ export default function NewBlogForm() {
   return (
     <form className="flex flex-col max-w-4xl mx-auto p-4 space-y-4" onSubmit={handleSubmit}>
       <div className="space-y-2">
-        <label htmlFor="featuredImg" className="text-lg font-medium">Featured Image:</label>
+        <label htmlFor="featuredImg" className="text-lg font-medium">Featured Image URL:</label>
         <input
           id="featuredImg"
           name="featuredImg"
-          type="file"
-          required
+          type="url"
           className="w-full p-2 border rounded-md"
+          placeholder="https://example.com/image.jpg"
+          value={formData.featured_image}
           onChange={(e) =>
             setFormData({
               ...formData,
-              featured_image: e.target.files ? e.target.files[0] : null,
+              featured_image: e.target.value,
             })
           }
         />
@@ -148,7 +135,7 @@ export default function NewBlogForm() {
       </div>
 
       <div className="space-y-2">
-        <label htmlFor="content" className="text-lg font-medium">Content:</label>
+        <label htmlFor="content" className="text-lg font-medium">Content (MDX):</label>
         <SimpleMDE
           value={formData.content}
           onChange={(value) =>
