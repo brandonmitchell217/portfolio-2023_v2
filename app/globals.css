@@ -145,4 +145,12 @@
     top: 0;
     opacity: 1;
   }
+
+  details summary::marker, details summary::-webkit-details-marker {
+    content: none;
+  }
+
+  .table-of-contents ul li::marker:not(.social-share) {
+    content: '- ';
+  }
 }

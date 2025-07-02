@@ -23,8 +23,8 @@ export default function BlogCard({
         <Link href={`/blog/${slug}`} aria-label={`${title} blog post`}>
           <div className="image">
             <Image
-              src={featured_image || "https://placehold.co/600x400"}
-              alt={title}
+              src={featured_image?.url || "https://placehold.co/600x400"}
+              alt={featured_image?.alt || title}
               width={600}
               height={400}
             />
@@ -61,8 +61,8 @@ export default function BlogCard({
       >
         <div className="image">
           <Image
-            src={featured_image || "https://placehold.co/600x400"}
-            alt={title}
+            src={featured_image?.url || "https://placehold.co/600x400"}
+            alt={featured_image?.alt || title}
             width={600}
             height={400}
           />

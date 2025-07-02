@@ -55,7 +55,11 @@ export type BlogPost = {
   content: string
   tags: string[]
   published: boolean
-  featured_image?: string
+  featured_image?: {
+    url: string
+    alt: string
+    attribution: string
+  }
 }
 
 export interface BlogCardProps {

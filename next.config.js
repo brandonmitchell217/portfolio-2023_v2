@@ -20,6 +20,9 @@ const nextConfig = {
       {
         hostname: "placehold.co",
       },
+      {
+        hostname: "images.unsplash.com",
+      },
     ],
   },
   webpack: (config) => {

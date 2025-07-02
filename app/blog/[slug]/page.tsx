@@ -2,6 +2,8 @@ import { getPostBySlug, getAllPosts } from "@/lib/mdx";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import MDXContent from "@/app/blog/_components/MDXContent";
+import { Info } from "lucide-react";
+import TableOfContents from "../_components/TableOfContents";
 
 export default async function BlogPost({
   params,
@@ -15,25 +17,45 @@ export default async function BlogPost({
     notFound();
   }
 
-  const { title, description, date, tags, featured_image, content } = post;
+  const {
+    title,
+    description,
+    date,
+    tags,
+    featured_image,
+    content,
+  } = post;
 
   return (
-    <main className="blog-post relative pb-8 pt-32">
-      <article className="max-w-4xl mx-auto px-4 prose">
+    <main className="blog-post relative container mx-auto pb-8 pt-16 px-4 flex flex-col lg:flex-row gap-20">
+      <div className="relative flex-[1]">
+        <TableOfContents title={title} />
+      </div>
+      <article className="max-w-4xl mx-auto prose">
         {featured_image && (
-          <div className="relative w-full h-[400px] mb-8">
+          <div className="relative w-full aspect-video mb-8">
             <Image
-              src={featured_image}
-              alt={title}
+              src={featured_image.url}
+              alt={featured_image.alt || title}
               fill
-              className="object-cover rounded-lg"
+              className="object-cover rounded-lg mt-0"
             />
           </div>
         )}
 
+        <div className="flex gap-1 text-md items-center">
+          <Info />
+          <p className="text-md">Image from</p>
+          <p
+            dangerouslySetInnerHTML={
+              featured_image?.attribution
+                ? { __html: featured_image?.attribution }
+                : undefined
+            }
+          ></p>
+        </div>
+
         <header className="mb-8">
-          <h1 className="text-4xl font-bold mb-4">{title}</h1>
-          <p className="text-gray-600 mb-4">{description}</p>
           <div className="flex items-center gap-4 text-sm text-gray-500">
             <time dateTime={date}>
               {new Date(date).toLocaleDateString("en-US", {
