@@ -12,11 +12,19 @@ export async function middleware(request: NextRequest) {
     process.env.NODE_ENV !== 'development'
   ) {
     // Rewrite to /blog while keeping the subdomain URL
-    const rewriteUrl = new URL("/blog", url);
-    // Preserve the pathname if accessing a specific blog post
+    let rewritePath = "/blog";
+    
     if (url.pathname !== "/") {
-      rewriteUrl.pathname = `/blog${url.pathname}`;
+      // If pathname already starts with /blog, use it as-is
+      if (url.pathname.startsWith("/blog")) {
+        rewritePath = url.pathname;
+      } else {
+        // Otherwise, prepend /blog to the pathname
+        rewritePath = `/blog${url.pathname}`;
+      }
     }
+    
+    const rewriteUrl = new URL(rewritePath, url);
     return NextResponse.rewrite(rewriteUrl);
   }
   
