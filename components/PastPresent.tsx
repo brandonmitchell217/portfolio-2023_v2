@@ -62,7 +62,8 @@ style={{backgroundColor: '#3574E3', border: '1px solid #3574E3',
        textAlign: 'left', textShadow: 'none'}}
 onClick={handleCookieSettings}>
 Cookie Settings
-</button>
+      </button>
+      <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/4972039.js"></script>
       {/* left */}
       <motion.div>
         <Image
