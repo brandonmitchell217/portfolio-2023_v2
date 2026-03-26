@@ -5,6 +5,12 @@ import WorkStatus from "@/components/WorkStatus";
 import Contact from "@/components/Contact";
 
 export default function AboutPage() {
+
+  const handleCookieSettings = () => {
+    const _hsp = (window as any)._hsp = (window as any)._hsp || [];
+    _hsp.push(['showBanner']);
+  }
+
   return (
     <main className="w-full">
 <button type="button" id="hs_show_banner_button"
@@ -12,10 +18,7 @@ style={{backgroundColor: '#3574E3', border: '1px solid #3574E3',
        borderRadius: '3px', padding: '10px 16px', textDecoration: 'none', color: '#fff',
        fontFamily: 'inherit', fontSize: 'inherit', fontWeight: 'normal', lineHeight: 'inherit',
        textAlign: 'left', textShadow: 'none'}}
-onClick={() => {
-  const _hsp = (window as any)._hsp = (window as any)._hsp || [];
-  _hsp.push(['showBanner']);
-}}>
+onClick={handleCookieSettings}>
 Cookie Settings
 </button>
       <div className="relative w-full px-2 sm:px-4 max-w-7xl m-auto">
