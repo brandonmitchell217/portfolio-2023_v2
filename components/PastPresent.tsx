@@ -10,6 +10,11 @@ export const PastPresent = () => {
   const presentImage = "/me1.webp";
   const [currentAbout, setCurrentAbout] = useState(1);
 
+  const handleCookieSettings = () => {
+    const _hsp = (window as any)._hsp = (window as any)._hsp || [];
+    _hsp.push(['showBanner']);
+  }
+
   const getAge = () => { 
     const today = new Date();
     const birthDate = new Date("1991-07-15");
@@ -50,6 +55,14 @@ export const PastPresent = () => {
       transition={{ duration: 0.5, type: spring }}
       className="px-1 py-4 lg:py-1 w-full flex flex-col lg:flex-row bg-dark text-light rounded-2.5xl"
     >
+      <button type="button" id="hs_show_banner_button"
+style={{backgroundColor: '#3574E3', border: '1px solid #3574E3',
+       borderRadius: '3px', padding: '10px 16px', textDecoration: 'none', color: '#fff',
+       fontFamily: 'inherit', fontSize: 'inherit', fontWeight: 'normal', lineHeight: 'inherit',
+       textAlign: 'left', textShadow: 'none'}}
+onClick={handleCookieSettings}>
+Cookie Settings
+</button>
       {/* left */}
       <motion.div>
         <Image
