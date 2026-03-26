@@ -7,6 +7,17 @@ import Contact from "@/components/Contact";
 export default function AboutPage() {
   return (
     <main className="w-full">
+<button type="button" id="hs_show_banner_button"
+style={{backgroundColor: '#3574E3', border: '1px solid #3574E3',
+       borderRadius: '3px', padding: '10px 16px', textDecoration: 'none', color: '#fff',
+       fontFamily: 'inherit', fontSize: 'inherit', fontWeight: 'normal', lineHeight: 'inherit',
+       textAlign: 'left', textShadow: 'none'}}
+onClick={() => {
+  const _hsp = (window as any)._hsp = (window as any)._hsp || [];
+  _hsp.push(['showBanner']);
+}}>
+Cookie Settings
+</button>
       <div className="relative w-full px-2 sm:px-4 max-w-7xl m-auto">
         <section aria-label="Past and Present" className="py-24 sm:py-32 lg:py-44 xl:pt-36 xl:pb-52">
           <PastPresent />
