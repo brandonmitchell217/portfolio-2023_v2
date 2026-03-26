@@ -5,6 +5,7 @@ import WorkStatus from "@/components/WorkStatus";
 import Contact from "@/components/Contact";
 
 export default function AboutPage() {
+
   return (
     <main className="w-full">
       <div className="relative w-full px-2 sm:px-4 max-w-7xl m-auto">
