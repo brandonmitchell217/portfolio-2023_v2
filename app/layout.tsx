@@ -5,7 +5,6 @@ import Footer from "@/components/ui/Footer";
 import MobileHeader from "@/components/ui/MobileHeader";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Person, WithContext } from "schema-dts";
 
 const outfit = Outfit({
@@ -110,7 +109,6 @@ export default function RootLayout({
           <Footer />
           <GoogleAnalytics />
           <Analytics />
-          <SpeedInsights />
         </body>
       </html>
     </>

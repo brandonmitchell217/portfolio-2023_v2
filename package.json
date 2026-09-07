@@ -12,7 +12,6 @@
     "@supabase/supabase-js": "^2.39.3",
     "@types/gtag.js": "^0.0.13",
     "@vercel/analytics": "^1.1.1",
-    "@vercel/speed-insights": "^1.0.2",
     "@wojtekmaj/react-hooks": "^1.18.1",
     "easymde": "^2.19.0",
     "framer-motion": "^10.15.0",
